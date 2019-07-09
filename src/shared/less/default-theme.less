@@ -1,0 +1,93 @@
+@import "./reset.less";
+@import "./fonts.less";
+@import "./vars.less";
+
+* + * {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: @backgroundColour;
+  color: @fontColour;
+  font-family: @secondaryFontFamilies;
+  font-size: 1.5em;
+
+  padding: 1rem;
+  line-height: 2em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: @primaryFontFamilies;
+  color: @fontColourAttention;
+}
+
+a {
+  color: @fontColourCta;
+
+  &:hover {
+    color: lighten(@fontColourCta, 10%);
+  }
+
+  &:focus {
+    outline: 3px ridge @fontColourCta;
+  }
+}
+
+hr {
+  border-bottom: 2px solid @fontColourCta;
+  margin: 1em 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+  
+  a {
+    visibility: hidden;
+    position: absolute;
+  }
+
+  &:hover {
+    a {
+      visibility: visible;
+      transform: translate(-110%, 0);
+    }
+  }
+}
+
+p, 
+ul {
+  margin: 1.25em 0;
+}
+
+ul {
+  padding-left: 1em;
+}
+
+p,
+span {
+  max-width: 100%;
+}
+
+ul li ul {
+  padding-left: 1em;
+}
+
+time,
+.read-time {
+  font-size: 0.7em;
+  color: @fontColourUnimportant;
+  font-style: italic;
+  display: block;
+}
+
+.post-preview {
+  margin-bottom: 1.5em;
+}
+
+@import "./partials/tags.less";
+@import "./partials/nav.less";
+@import "./partials/code.less";
+
+// Import the stylesheet for mobile.
+@import url("./default-mobile.less") only screen and (min-width: 320px) and (max-width: 414px);
+@import url("./default-desktop.less") only screen and (min-width: 1281px);

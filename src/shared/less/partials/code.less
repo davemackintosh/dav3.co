@@ -1,0 +1,30 @@
+pre {
+  font-size: 0.7em;
+  position: relative;
+  box-shadow: inset -1px 0.7em 0px #333;
+
+  &:before,
+  &:after {
+    content: " ";
+    position: absolute;
+    border-radius: 50%;
+    display: block;
+    width: .6em;
+    height: .6em;
+    top: 0.5em;
+  }
+
+  &:before {
+    background-color: red;
+    right: 0.5em;
+  }
+	
+  &:after {
+    background-color: yellow;
+    right: 1.5em;
+  }
+}
+
+.react-syntax-highlighter-line-number {
+  font-size: 0.8em;
+}

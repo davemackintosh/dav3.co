@@ -1,0 +1,29 @@
+@import "../vars.less";
+
+.tags-list {
+  max-width: 100%;
+
+  &,
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 0.7em;
+    margin-right: 0.5em;
+
+    a {
+      @colour: lighten(@fontColourUnimportant, 10%);
+      color: @fontColourUnimportant;
+      text-decoration-color: rgba(@colour, 0.25);
+
+      &.active,
+      &:hover {
+        color: lighten(@colour, 10%);
+      }
+    }
+  }
+}
