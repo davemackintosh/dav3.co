@@ -1,11 +1,8 @@
-// @flow
-
 import React from "react"
 import { NavLink } from "react-router-dom"
+import {ContentProps} from "../../../../types/content"
 
-import type { ContentProps } from "@flow/content.flow"
-
-export type SiteNavProps = {
+export interface SiteNavProps {
   pages: ContentProps[],
 }
 
@@ -19,7 +16,7 @@ export default function SiteNav(props: SiteNavProps) {
             className="skip-to-content"
             title="Skip navigation and header and go straight to the content"
           >
-           Skip to content 
+           Skip to content
           </a>
         </li>
         <li className="w-5 mr2">
@@ -37,15 +34,15 @@ export default function SiteNav(props: SiteNavProps) {
             title="Dave Mackintosh blog post listing"
             activeClassName="active"
           >
-            Blog 
+            Blog
           </NavLink>
         </li>
         {
           props.pages
-            .filter((page: ContentProps) => page.frontmatter.path !== "/") 
+            .filter((page: ContentProps) => page.frontmatter.path !== "/")
             .map((page: ContentProps) => (
-              <li 
-                key={ page.frontmatter.title } 
+              <li
+                key={ page.frontmatter.title }
                 className="w-15 mr2"
               >
                 <NavLink

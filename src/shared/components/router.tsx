@@ -1,18 +1,16 @@
-// @flow
-
 import React from "react"
-import { Switch, Route } from "react-router"
+import { Route, RouteProps, Switch } from "react-router"
 
-import type { RouteType } from "react-router"
-
-type Props = {
-  routes: Route[],
+interface Props {
+  routes: RouteProps[],
 }
 
 function Router(props: Props) {
   return (
     <Switch>
-      { props.routes.map((route: RouteType) => <Route key={ route.path } { ...route } />) }
+      {
+        props.routes.map((route: RouteProps) => <Route key={route.path} {...route} />)
+      }
     </Switch>
   )
 }

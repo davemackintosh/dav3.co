@@ -1,17 +1,15 @@
-// @flow
-
 /**
  * @TODO:
- * I'd really like to expand this to include reading a variable based on input from 
+ * I'd really like to expand this to include reading a variable based on input from
  * the user to adjust the reading time based on disabilities.
  *
- * I'd also like to adjust reading time for images, code blocks, blockquotes, etc 
+ * I'd also like to adjust reading time for images, code blocks, blockquotes, etc
  * that are harder to context switch for all readers
- **/
+ */
 
 import React from "react"
 
-export type WordCountProps = {
+export interface WordCountProps {
   text: string,
   wpm?: number,
 }

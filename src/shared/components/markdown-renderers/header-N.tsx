@@ -1,19 +1,16 @@
-// @flow
+import React, {createElement, PureComponent} from "react"
 
-import React, { PureComponent } from "react"
-import type { Node } from "react"
-
-export type HeaderNProps = {
+export interface HeaderNProps {
   level: 1 | 2 | 3 | 4 | 5 | 6,
-  children: Node[],
+  children: JSX.Element[],
 }
 
 class HeaderN extends PureComponent<HeaderNProps> {
-  render() {
-    const Header = "h" + this.props.level
+  public render() {
+    const Header = createElement<{children: JSX.Element[], id: string}>("h" + this.props.level)
     const targetChild = this.props.children[0]
-    
-    const id = !targetChild 
+
+    const id = !targetChild
       ? ""
       : targetChild.props.children
         .replace(/[\W-&]+/g, "-") // Remove all non-alphanumeric

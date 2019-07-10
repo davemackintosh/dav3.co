@@ -1,10 +1,8 @@
-// @flow
-
 import React from "react"
 import Markdown from "react-markdown"
 import renderers from "../markdown-renderers/all"
 
-export type ParserProps = {
+export interface ParserProps {
   markdown: string,
 }
 

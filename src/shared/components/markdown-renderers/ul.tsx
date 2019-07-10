@@ -1,12 +1,7 @@
-// @flow
-
 import React, { PureComponent } from "react"
-import { Link } from "react-router-dom"
 
-import type { Link as LinkProps } from "react-router-dom"
-
-class ULWithListClass extends PureComponent<LinkProps> {
-  render() {
+class ULWithListClass extends PureComponent {
+  public render() {
     return (
       <ul className="list">
         { this.props.children }
@@ -15,4 +10,4 @@ class ULWithListClass extends PureComponent<LinkProps> {
   }
 }
 
-export default ULWithListClass 
+export default ULWithListClass

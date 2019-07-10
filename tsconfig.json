@@ -30,17 +30,16 @@
     ],
     "types": [
       "node",
-      "jest",
-      "json-schema"
+      "jest"
     ],
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@translations": ["/translations"],
-      "@src": ["/src"],
-      "@components": ["/shared/components"],
-      "@lib": ["/shared/lib"],
-      "@less": ["/shared/less"]
+      "@translations/*": ["./translations/*"],
+      "@src/*": ["./src/*"],
+      "@components/*": ["./src/shared/components/*"],
+      "@lib/*": ["./shared/lib/*"],
+      "@less/*": ["./shared/les/*s"]
     }
   }
 }

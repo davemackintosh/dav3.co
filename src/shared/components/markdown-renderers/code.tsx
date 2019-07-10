@@ -1,17 +1,15 @@
-// @flow
-
 import React, { PureComponent } from "react"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { atomDark } from "react-syntax-highlighter/dist/styles/prism"
 import decode from "unescape"
 
-export type CodeProps = {
+export interface CodeProps {
   language: string,
   value: string,
 }
 
 class CodeRenderer extends PureComponent<CodeProps> {
-  render() {
+  public render() {
     return (
       <SyntaxHighlighter
         language={ this.props.language }

@@ -1,17 +1,13 @@
-// @flow
-
 import React, { Fragment } from "react"
-
-import type { Node } from "react"
 
 import "@less/default-theme.less"
 
-type Props = {
+interface Props {
   name: string,
-  children: ?Node[],
+  children: JSX.Element[] | null,
 }
 
-function Dav3App(props: Props) {
+function App(props: Props) {
   return (
     <Fragment>
       { props.children }
@@ -19,4 +15,4 @@ function Dav3App(props: Props) {
   )
 }
 
-export default Dav3App
+export default App

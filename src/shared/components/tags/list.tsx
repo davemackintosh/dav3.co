@@ -2,14 +2,17 @@ import React from "react"
 import Helmet from "react-helmet"
 import { Link } from "react-router-dom"
 
-import { Match } from "react-router"
+import {match} from "react-router"
 import {ContentProps} from "../../../../types/content"
 
 import PostHeaderTags from "@components/tags/post-header-tags"
 import { posts } from "@src/routes"
 
+export interface TagParams {
+  tag: string,
+}
 export interface TagPostListProps {
-  match: Match,
+  match: match<TagParams>,
 }
 
 export default function PostsList(props: TagPostListProps) {

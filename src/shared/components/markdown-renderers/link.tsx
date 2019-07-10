@@ -1,12 +1,13 @@
-// @flow
-
 import React, { PureComponent } from "react"
-import { Link } from "react-router-dom"
+import {
+  Link,
+  LinkProps,
+} from "react-router-dom"
 
-import type { Link as LinkProps } from "react-router-dom"
+type AToLinkProps = LinkProps & HTMLAnchorElement
 
-class AToLink extends PureComponent<LinkProps> {
-  render() {
+class AToLink extends PureComponent<AToLinkProps> {
+  public render() {
     return (
       <Link
         to={ this.props.href }
