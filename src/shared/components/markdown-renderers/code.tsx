@@ -1,7 +1,7 @@
+import {XmlEntities} from "html-entities"
 import React, { PureComponent } from "react"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { atomDark } from "react-syntax-highlighter/dist/styles/prism"
-import decode from "unescape"
 
 export interface CodeProps {
   language: string,
@@ -10,6 +10,7 @@ export interface CodeProps {
 
 class CodeRenderer extends PureComponent<CodeProps> {
   public render() {
+    const {decode} = new XmlEntities()
     return (
       <SyntaxHighlighter
         language={ this.props.language }

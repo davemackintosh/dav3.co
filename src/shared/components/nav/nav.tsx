@@ -48,7 +48,7 @@ export default function SiteNav(props: SiteNavProps) {
                 <NavLink
                   to={ "/" + page.frontmatter.path }
                   title={ page.frontmatter.title }
-                  ariaCurrent="page"
+                  aria-current="page"
                   activeClassName="active"
                 >
                   { page.frontmatter.title }

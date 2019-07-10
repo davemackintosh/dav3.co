@@ -6,13 +6,13 @@ import {ContentProps} from "../../../../types/content"
 
 import PostHeaderTags from "@components/tags/post-header-tags"
 
-export default function Post(props: ContentProps) {
+export default function Post(props: ContentProps): JSX.Element {
   return (
     <article className="post">
       <Helmet>
         <title>{ props.frontmatter.title }</title>
         <meta name="description" content={props.frontmatter.description} />
-        <meta name="keywords" content={props.frontmatter.keywords} />
+        <meta name="keywords" content={(props.frontmatter.keywords || []).join(" ")} />
 
         <body className={ props.frontmatter.bodyClasses } />
       </Helmet>

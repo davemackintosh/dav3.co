@@ -9,7 +9,7 @@ function Router(props: Props) {
   return (
     <Switch>
       {
-        props.routes.map((route: RouteProps) => <Route key={route.path} {...route} />)
+        props.routes.map((route: RouteProps, index: number) => <Route key={index} {...route} />)
       }
     </Switch>
   )

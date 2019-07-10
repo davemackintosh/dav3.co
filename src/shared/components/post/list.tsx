@@ -2,7 +2,7 @@ import React from "react"
 import Helmet from "react-helmet"
 import { Link } from "react-router-dom"
 
-import { PostProps } from "@flow/content.flow"
+import {ContentProps} from "../../../../types/content"
 
 import WordCount from "@components/post/word-count"
 import PostHeaderTags from "@components/tags/post-header-tags"
@@ -18,7 +18,7 @@ export default function PostsList() {
       </Helmet>
 
       {
-        posts.map((post: PostProps) => (
+        posts.map((post: ContentProps) => (
           <div key={ post.frontmatter.title } className="post-preview">
             <Link
               to={ post.frontmatter.path }

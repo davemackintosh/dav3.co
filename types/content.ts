@@ -17,7 +17,13 @@ export interface ContentProps {
   contentPath: string,
 }
 
-export interface $content {
-  posts: ContentProps,
-  pages: ContentProps,
+declare global {
+  namespace NodeJS {
+    interface Global {
+      $content: {
+        posts: ContentProps,
+        pages: ContentProps,
+      }
+    }
+  }
 }

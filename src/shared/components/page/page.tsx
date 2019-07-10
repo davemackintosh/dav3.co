@@ -4,7 +4,7 @@ import Helmet from "react-helmet"
 
 import {ContentProps} from "../../../../types/content"
 
-export default function Page(props: ContentProps) {
+export default function Page(props: ContentProps): JSX.Element {
   return (
     <div className="mw9 center ph3-ns" id="content">
       <Helmet>

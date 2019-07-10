@@ -5,9 +5,18 @@ export interface HeaderNProps {
   children: JSX.Element[],
 }
 
+const Header = (props: HeaderNProps) => {
+  return (
+    innerProps: React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLHeadingElement>,
+      HTMLHeadingElement
+      >,
+  ): JSX.Element => createElement("h" + props.level, innerProps)
+}
+
 class HeaderN extends PureComponent<HeaderNProps> {
   public render() {
-    const Header = createElement<{children: JSX.Element[], id: string}>("h" + this.props.level)
+    const Heading = Header(this.props)
     const targetChild = this.props.children[0]
 
     const id = !targetChild
@@ -18,14 +27,14 @@ class HeaderN extends PureComponent<HeaderNProps> {
         .toLowerCase()
 
     return (
-      <Header id={ id }>
+      <Heading id={id}>
         <a
           href={ "#" + id }
           title={ `Permalink to jump to this header - '${id}'` }>
             #
         </a>
         { this.props.children }
-      </Header>
+      </Heading>
     )
   }
 }

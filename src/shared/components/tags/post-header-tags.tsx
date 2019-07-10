@@ -1,10 +1,8 @@
-// @flow
-
 import React from "react"
 import { NavLink } from "react-router-dom"
 
-export type PostHeaderTagsProps = {
-  tags: string[],
+export interface PostHeaderTagsProps {
+  tags: string[] | undefined,
 }
 
 export default function PostHeaderTags(props: PostHeaderTagsProps) {
@@ -13,7 +11,7 @@ export default function PostHeaderTags(props: PostHeaderTagsProps) {
       <ul>
         <li className="tag">Tags: </li>
         {
-          props.tags.map((tag: string) => (
+          (props.tags || []).map((tag: string) => (
             <li className="tag" key={ tag }>
               <NavLink
                 to={ `/tag/${tag}` }

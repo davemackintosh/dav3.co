@@ -1,17 +1,15 @@
-import PostsList from "@components/post/list"
-import TagPostList from "@components/tags/list"
 import Page from "@components/page/page"
+import PostsList from "@components/post/list"
 import Post from "@components/post/post"
+import TagPostList from "@components/tags/list"
 import {
   ContentProps,
-  $content,
 } from "../types/content"
-import {Component} from "react"
 
 const parseNodeSpaceContent = (content: string): ContentProps[] =>
   JSON.parse(content)
 
-const routesFromNodeSpace = (contents: ContentProps[], Renderable: Component) =>
+const routesFromNodeSpace = (contents: ContentProps[], Renderable: JSX.Element) =>
   contents.map((content: ContentProps) => ({
     path: content.frontmatter.path
       ? content.frontmatter.path
