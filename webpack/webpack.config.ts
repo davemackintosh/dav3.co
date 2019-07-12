@@ -26,7 +26,7 @@ const webpackConfig = {
   ],
   output: {
     path: resolve(__dirname, "../dist/"),
-    filename: "nw.js",
+    filename: "dav3.js",
   },
   devtool: "cheap-module-source-map",
   watch: process.env.NODE_ENV !== "production" && !process.env.NO_WEBPACK_WATCH,
