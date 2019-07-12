@@ -5,7 +5,6 @@ import {
 
 import {resolve} from "path"
 const src = resolve(__dirname, "../", "src")
-const cwd = process.cwd()
 
 import {
   pages,
@@ -14,7 +13,6 @@ import {
 
 const alias = {
   "@translations": resolve(src + "/translations"),
-  "@flow": resolve(cwd + "/flow/declarations"),
   "@src": resolve(src + "/"),
   "@components": resolve(src + "/shared/components"),
   "@lib": resolve(src + "/shared/lib"),
@@ -24,7 +22,7 @@ const alias = {
 const webpackConfig = {
   context: src,
   entry: [
-    resolve(src, "index.ts"),
+    resolve(src, "index.tsx"),
   ],
   output: {
     path: resolve(__dirname, "../dist/"),
@@ -35,6 +33,7 @@ const webpackConfig = {
   mode: process.env.NODE_ENV || "development",
   resolve: {
     alias,
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".less", ".json"],
     modules: [
       resolve(__dirname, "../", "src"),
       "node_modules",
@@ -73,8 +72,9 @@ const webpackConfig = {
     new NamedModulesPlugin(),
     new DefinePlugin({
       "process.platform": JSON.stringify(process.platform),
-      "$content.pages": `'${JSON.stringify(pages).replace(/(?:\r\n|\r|\n)/g, "\\\\n")}'`,
-      "$content.posts": `'${JSON.stringify(posts).replace(/(?:\r\n|\r|\n)/g, "\\\\n")}'`,
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+      "global.$content.pages": `'${JSON.stringify(pages).replace(/(?:\r\n|\r|\n)/g, "\\\\n")}'`,
+      "global.$content.posts": `'${JSON.stringify(posts).replace(/(?:\r\n|\r|\n)/g, "\\\\n")}'`,
     }),
   ],
 }

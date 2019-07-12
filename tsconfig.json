@@ -35,11 +35,11 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@translations/*": ["./translations/*"],
+      "@translations/*": ["./src/translations/*"],
       "@src/*": ["./src/*"],
       "@components/*": ["./src/shared/components/*"],
-      "@lib/*": ["./shared/lib/*"],
-      "@less/*": ["./shared/les/*s"]
+      "@lib/*": ["./src/shared/lib/*"],
+      "@less/*": ["./src/shared/less/*"]
     }
   }
 }

@@ -21,9 +21,16 @@ declare global {
   namespace NodeJS {
     interface Global {
       $content: {
-        posts: ContentProps,
-        pages: ContentProps,
-      }
+        posts: string,
+        pages: string,
+      },
+
+      Process: {
+        env: {
+          NODE_ENV?: string,
+        },
+        platform?: string,
+      },
     }
   }
 }

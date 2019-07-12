@@ -3,8 +3,7 @@ import React, { Fragment } from "react"
 import "@less/default-theme.less"
 
 interface Props {
-  name: string,
-  children: JSX.Element[] | null,
+  children?: JSX.Element[] | null,
 }
 
 function App(props: Props) {

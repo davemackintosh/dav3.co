@@ -2,18 +2,21 @@ import Page from "@components/page/page"
 import PostsList from "@components/post/list"
 import Post from "@components/post/post"
 import TagPostList from "@components/tags/list"
+import React from "react"
 import {RouteProps} from "react-router"
 import {
   ContentProps,
 } from "../types/content"
 
+type ComponentType = typeof Post | typeof Page
+
 const parseNodeSpaceContent = (content: string): ContentProps[] =>
   JSON.parse(content)
 
-const routesFromNodeSpace = (contents: ContentProps[], component: JSX.Element): RouteProps[] => {
-  const Renderable = component as JSX.Element
+function routesFromNodeSpace(contents: ContentProps[], component: ComponentType): RouteProps[] {
+  const Renderable = component
 
-  return contents.map((content: ContentProps) => {
+  return contents.map((content: ContentProps): RouteProps => {
     const path = content.frontmatter.path
       ? content.frontmatter.path
       : "/" + content.contentPath.substr(0, content.contentPath.lastIndexOf("."))
@@ -21,16 +24,18 @@ const routesFromNodeSpace = (contents: ContentProps[], component: JSX.Element): 
     return {
       path,
       exact: true,
-      render: (): JSX.Element => {...content} as Renderable / > ,
+      render: (): JSX.Element => {
+        return <Renderable {...content} />
+      },
     }
   })
 }
 
-const posts = parseNodeSpaceContent($content.posts).map((post) => {
+const posts = parseNodeSpaceContent(global.$content.posts).map((post) => {
   post.frontmatter.path = `/blog/${post.frontmatter.path}`
   return post
 })
-const pages = parseNodeSpaceContent($content.pages)
+const pages = parseNodeSpaceContent(global.$content.pages)
 
 const postRoutes = routesFromNodeSpace(posts, Post)
 const pageRoutes = routesFromNodeSpace(pages, Page)
