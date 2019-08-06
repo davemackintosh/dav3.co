@@ -58,5 +58,6 @@ const routes = [
 export {
   pages,
   posts,
+  routes,
 }
 export default routes

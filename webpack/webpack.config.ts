@@ -3,7 +3,7 @@ import {
   NamedModulesPlugin,
 } from "webpack"
 
-import {resolve} from "path"
+import { resolve } from "path"
 const src = resolve(__dirname, "../", "src")
 
 import {
