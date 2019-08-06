@@ -1,19 +1,19 @@
 ---
-title: Being a mobile developer in 2018 is amazingly easy, heres why.
+title: Being a mobile developer in 2018 is amazingly easy, here's why.
 keywords: 
   - ios
   - jailbreak
   - android
   - developer
   - javascript
-excerpt: Dave Mackintosh has developed websites, apps and libraries on mobile since 2012. heres a list of the reasons he can think of why its amazing and sometimes career saving.
+excerpt: Dave Mackintosh has developed websites, apps and libraries on mobile since 2012. here's a list of the reasons he can think of why its amazing and sometimes career saving.
 author: davemackintosh
 published: Tue Dec 11 2018 19:55:00 GMT+0000
 ---
 
-I've been developing things on mobile devices since 2012, I started on my jailbroken iPad 1. i think itbwas iOS 5!
+I've been developing things on mobile devices since 2012, I started on my jailbroken iPad 1. i think it was iOS 5!
 
-Imagine iOS5 and Node 0.4.x. 
+Imagine iOS 5 and Node 0.4.x. 
 
 Dark days, I made do with my lot which turns out to be an awful lot. NodeJS had iOS binaries all the way to 0.6.x. _back then_ the gear was 
 
@@ -30,7 +30,7 @@ While it was a great platform for passion projects, this setup also saved my car
 
 Being able to debug and fix on the platform is incredible, it probably helped save my job each time I did it.
 
-It was hard work getting a workable developmnt platform on mobile but most of the trouble was in learning how to get used to the new thing.
+It was hard work getting a workable development platform on mobile but most of the trouble was in learning how to get used to the new thing.
 
 Fast forward to 2018, I haven't done much development on mobile in recent years. Closest I got was using my Surface Pro 3 with Ubuntu. This drove me to start an electronics project which is an x86 processor (Apollo Lake) and 8GB of ram. Yada yada. It's a cool project that I might never finish but it got me thinking about the current state of mobile development.
 
@@ -42,9 +42,9 @@ This. This was game changing. I could leverage mobile development, the way I'd a
 
 This means a couple things for me, I can invest my time into looking setting it up as a development platform and I can backlog my phone idea and design a much simpler USB-C battery powered screen to dock my phone in for multitasking work.
 
-Don't get me wrong, theres still a *lot* of work for Dex to do to make it a truly capable web development platform such as
+Don't get me wrong, there's still a *lot* of work for Dex to do to make it a truly capable web development platform such as
 
-* Blink dev tools built into samsung internet.
+* Blink dev tools built into Samsung internet.
 * when in dex mode browsers should all switch to desktop mode.
 * dex labs should allow more flexibility in what it can do to any apps manifest such as
   * Make all windows resizable
