@@ -7,7 +7,8 @@
     "dev": "nodemon -e md,html --watch dist --watch pages --watch posts --exec 'yarn run wds'",
     "wds": "webpack-dev-server --content-base ./dist/ --hot --inline --watch --config ./webpack/webpack.config.ts",
     "webpack": "webpack --config ./webpack/webpack.config.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production webpack --config ./webpack/webpack.config.ts --mode production"
   },
   "keywords": [],
   "author": "",

@@ -4,7 +4,15 @@ import {
 } from "webpack"
 
 import { resolve } from "path"
+import production from "./build"
+import dev from "./dev"
+
 const src = resolve(__dirname, "../", "src")
+const extraConfig = process.env.NODE_ENV === "production"
+  ? production()
+  : dev()
+
+console.log("SRC PATH %s", src)
 
 import {
   pages,
@@ -20,6 +28,7 @@ const alias = {
 }
 
 const webpackConfig = {
+  ...extraConfig.config,
   context: src,
   entry: [
     resolve(src, "index.tsx"),
@@ -28,9 +37,6 @@ const webpackConfig = {
     path: resolve(__dirname, "../dist/"),
     filename: "dav3.js",
   },
-  devtool: "cheap-module-source-map",
-  watch: process.env.NODE_ENV !== "production" && !process.env.NO_WEBPACK_WATCH,
-  mode: process.env.NODE_ENV || "development",
   resolve: {
     alias,
     extensions: [".js", ".jsx", ".ts", ".tsx", ".less", ".json"],
@@ -39,28 +45,13 @@ const webpackConfig = {
       "node_modules",
     ],
   },
-  devServer: {
-    historyApiFallback: true,
-  },
   module: {
     rules: [
+      ...extraConfig.rules,
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: ["ts-loader"],
-      },
-      {
-        test: /\.(css|less)$/,
-        use: [
-          "style-loader",
-          "css-loader",
-          {
-            loader: "less-loader",
-            options: {
-              noIeCompat: true,
-            },
-          },
-        ],
       },
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg|woff|otf)$/,
@@ -76,6 +67,7 @@ const webpackConfig = {
       "global.$content.pages": `'${JSON.stringify(pages).replace(/(?:\r\n|\r|\n)/g, "\\\\n")}'`,
       "global.$content.posts": `'${JSON.stringify(posts).replace(/(?:\r\n|\r|\n)/g, "\\\\n")}'`,
     }),
+    ...extraConfig.plugins,
   ],
 }
 
