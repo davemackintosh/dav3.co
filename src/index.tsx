@@ -10,6 +10,7 @@ import SiteNav from "@components/nav/nav"
 import Router from "@components/router"
 import { pages } from "@src/routes"
 import routes from "@src/routes"
+import {GlobalStyle} from "@styled/global"
 import enGB from "@translations/en-gb"
 
 const rootNode = document.getElementById("dav3-container")
@@ -19,6 +20,7 @@ const app = (
     <IntlProvider locale="en-gb" messages={ enGB }>
       <BrowserRouter>
         <Fragment>
+          <GlobalStyle />
           <SiteNav pages={ pages } />
           <main id="content">
             <Router routes={ routes } />

@@ -39,7 +39,7 @@
       "@src/*": ["./src/*"],
       "@components/*": ["./src/shared/components/*"],
       "@lib/*": ["./src/shared/lib/*"],
-      "@less/*": ["./src/shared/less/*"]
+      "@styled/*": ["./src/shared/theme/*"]
     }
   }
 }
