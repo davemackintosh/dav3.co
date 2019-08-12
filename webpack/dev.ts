@@ -8,21 +8,6 @@ export default function devTools() {
       watch: true,
       mode: "development",
     },
-    rules: [
-      {
-        test: /\.(css|less)$/,
-        use: [
-          "style-loader",
-          "css-loader",
-          {
-            loader: "less-loader",
-            options: {
-              noIeCompat: true,
-            },
-          },
-        ],
-      },
-    ],
     plugins: [],
   }
 }

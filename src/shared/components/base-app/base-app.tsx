@@ -1,7 +1,5 @@
 import React, { Fragment } from "react"
 
-import "@less/default-theme.less"
-
 interface Props {
   children?: JSX.Element[] | null,
 }

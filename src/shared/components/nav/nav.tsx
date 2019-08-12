@@ -2,13 +2,15 @@ import React from "react"
 import { NavLink } from "react-router-dom"
 import {ContentProps} from "../../../../types/content"
 
+import {Nav} from "@styled/nav"
+
 export interface SiteNavProps {
   pages: ContentProps[],
 }
 
 export default function SiteNav(props: SiteNavProps) {
   return (
-    <nav className="mw9 center ph3-ns">
+    <Nav>
       <ul className="flex list items-start">
         <li className="w-15 mr2">
           <a
@@ -57,7 +59,7 @@ export default function SiteNav(props: SiteNavProps) {
             ))
         }
       </ul>
-    </nav>
+    </Nav>
   )
 }
 

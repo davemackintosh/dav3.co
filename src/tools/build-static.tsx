@@ -8,7 +8,16 @@ import enGb from "@translations/en-gb"
 import {AppContainer} from "react-hot-loader"
 import {IntlProvider} from "react-intl"
 import {RouteProps, StaticRouter} from "react-router"
-import {pages, routes} from "../routes"
+import {pages, posts, routes} from "../routes"
+
+global.$content.pages = `'${JSON.stringify(pages).replace(
+  /(?:\r\n|\r|\n)/g,
+  "\\\\n",
+)}'`
+global.$content.posts = `'${JSON.stringify(posts).replace(
+  /(?:\r\n|\r|\n)/g,
+  "\\\\n",
+)}'`
 
 export interface BuildStaticOptions {
   target: string
