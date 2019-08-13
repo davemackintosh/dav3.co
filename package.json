@@ -8,7 +8,7 @@
     "wds": "webpack-dev-server --content-base ./dist/ --hot --inline --watch --config ./webpack/webpack.config.ts",
     "webpack": "webpack --config ./webpack/webpack.config.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd src/tools; NODE_ENV=production ts-node -r tsconfig-paths/register ./build-static.tsx"
+    "build": "NODE_ENV=production ts-node -r tsconfig-paths/register -r src/tools/global-content.ts ./src/tools/build-static.tsx"
   },
   "keywords": [],
   "author": "",

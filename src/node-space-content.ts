@@ -1,12 +1,19 @@
+/* eslint-disable no-sync*/
+// I actually don't care that these methods are sync,
+// they are not part of a request chain and can't be
+// abused to cause a DDOS of any service.
 import frontmatter from "front-matter"
 import fs from "fs"
 import path from "path"
+import { ContentProps, ContentPropsFrontmatter } from "../types/content"
 
-import {
-  ContentProps,
-} from "../types/content"
-const postsPath = path.resolve("./posts")
-const pagesPath = path.resolve("./pages")
+interface IntermediaryContent {
+  contentPath: string
+  content: string
+}
+
+const postsPath = path.resolve(process.cwd(), "./posts")
+const pagesPath = path.resolve(process.cwd(), "./pages")
 
 const escape = (val: string): string =>
   (val || "")
@@ -21,34 +28,48 @@ const escape = (val: string): string =>
     .replace(/[\t]/g, "\\t")
 
 const getContentFromFolder = (folderPath: string): ContentProps[] =>
-  fs.readdirSync(folderPath)
+  fs
+    .readdirSync(folderPath)
     .filter((filePath): boolean => filePath.endsWith(".md"))
-    .map((contentPath) => ({
-      contentPath,
-      content: fs.readFileSync(`${folderPath}/${contentPath}`).toString(),
-    }))
-    .map((content) => {
-      const {
-        attributes,
-        body,
-      } = frontmatter(content.content)
+    .map(
+      (contentPath: string): IntermediaryContent => ({
+        contentPath,
+        content: fs.readFileSync(`${folderPath}/${contentPath}`).toString(),
+      }),
+    )
+    .map(
+      (content: IntermediaryContent): ContentProps => {
+        const { attributes, body } = frontmatter(content.content)
 
-      if (!attributes.path) {
-        attributes.path = content.contentPath.substr(0, content.contentPath.lastIndexOf("."))
-      }
+        if (!attributes.path) {
+          attributes.path = content.contentPath.substr(
+            0,
+            content.contentPath.lastIndexOf("."),
+          )
+        }
 
-      return {
-        contentPath: content.contentPath,
-        frontmatter: Object.keys(attributes).reduce((out, currentKey) => {
-          if (typeof attributes[currentKey] === "string") {
-            out[currentKey] = escape(attributes[currentKey])
-          }
-          return out
-        }, attributes),
-        markdown: escape(body),
-      }
-    })
+        return {
+          contentPath: content.contentPath,
+          frontmatter: Object.keys(
+            attributes as keyof ContentPropsFrontmatter,
+          ).reduce(
+            (
+              out: ContentPropsFrontmatter,
+              currentKey,
+            ): ContentPropsFrontmatter => {
+              if (typeof attributes[currentKey] === "string") {
+                out[currentKey as keyof ContentPropsFrontmatter] = escape(
+                  attributes[currentKey],
+                )
+              }
+              return out
+            },
+            attributes,
+          ),
+          markdown: escape(body),
+        }
+      },
+    )
 
 export const posts = getContentFromFolder(postsPath)
 export const pages = getContentFromFolder(pagesPath)
-

@@ -8,16 +8,8 @@ import enGb from "@translations/en-gb"
 import {AppContainer} from "react-hot-loader"
 import {IntlProvider} from "react-intl"
 import {RouteProps, StaticRouter} from "react-router"
-import {pages, posts, routes} from "../routes"
-
-global.$content.pages = `'${JSON.stringify(pages).replace(
-  /(?:\r\n|\r|\n)/g,
-  "\\\\n",
-)}'`
-global.$content.posts = `'${JSON.stringify(posts).replace(
-  /(?:\r\n|\r|\n)/g,
-  "\\\\n",
-)}'`
+import {ServerStyleSheet} from "styled-components"
+import {pages, routes} from "../routes"
 
 export interface BuildStaticOptions {
   target: string
@@ -29,24 +21,34 @@ export interface WritableContentObject {
 }
 
 export default function BuildStatic(config: BuildStaticOptions) {
-  const writableContent = routes.map((route: RouteProps) => ({
-    path: config.target + route.path + "/index.html",
-    body: renderToString((
-      <AppContainer>
-        <IntlProvider locale="en-gb" messages={enGb}>
-          <StaticRouter location={route.path} context={{}}>
-            <Fragment>
-              <SiteNav pages={pages} />
-              <main id="content">
-                <Router routes={routes} />
-                <BaseApp />
-              </main>
-            </Fragment>
-          </StaticRouter>
-        </IntlProvider>
-      </AppContainer>
-    )),
-  }))
+  const writableContent = routes.map((route: RouteProps) => {
+    const stylesheet = new ServerStyleSheet()
+
+    const renderedApp = ({
+      path: config.target + route.path + "/index.html",
+      body: renderToString(stylesheet.collectStyles((
+        <AppContainer>
+          <IntlProvider locale="en-gb" messages={enGb}>
+            <StaticRouter location={route.path} context={{}}>
+              <Fragment>
+                <SiteNav pages={pages} />
+                <main id="content">
+                  <Router routes={routes} />
+                  <BaseApp />
+                </main>
+              </Fragment>
+            </StaticRouter>
+          </IntlProvider>
+        </AppContainer>
+      ))),
+      styles: stylesheet.getStyleTags(),
+    })
+
+    stylesheet.seal()
+    return renderedApp
+  })
 
   console.log(writableContent)
 }
+
+BuildStatic({target: "/tmp"})
