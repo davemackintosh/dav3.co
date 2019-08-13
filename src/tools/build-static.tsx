@@ -1,10 +1,9 @@
-import React, {Fragment} from "react"
-import { renderToString } from "react-dom/server"
-
 import BaseApp from "@components/base-app/base-app"
 import Router from "@components/router"
 import SiteNav from "@src/shared/components/nav/nav"
 import enGb from "@translations/en-gb"
+import React, {Fragment} from "react"
+import { renderToString } from "react-dom/server"
 import {AppContainer} from "react-hot-loader"
 import {IntlProvider} from "react-intl"
 import {RouteProps, StaticRouter} from "react-router"
