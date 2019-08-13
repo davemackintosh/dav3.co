@@ -17,7 +17,7 @@ export interface TagPostListProps {
 
 export default function PostsList(props: TagPostListProps) {
   return (
-    <div className="posts-list">
+    <div>
       <Helmet>
         <meta name="description" content={`Posts written by Dave Mackintosh tagged with "${props.match.params.tag}"`} />
         <title>Blog posts tagged with &ldquo;{ props.match.params.tag }&rdquo;</title>
