@@ -1,8 +1,7 @@
 import React from "react"
-import { NavLink } from "react-router-dom"
 import {ContentProps} from "../../../../types/content"
 
-import {Nav} from "@styled/nav"
+import {Nav, NavLi, NavLink, NavUl, SkipToContentNavLink} from "@styled/nav"
 
 export interface SiteNavProps {
   pages: ContentProps[],
@@ -11,17 +10,16 @@ export interface SiteNavProps {
 export default function SiteNav(props: SiteNavProps) {
   return (
     <Nav>
-      <ul className="flex list items-start">
-        <li className="w-15 mr2">
-          <a
-            href="#content"
-            className="skip-to-content"
-            title="Skip navigation and header and go straight to the content"
-          >
-           Skip to content
-          </a>
-        </li>
-        <li className="w-5 mr2">
+      <SkipToContentNavLink
+        href="#content"
+        className="skip-to-content"
+        title="Skip navigation and header and go straight to the content"
+        tabIndex={0}
+      >
+        Skip to content
+      </SkipToContentNavLink>
+      <NavUl rows={1} columns={4}>
+        <NavLi>
           <NavLink
             to="/"
             title="Dave Mackintosh - Web developer"
@@ -29,8 +27,8 @@ export default function SiteNav(props: SiteNavProps) {
           >
             Home
           </NavLink>
-        </li>
-        <li className="w-5 mr2">
+        </NavLi>
+        <NavLi>
           <NavLink
             to="/blog"
             title="Dave Mackintosh blog post listing"
@@ -38,27 +36,26 @@ export default function SiteNav(props: SiteNavProps) {
           >
             Blog
           </NavLink>
-        </li>
+        </NavLi>
         {
           props.pages
             .filter((page: ContentProps) => page.frontmatter.path !== "/")
             .map((page: ContentProps) => (
-              <li
-                key={ page.frontmatter.title }
-                className="w-15 mr2"
+              <NavLi
+                key={page.frontmatter.title}
               >
                 <NavLink
-                  to={ "/" + page.frontmatter.path }
-                  title={ page.frontmatter.title }
+                  to={"/" + page.frontmatter.path}
+                  title={page.frontmatter.title}
                   aria-current="page"
                   activeClassName="active"
                 >
-                  { page.frontmatter.title }
+                  {page.frontmatter.title}
                 </NavLink>
-              </li>
+              </NavLi>
             ))
         }
-      </ul>
+      </NavUl>
     </Nav>
   )
 }
