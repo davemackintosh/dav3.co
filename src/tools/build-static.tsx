@@ -57,8 +57,8 @@ export default function BuildStatic(config: BuildStaticOptions) {
   writableContent.forEach((content: WritableContentObject) => {
     mkdirSync(dirname(content.path), { recursive: true })
     writeFileSync(content.path, htmlMarkup
-      .replace("</head>", writableContent[0].styles + "</head>")
-      .replace(/.*\<script.*\>\<\/script\>.*/gi, writableContent[0].body),
+      .replace("</head>", content.styles + "</head>")
+      .replace(/.*\<script.*\>\<\/script\>.*/gi, content.body),
     )
   })
 }
