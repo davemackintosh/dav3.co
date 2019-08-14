@@ -21,6 +21,10 @@ function routesFromNodeSpace(contents: ContentProps[], component: ComponentType)
       ? content.frontmatter.path
       : "/" + content.contentPath.substr(0, content.contentPath.lastIndexOf("."))
 
+    if (content.frontmatter.title) {
+      content.frontmatter.title = unescape(content.frontmatter.title)
+    }
+
     return {
       path,
       exact: true,

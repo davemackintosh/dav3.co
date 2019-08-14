@@ -15,12 +15,10 @@ interface IntermediaryContent {
 const postsPath = path.resolve(process.cwd(), "./posts")
 const pagesPath = path.resolve(process.cwd(), "./pages")
 
-const escape = (val: string): string =>
+const escapeMD = (val: string): string =>
   (val || "")
-    .replace(/[\']/g, "&apos;")
-    .replace(/[\"]/g, "&quot;")
-    .replace(/[\\]/g, "\\\\")
-    .replace(/[\/]/g, "\\/")
+    .replace(/[']/g, "&apos;")
+    .replace(/["]/g, "&quot;")
     .replace(/[\b]/g, "\\b")
     .replace(/[\f]/g, "\\f")
     .replace(/[\n]/g, "\\n")
@@ -57,16 +55,22 @@ const getContentFromFolder = (folderPath: string): ContentProps[] =>
               out: ContentPropsFrontmatter,
               currentKey,
             ): ContentPropsFrontmatter => {
-              if (typeof attributes[currentKey] === "string" && currentKey !== "path") {
-                out[currentKey as keyof ContentPropsFrontmatter] = escape(
+              if (
+                typeof attributes[currentKey] === "string" &&
+                currentKey !== "path" &&
+                currentKey !== "title"
+              ) {
+                out[currentKey as keyof ContentPropsFrontmatter] = escapeMD(
                   attributes[currentKey],
                 )
+              } else if (currentKey === "title") {
+                out.title = escape(attributes.title)
               }
               return out
             },
             attributes,
           ),
-          markdown: escape(body),
+          markdown: body,
         }
       },
     )

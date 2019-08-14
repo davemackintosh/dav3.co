@@ -10,6 +10,7 @@ import SiteNav from "@components/nav/nav"
 import Router from "@components/router"
 import { pages } from "@src/routes"
 import routes from "@src/routes"
+import {Main} from "@src/shared/theme/main"
 import {GlobalStyle} from "@styled/global"
 import enGB from "@translations/en-gb"
 
@@ -22,10 +23,10 @@ const app = (
         <Fragment>
           <GlobalStyle />
           <SiteNav pages={ pages } />
-          <main id="content">
+          <Main id="content">
             <Router routes={ routes } />
             <BaseApp />
-          </main>
+          </Main>
           <Footer />
         </Fragment>
       </BrowserRouter>
