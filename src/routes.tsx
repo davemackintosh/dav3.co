@@ -1,7 +1,7 @@
 import Page from "@components/page/page"
 import PostsList from "@components/post/list"
 import Post from "@components/post/post"
-import TagPostList from "@components/tags/list"
+import {siteConfig} from "@config"
 import React from "react"
 import {RouteProps} from "react-router"
 import {
@@ -28,9 +28,9 @@ function routesFromNodeSpace(contents: ContentProps[], component: ComponentType)
     return {
       path,
       exact: true,
-      render: (): JSX.Element => {
-        return <Renderable {...content} />
-      },
+      render: (): JSX.Element =>
+        (<Renderable {...content} />),
+
     }
   })
 }
@@ -50,11 +50,7 @@ const routes = [
     exact: true,
     component: PostsList,
   },
-  {
-    path: "/tag/:tag",
-    exact: true,
-    component: TagPostList,
-  },
+  ...(siteConfig.routes || []),
   ...postRoutes,
   ...pageRoutes,
 ]

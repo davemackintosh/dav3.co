@@ -7,12 +7,14 @@ import enGb from "@translations/en-gb"
 import {mkdirSync, readFileSync, writeFileSync} from "fs"
 import {dirname, resolve} from "path"
 import React, {Fragment} from "react"
-import { renderToString } from "react-dom/server"
+import {renderToString} from "react-dom/server"
 import {AppContainer} from "react-hot-loader"
 import {IntlProvider} from "react-intl"
 import {RouteProps, StaticRouter} from "react-router"
 import {ServerStyleSheet} from "styled-components"
+import {ContentProps} from "types/content"
 import {pages, routes} from "../routes"
+import {siteConfig} from '@config';
 
 export interface BuildStaticOptions {
   target: string
@@ -24,46 +26,128 @@ export interface WritableContentObject {
   styles: string
 }
 
-export default function BuildStatic(config: BuildStaticOptions) {
-  mkdirSync(config.target, { recursive: true })
+/**
+ * Get a list of unique content from all
+ * the content available so we can render
+ * each page.
+ *
+ * @param {ContentProps[]} posts to get tags for.
+ * @return {string[]} array of unique content.
+ */
+export function collectUniqueMappedContent(content: ContentProps[], parameter: string): string[] {
+  const tags: string[] = content.reduce((workingTags: string[], post: ContentProps): string[] => {
+    if (post.frontmatter[parameter]) {
+      return workingTags.concat(post.frontmatter[parameter])
+    }
 
-  const writableContent = routes.map((route: RouteProps): WritableContentObject => {
-    const stylesheet = new ServerStyleSheet()
+    return workingTags
+  }, [])
 
-    const renderedApp = ({
-      path: config.target + route.path + "/index.html",
-      body: renderToString(stylesheet.collectStyles((
-        <AppContainer>
-          <IntlProvider locale="en-gb" messages={enGb}>
-            <StaticRouter location={route.path} context={{}}>
-              <Fragment>
-                <GlobalStyle />
-                <SiteNav pages={pages} />
-                <Main id="content">
-                  <Router routes={routes} />
-                  <BaseApp />
-                </Main>
-              </Fragment>
-            </StaticRouter>
-          </IntlProvider>
-        </AppContainer>
-      ))),
-      styles: stylesheet.getStyleTags(),
-    })
+  return Array.from(new Set(tags)) // De-dupe
+}
 
-    stylesheet.seal()
-    return renderedApp
+/**
+ * Separate the content based on whether the
+ * path contains any parameters or not
+ *
+ * @param {RouteProps[]} routes to separate.
+ * @returns {{separated: RouteProps[], normal: RouteProps[]}} categorised content.
+ */
+export function separateParameterisedRoutes(routes: RouteProps[]): Record<string, RouteProps[]> {
+  const separatedContent: Record<string, RouteProps[]> = {
+    parameterised: [],
+    normal: [],
+  }
+
+  routes.forEach((route: RouteProps) => {
+    if (route.path && route.path.includes(":")) {
+      separatedContent.parameterised.push(route)
+    }
+    else {
+      separatedContent.normal.push(route)
+    }
   })
 
+  return separatedContent
+}
+
+/**
+ * Write the WritableContentObject to a file as html
+ *
+ * @param {WritableContentObject} content to write to a file.
+ */
+export function writeContentToFile(content: WritableContentObject) {
   const htmlMarkup = readFileSync(resolve(process.cwd(), "./dist/index.html")).toString()
 
-  writableContent.forEach((content: WritableContentObject) => {
-    mkdirSync(dirname(content.path), { recursive: true })
-    writeFileSync(content.path, htmlMarkup
-      .replace("</head>", content.styles + "</head>")
-      .replace(/.*\<script.*\>\<\/script\>.*/gi, content.body),
-    )
+  mkdirSync(dirname(content.path), {recursive: true})
+  console.log("Writing %s", content.path)
+  writeFileSync(content.path, htmlMarkup
+    .replace("</head>", content.styles + "</head>")
+    .replace(/.*\<script.*\>\<\/script\>.*/gi, content.body),
+  )
+}
+
+export function getRenderableContent(config: BuildStaticOptions, route: RouteProps): WritableContentObject {
+  const stylesheet = new ServerStyleSheet()
+
+  const renderedApp = ({
+    path: config.target + route.path + "/index.html",
+    body: renderToString(stylesheet.collectStyles((
+      <AppContainer>
+        <IntlProvider locale="en-gb" messages={enGb}>
+          <StaticRouter location={route.path} context={{}}>
+            <Fragment>
+              <GlobalStyle />
+              <SiteNav pages={pages} />
+              <Main id="content">
+                <Router routes={routes} />
+                <BaseApp />
+              </Main>
+            </Fragment>
+          </StaticRouter>
+        </IntlProvider>
+      </AppContainer>
+    ))),
+    styles: stylesheet.getStyleTags(),
   })
+
+  stylesheet.seal()
+  return renderedApp
+}
+
+export default function BuildStatic(config: BuildStaticOptions) {
+  mkdirSync(config.target, {recursive: true})
+
+  // Collect information on the content so we can
+  // do the right work with the right data at the
+  // right time.
+  const separatedContent = separateParameterisedRoutes(routes)
+
+  // Create the content for the normal content first.
+  const writableContent = separatedContent.normal.map((route: RouteProps) => getRenderableContent(config, route))
+
+  // Write these pages.
+  writableContent.forEach(writeContentToFile)
+
+  const parameterisedContent = Object.keys(siteConfig.parameterMap)
+    .reduce((out: WritableContentObject[], currentParameter: string) => {
+      const targetFrontmatter = siteConfig.parameterMap[currentParameter]
+      const targetRoute = (siteConfig.routes || []).find((route: RouteProps) => (route.path || "").includes(currentParameter))
+      const targetContent = collectUniqueMappedContent(separatedContent.parameterisedContent, targetFrontmatter)
+
+      if (!targetRoute)
+        return out
+
+      return out.concat(targetContent.map((value: string): WritableContentObject => {
+        const modifiedRoute = {
+          ...targetRoute,
+          path: (targetRoute.path as string).replace(new RegExp(currentParameter), value),
+        }
+        return getRenderableContent(config, modifiedRoute)
+      }))
+    }, [])
+
+  console.log(parameterisedContent)
 }
 
 BuildStatic({

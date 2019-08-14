@@ -35,6 +35,7 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
+      "@config": ["./config.ts"],
       "@translations/*": ["./src/translations/*"],
       "@src/*": ["./src/*"],
       "@components/*": ["./src/shared/components/*"],
