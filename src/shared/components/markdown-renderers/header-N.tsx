@@ -1,4 +1,4 @@
-import React, {createElement, PureComponent} from "react"
+import React, {Component, createElement} from "react"
 
 export interface HeaderNProps {
   level: 1 | 2 | 3 | 4 | 5 | 6,
@@ -14,7 +14,7 @@ const Header = (props: HeaderNProps) => {
   ): JSX.Element => createElement("h" + props.level, innerProps)
 }
 
-class HeaderN extends PureComponent<HeaderNProps> {
+class HeaderN extends Component<HeaderNProps> {
   public render() {
     const Heading = Header(this.props)
     const targetChild = this.props.children[0]

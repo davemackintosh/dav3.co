@@ -13,8 +13,8 @@ import {IntlProvider} from "react-intl"
 import {RouteProps, StaticRouter} from "react-router"
 import {ServerStyleSheet} from "styled-components"
 import {ContentProps} from "types/content"
-import {pages, routes} from "../routes"
-import {siteConfig} from '@config';
+import {pages, routes, posts} from "../routes"
+import {siteConfig} from "@config"
 
 export interface BuildStaticOptions {
   target: string
@@ -133,7 +133,7 @@ export default function BuildStatic(config: BuildStaticOptions) {
     .reduce((out: WritableContentObject[], currentParameter: string) => {
       const targetFrontmatter = siteConfig.parameterMap[currentParameter]
       const targetRoute = (siteConfig.routes || []).find((route: RouteProps) => (route.path || "").includes(currentParameter))
-      const targetContent = collectUniqueMappedContent(separatedContent.parameterisedContent, targetFrontmatter)
+      const targetContent = collectUniqueMappedContent(posts, targetFrontmatter)
 
       if (!targetRoute)
         return out
@@ -147,7 +147,9 @@ export default function BuildStatic(config: BuildStaticOptions) {
       }))
     }, [])
 
-  console.log(parameterisedContent)
+  // Write these pages.
+  parameterisedContent.forEach(writeContentToFile)
+
 }
 
 BuildStatic({
