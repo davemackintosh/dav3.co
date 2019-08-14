@@ -2,8 +2,8 @@ import BaseApp from "@components/base-app/base-app"
 import Router from "@components/router"
 import SiteNav from "@src/shared/components/nav/nav"
 import enGb from "@translations/en-gb"
-import {readFileSync} from "fs"
-import {resolve} from "path"
+import {mkdirSync, readFileSync, writeFileSync} from "fs"
+import {dirname, resolve} from "path"
 import React, {Fragment} from "react"
 import { renderToString } from "react-dom/server"
 import {AppContainer} from "react-hot-loader"
@@ -23,6 +23,8 @@ export interface WritableContentObject {
 }
 
 export default function BuildStatic(config: BuildStaticOptions) {
+  mkdirSync(config.target, { recursive: true })
+
   const writableContent = routes.map((route: RouteProps): WritableContentObject => {
     const stylesheet = new ServerStyleSheet()
 
@@ -52,11 +54,13 @@ export default function BuildStatic(config: BuildStaticOptions) {
 
   const htmlMarkup = readFileSync(resolve(process.cwd(), "./dist/index.html")).toString()
 
-  console.log(
-    htmlMarkup
+  writableContent.forEach((content: WritableContentObject) => {
+    mkdirSync(dirname(content.path), { recursive: true })
+    writeFileSync(content.path, htmlMarkup
       .replace("</head>", writableContent[0].styles + "</head>")
-      .replace("</body>", writableContent[0].body + "</body>"),
-  )
+      .replace(/.*\<script.*\>\<\/script\>.*/gi, writableContent[0].body),
+    )
+  })
 }
 
 BuildStatic({
