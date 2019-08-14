@@ -1,6 +1,7 @@
 import BaseApp from "@components/base-app/base-app"
 import Router from "@components/router"
 import SiteNav from "@src/shared/components/nav/nav"
+import {GlobalStyle} from '@src/shared/theme/global';
 import enGb from "@translations/en-gb"
 import {mkdirSync, readFileSync, writeFileSync} from "fs"
 import {dirname, resolve} from "path"
@@ -35,6 +36,7 @@ export default function BuildStatic(config: BuildStaticOptions) {
           <IntlProvider locale="en-gb" messages={enGb}>
             <StaticRouter location={route.path} context={{}}>
               <Fragment>
+                <GlobalStyle />
                 <SiteNav pages={pages} />
                 <main id="content">
                   <Router routes={routes} />
