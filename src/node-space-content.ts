@@ -57,7 +57,7 @@ const getContentFromFolder = (folderPath: string): ContentProps[] =>
               out: ContentPropsFrontmatter,
               currentKey,
             ): ContentPropsFrontmatter => {
-              if (typeof attributes[currentKey] === "string") {
+              if (typeof attributes[currentKey] === "string" && currentKey !== "path") {
                 out[currentKey as keyof ContentPropsFrontmatter] = escape(
                   attributes[currentKey],
                 )

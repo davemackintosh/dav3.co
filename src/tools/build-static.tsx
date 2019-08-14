@@ -2,6 +2,8 @@ import BaseApp from "@components/base-app/base-app"
 import Router from "@components/router"
 import SiteNav from "@src/shared/components/nav/nav"
 import enGb from "@translations/en-gb"
+import {readFileSync} from "fs"
+import {resolve} from "path"
 import React, {Fragment} from "react"
 import { renderToString } from "react-dom/server"
 import {AppContainer} from "react-hot-loader"
@@ -17,10 +19,11 @@ export interface BuildStaticOptions {
 export interface WritableContentObject {
   path: string
   body: string
+  styles: string
 }
 
 export default function BuildStatic(config: BuildStaticOptions) {
-  const writableContent = routes.map((route: RouteProps) => {
+  const writableContent = routes.map((route: RouteProps): WritableContentObject => {
     const stylesheet = new ServerStyleSheet()
 
     const renderedApp = ({
@@ -47,7 +50,15 @@ export default function BuildStatic(config: BuildStaticOptions) {
     return renderedApp
   })
 
-  console.log(writableContent)
+  const htmlMarkup = readFileSync(resolve(process.cwd(), "./dist/index.html")).toString()
+
+  console.log(
+    htmlMarkup
+      .replace("</head>", writableContent[0].styles + "</head>")
+      .replace("</body>", writableContent[0].body + "</body>"),
+  )
 }
 
-BuildStatic({target: "/tmp"})
+BuildStatic({
+  target: resolve(process.cwd(), "./build"),
+})
