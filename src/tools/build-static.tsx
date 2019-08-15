@@ -16,6 +16,10 @@ import {ContentProps} from "types/content"
 import {pages, routes, posts} from "../routes"
 import {siteConfig} from "@config"
 
+export interface PaginatedRoute extends RouteProps {
+  paginated?: boolean
+}
+
 export interface BuildStaticOptions {
   target: string
 }
@@ -53,14 +57,18 @@ export function collectUniqueMappedContent(content: ContentProps[], parameter: s
  * @param {RouteProps[]} routes to separate.
  * @returns {{separated: RouteProps[], normal: RouteProps[]}} categorised content.
  */
-export function separateParameterisedRoutes(routes: RouteProps[]): Record<string, RouteProps[]> {
-  const separatedContent: Record<string, RouteProps[]> = {
+export function separateParameterisedRoutes(routes: PaginatedRoute[]): Record<string, PaginatedRoute[]> {
+  const separatedContent: Record<string, PaginatedRoute[]> = {
     parameterised: [],
     normal: [],
+    paginated: [],
   }
 
-  routes.forEach((route: RouteProps) => {
-    if (route.path && route.path.includes(":")) {
+  routes.forEach((route: PaginatedRoute) => {
+    if (route.paginated) {
+      separatedContent.paginated.push(route)
+    }
+    else if (route.path && route.path.includes(":")) {
       separatedContent.parameterised.push(route)
     }
     else {
@@ -150,6 +158,23 @@ export default function BuildStatic(config: BuildStaticOptions) {
   // Write these pages.
   parameterisedContent.forEach(writeContentToFile)
 
+  // Write paginated lists.
+  const perPage = siteConfig.postsPerPage || 10
+  const pages = Math.ceil(posts.length / perPage)
+  const writablePages: WritableContentObject[] = separatedContent.paginated.reduce((out: WritableContentObject[], route: PaginatedRoute): WritableContentObject[] => {
+    for (let page = 0; page < pages; page += 1) {
+      const modifiedRoute = {
+        ...route,
+        path: (route.path as string).replace(":page", page.toString())
+      }
+
+      out.push(getRenderableContent(config, modifiedRoute))
+    }
+
+    return out
+  }, [])
+
+  writablePages.forEach(writeContentToFile)
 }
 
 BuildStatic({

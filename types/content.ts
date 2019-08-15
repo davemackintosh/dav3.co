@@ -1,5 +1,6 @@
 export interface Content {
   posts: ContentProps[]
+  paginatedPosts: ContentProps[][]
   pages: ContentProps[]
 }
 

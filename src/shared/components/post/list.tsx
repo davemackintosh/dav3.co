@@ -3,29 +3,29 @@ import Helmet from "react-helmet"
 import {Link, withRouter, RouteComponentProps} from "react-router-dom"
 import WordCount from "@components/post/word-count"
 import PostHeaderTags from "@components/tags/post-header-tags"
-import {posts} from "@src/routes"
+import {paginatedPosts, posts} from "@src/routes"
 import {PostList, PostPreview} from "@styled/post"
 import {siteConfig} from '@config';
 import Paginate from '@components/paginate';
 import {ContentProps} from 'types/content';
 
-interface Props extends RouteComponentProps<object> {
-  params: {
-    page: number
-  }
-}
+interface Props extends RouteComponentProps<{
+  page: string
+}> {}
 
 function PostsList(props: Props) {
-  const pageTitlePageNum = props.params.page < 2
-    ? null
-    : `- page ${props.params.page + 1}`
+  const currentPage = Number(props.match.params.page || 0)
+  const pageTitlePageNum = currentPage > 1
+    ? ""
+    : `- page ${currentPage + 1}`
   const perPage = siteConfig.postsPerPage || 10
-  const startingIndex = props.params.page * (perPage)
 
   const paginator = posts.length > perPage
     ? (<Paginate perPage={perPage} totalItems={posts.length - 1} route="/blog" />)
     : null
 
+  console.log(paginatedPosts, currentPage)
+ 
   return (
     <PostList>
       <Helmet>
@@ -35,15 +35,8 @@ function PostsList(props: Props) {
           Blog posts by Dave Mackintosh {pageTitlePageNum}
         </title>
       </Helmet>
-      <h1>
-        {startingIndex} {startingIndex + perPage} -
-        {
-          posts.slice(startingIndex, startingIndex + perPage).map(post => post.contentPath)
-        }
-      </h1>
-
       {
-        posts[props.params.page]
+        paginatedPosts[currentPage]
           .map((post: ContentProps) => (
             <li>
               <PostPreview key={post.frontmatter.title}>
@@ -67,12 +60,6 @@ function PostsList(props: Props) {
       {paginator}
     </PostList>
   )
-}
-
-PostsList.defaultProps = {
-  params: {
-    page: 0,
-  },
 }
 
 export default withRouter(PostsList)

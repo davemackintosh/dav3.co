@@ -15,7 +15,7 @@ const alias = {
   "@components": resolve(src + "/shared/components"),
   "@lib": resolve(src + "/shared/lib"),
   "@styled": resolve(src + "/shared/theme"),
-  "@config": resolve(process.cwd(), "./config.ts")
+  "@config": resolve(process.cwd(), "./config.ts"),
 }
 
 const webpackConfig = {

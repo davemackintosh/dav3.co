@@ -29,6 +29,8 @@ function routesFromNodeSpace(contents: ContentProps[], component: ComponentType)
       content.frontmatter.title = unescape(content.frontmatter.title)
     }
 
+    content.markdown = unescape(content.markdown)
+
     return {
       path,
       exact: true,
@@ -64,7 +66,6 @@ for (
 const routes = [
   {
     path: `/blog/page/:page`,
-    exact: true,
     component: PostsList,
     paginated: true,
   },
@@ -80,7 +81,8 @@ const routes = [
 
 export {
   pages,
-  posts: paginatedPosts,
+  posts,
+  paginatedPosts,
   routes,
 }
 export default routes

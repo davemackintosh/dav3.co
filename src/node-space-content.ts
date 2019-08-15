@@ -70,7 +70,7 @@ const getContentFromFolder = (folderPath: string): ContentProps[] =>
             },
             attributes,
           ),
-          markdown: body,
+          markdown: escape(body),
         }
       },
     )
