@@ -48,5 +48,5 @@ export const siteConfig: Config = {
    */
   rss: true,
 
-  postsPerPage: 1,
+  postsPerPage: 10,
 }
