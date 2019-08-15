@@ -10,6 +10,10 @@ import {
 
 type ComponentType = typeof Post | typeof Page
 
+if (!siteConfig.postsPerPage) {
+  siteConfig.postsPerPage = 10
+}
+
 const parseNodeSpaceContent = (content: string): ContentProps[] =>
   JSON.parse(content)
 
@@ -44,7 +48,26 @@ const pages = parseNodeSpaceContent(global.$content.pages)
 const postRoutes = routesFromNodeSpace(posts, Post)
 const pageRoutes = routesFromNodeSpace(pages, Page)
 
+const paginatedPosts: ContentProps[][] = []
+
+for (
+  let page = 0,
+      max = Math.ceil(posts.length / siteConfig.postsPerPage);
+  page < max;
+  page += 1
+) {
+  const startingIndex = page * siteConfig.postsPerPage
+
+  paginatedPosts[page] = posts.slice(startingIndex, startingIndex + siteConfig.postsPerPage)
+}
+
 const routes = [
+  {
+    path: `/blog/page/:page`,
+    exact: true,
+    component: PostsList,
+    paginated: true,
+  },
   {
     path: "/blog",
     exact: true,
@@ -57,7 +80,7 @@ const routes = [
 
 export {
   pages,
-  posts,
+  posts: paginatedPosts,
   routes,
 }
 export default routes

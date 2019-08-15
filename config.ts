@@ -47,4 +47,6 @@ export const siteConfig: Config = {
    * XML file containing each post sorted by date.
    */
   rss: true,
+
+  postsPerPage: 1,
 }
