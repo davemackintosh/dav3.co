@@ -24,8 +24,6 @@ function PostsList(props: Props) {
     ? (<Paginate perPage={perPage} totalItems={posts.length - 1} route="/blog" />)
     : null
 
-  console.log(paginatedPosts, currentPage)
- 
   return (
     <PostList>
       <Helmet>

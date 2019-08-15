@@ -15,6 +15,7 @@ import {ServerStyleSheet} from "styled-components"
 import {ContentProps} from "types/content"
 import {pages, routes, posts} from "../routes"
 import {siteConfig} from "@config"
+import Helmet, {HelmetData} from "react-helmet"
 
 export interface PaginatedRoute extends RouteProps {
   paginated?: boolean
@@ -28,6 +29,7 @@ export interface WritableContentObject {
   path: string
   body: string
   styles: string
+  meta: HelmetData
 }
 
 /**
@@ -90,7 +92,10 @@ export function writeContentToFile(content: WritableContentObject) {
   mkdirSync(dirname(content.path), {recursive: true})
   console.log("Writing %s", content.path)
   writeFileSync(content.path, htmlMarkup
+    .replace(/\<title\>.*\<\/title\>/gi, content.meta.title.toString())
+    .replace("</title>", "</title>" + content.meta.meta)
     .replace("</head>", content.styles + "</head>")
+    .replace("</head>", content.meta.link + "</head>")
     .replace(/.*\<script.*\>\<\/script\>.*/gi, content.body),
   )
 }
@@ -117,6 +122,7 @@ export function getRenderableContent(config: BuildStaticOptions, route: RoutePro
       </AppContainer>
     ))),
     styles: stylesheet.getStyleTags(),
+    meta: Helmet.renderStatic()
   })
 
   stylesheet.seal()
