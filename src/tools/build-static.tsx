@@ -154,6 +154,24 @@ export function getRenderableRSSContent(config: BuildStaticOptions, content: Con
 `
 }
 
+export function getRenderableSiteMapContent(config: BuildStaticOptions, content: RouteProps[]): string {
+  return `<?xml version="1.0"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${
+    content
+    .map((targetContent: RouteProps) => {
+      const loc = ((targetContent.path as string).replace(config.target, config.baseUrl))
+        .replace("/index.html", "")
+      return `<url>
+          <changefreq>weekly</changefreq>
+          <loc>${loc}</loc>
+        </url>`
+    })
+      .join("\n")
+  }
+</urlset>
+`
+}
 export default function BuildStatic(config: BuildStaticOptions) {
   mkdirSync(config.target, {recursive: true})
 
@@ -209,8 +227,13 @@ export default function BuildStatic(config: BuildStaticOptions) {
 
   if (siteConfig.rss) {
     const rssFeed = getRenderableRSSContent(config, posts)
+    console.log("Writing: %s", config.target + "/rss.xml")
     writeFileSync(config.target + "/rss.xml", rssFeed)
   }
+
+  const rssFeed = getRenderableSiteMapContent(config, [...writableContent, ...writablePages, ...parameterisedContent])
+  console.log("Writing: %s", config.target + "/sitemap.xml")
+  writeFileSync(config.target + "/sitemap.xml", rssFeed)
 }
 
 BuildStatic({
