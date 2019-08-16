@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/blog</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/blog/being-a-mobile-developer</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/work-history</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/blog/page/0</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/ios</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/jailbreak</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/android</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/developer</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/javascript</loc>
+        </url>
+</urlset>
