@@ -23,6 +23,7 @@ export interface PaginatedRoute extends RouteProps {
 
 export interface BuildStaticOptions {
   target: string
+  baseUrl: string
 }
 
 export interface WritableContentObject {
@@ -67,6 +68,7 @@ export function separateParameterisedRoutes(routes: PaginatedRoute[]): Record<st
   }
 
   routes.forEach((route: PaginatedRoute) => {
+    route.path = (route.path as string).toLowerCase()
     if (route.paginated) {
       separatedContent.paginated.push(route)
     }
@@ -104,7 +106,7 @@ export function getRenderableContent(config: BuildStaticOptions, route: RoutePro
   const stylesheet = new ServerStyleSheet()
 
   const renderedApp = ({
-    path: config.target + route.path + "/index.html",
+    path: config.target + ((route.path as string).toLowerCase()) + "/index.html",
     body: renderToString(stylesheet.collectStyles((
       <AppContainer>
         <IntlProvider locale="en-gb" messages={enGb}>
@@ -127,6 +129,32 @@ export function getRenderableContent(config: BuildStaticOptions, route: RoutePro
 
   stylesheet.seal()
   return renderedApp
+}
+
+export function getRenderableRSSContent(config: BuildStaticOptions, content: ContentProps[]): string {
+  return `
+<?xml version= "1.0"?>
+<rss version= "2.0">
+  <channel>
+  ${
+    content
+    .filter((targetContent: ContentProps) => targetContent.frontmatter.status !== "draft" && targetContent.frontmatter.published !== "false")
+    .map((targetContent: ContentProps) => {
+      const title = targetContent.frontmatter.title
+      const description = targetContent.frontmatter.description
+      return `
+        <item>
+          <title>${title}</title>
+          <description>${description}</description>
+          <link>${targetContent.contentPath.replace(config.target, config.baseUrl).toLowerCase()}</link>
+        </item>
+        `
+    })
+      .join("\n")
+  }
+  </channel>
+</rss>
+`
 }
 
 export default function BuildStatic(config: BuildStaticOptions) {
@@ -181,8 +209,14 @@ export default function BuildStatic(config: BuildStaticOptions) {
   }, [])
 
   writablePages.forEach(writeContentToFile)
+
+  const rssFeed = getRenderableRSSContent(config, posts)
+
+  //writeFileSync(config.target + "/rss.xml", rssFeed)
+  console.log(rssFeed)
 }
 
 BuildStatic({
   target: resolve(process.cwd(), "./build"),
+  baseUrl: "https://dav3.co",
 })
