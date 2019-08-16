@@ -1,4 +1,6 @@
 import React, {Component, createElement} from "react"
+import styled from 'styled-components';
+import {NavLink} from '@src/shared/theme/nav';
 
 export interface HeaderNProps {
   level: 1 | 2 | 3 | 4 | 5 | 6,
@@ -14,6 +16,10 @@ const Header = (props: HeaderNProps) => {
   ): JSX.Element => createElement("h" + props.level, innerProps)
 }
 
+const Permalink = styled(NavLink)`
+  margin-right: 0.5em;
+`
+
 class HeaderN extends Component<HeaderNProps> {
   public render() {
     const Heading = Header(this.props)
@@ -28,11 +34,11 @@ class HeaderN extends Component<HeaderNProps> {
 
     return (
       <Heading id={id}>
-        <a
-          href={ "#" + id }
+        <Permalink
+          to={"#" + id}
           title={ `Permalink to jump to this header - '${id}'` }>
             #
-        </a>
+        </Permalink>
         { this.props.children }
       </Heading>
     )

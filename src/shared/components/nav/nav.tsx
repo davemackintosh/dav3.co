@@ -41,11 +41,9 @@ export default function SiteNav(props: SiteNavProps) {
           props.pages
             .filter((page: ContentProps) => page.frontmatter.path !== "/")
             .map((page: ContentProps) => (
-              <NavLi
-                key={page.frontmatter.title}
-              >
+              <NavLi key={page.frontmatter.path}>
                 <NavLink
-                  to={"/" + page.frontmatter.path}
+                  to={page.frontmatter.path}
                   title={page.frontmatter.title}
                   aria-current="page"
                   activeClassName="active"

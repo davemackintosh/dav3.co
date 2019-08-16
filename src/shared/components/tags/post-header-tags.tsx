@@ -1,5 +1,5 @@
 import React from "react"
-import { NavLink } from "react-router-dom"
+import {NavLi, NavLink, NavUl} from '@src/shared/theme/nav';
 
 export interface PostHeaderTagsProps {
   tags: string[] | undefined,
@@ -7,23 +7,22 @@ export interface PostHeaderTagsProps {
 
 export default function PostHeaderTags(props: PostHeaderTagsProps) {
   return (
-    <nav className="tags-list">
-      <ul>
-        <li className="tag">Tags: </li>
+    <nav>
+      <NavUl columns={8} rows="auto">
+        <NavLi>🏷️: </NavLi>
         {
           (props.tags || []).map((tag: string) => (
-            <li className="tag" key={ tag }>
+            <NavLi key={tag}>
               <NavLink
                 to={ `/tag/${tag}` }
                 title={ `See more posts tagged with ${tag}` }
-                activeClassName="active"
               >
                 #{ tag }
               </NavLink>
-            </li>
+            </NavLi>
           ))
         }
-      </ul>
+      </NavUl>
     </nav>
   )
 }

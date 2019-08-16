@@ -8,7 +8,7 @@ import PostHeaderTags from "@components/tags/post-header-tags"
 
 export default function Post(props: ContentProps): JSX.Element {
   return (
-    <article className="post">
+    <article>
       <Helmet>
         <title>{ props.frontmatter.title }</title>
         <meta name="description" content={props.frontmatter.description} />
@@ -16,7 +16,7 @@ export default function Post(props: ContentProps): JSX.Element {
 
         <body className={ props.frontmatter.bodyClasses } />
       </Helmet>
-      <div className="post-header">
+      <div>
         <h1>{ props.frontmatter.title }</h1>
         <PostHeaderTags tags={ props.frontmatter.keywords } />
       </div>
