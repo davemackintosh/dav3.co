@@ -1,10 +1,15 @@
 import Markdown from "@components/md-parser/md-parser"
 import React, {Fragment} from "react"
 import Helmet from "react-helmet"
-
 import {ContentProps} from "../../../../types/content"
+import LatestPosts from "@components/post/latest"
+import {posts} from "@src/routes"
 
 export default function Page(props: ContentProps): JSX.Element {
+  const latestPosts = props.frontmatter.path === "/"
+    ? <LatestPosts numberOfPosts={8} posts={posts.slice(8)} />
+    : null
+
   return (
     <Fragment>
       <Helmet>
@@ -16,6 +21,9 @@ export default function Page(props: ContentProps): JSX.Element {
       </Helmet>
 
       <Markdown markdown={ props.markdown } />
+      <hr />
+      {latestPosts}
     </Fragment>
   )
 }
+
