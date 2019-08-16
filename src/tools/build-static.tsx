@@ -5,7 +5,7 @@ import {GlobalStyle} from "@src/shared/theme/global"
 import {Main} from "@src/shared/theme/main"
 import enGb from "@translations/en-gb"
 import {mkdirSync, readFileSync, writeFileSync} from "fs"
-import {dirname, resolve} from "path"
+import {dirname, resolve, basename} from "path"
 import React, {Fragment} from "react"
 import {renderToString} from "react-dom/server"
 import {AppContainer} from "react-hot-loader"
@@ -132,8 +132,7 @@ export function getRenderableContent(config: BuildStaticOptions, route: RoutePro
 }
 
 export function getRenderableRSSContent(config: BuildStaticOptions, content: ContentProps[]): string {
-  return `
-<?xml version= "1.0"?>
+  return `<?xml version="1.0"?>
 <rss version= "2.0">
   <channel>
   ${
@@ -141,14 +140,12 @@ export function getRenderableRSSContent(config: BuildStaticOptions, content: Con
     .filter((targetContent: ContentProps) => targetContent.frontmatter.status !== "draft" && targetContent.frontmatter.published !== "false")
     .map((targetContent: ContentProps) => {
       const title = targetContent.frontmatter.title
-      const description = targetContent.frontmatter.description
-      return `
-        <item>
+      const description = targetContent.frontmatter.excerpt
+      return `<item>
           <title>${title}</title>
           <description>${description}</description>
-          <link>${targetContent.contentPath.replace(config.target, config.baseUrl).toLowerCase()}</link>
-        </item>
-        `
+          <link>${config.baseUrl}/blog/${basename(targetContent.contentPath.toLowerCase(), ".md")}/</link>
+        </item>`
     })
       .join("\n")
   }
@@ -210,10 +207,10 @@ export default function BuildStatic(config: BuildStaticOptions) {
 
   writablePages.forEach(writeContentToFile)
 
-  const rssFeed = getRenderableRSSContent(config, posts)
-
-  //writeFileSync(config.target + "/rss.xml", rssFeed)
-  console.log(rssFeed)
+  if (siteConfig.rss) {
+    const rssFeed = getRenderableRSSContent(config, posts)
+    writeFileSync(config.target + "/rss.xml", rssFeed)
+  }
 }
 
 BuildStatic({
