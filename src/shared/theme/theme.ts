@@ -12,6 +12,13 @@ const theme = {
     primaryFontFamilies: "'IBM Plex Mono', monospace",
     secondaryFontFamilies: "Quattrocento Sans', sans-serif",
   },
+
+  responsive: {
+    mobile: 400,
+    tablet: 700,
+    laptop: 900,
+    bigMonitor: 1000,
+  },
 }
 
 export default theme

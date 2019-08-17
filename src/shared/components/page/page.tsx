@@ -7,7 +7,7 @@ import {posts} from "@src/routes"
 
 export default function Page(props: ContentProps): JSX.Element {
   const latestPosts = props.frontmatter.path === "/"
-    ? <LatestPosts numberOfPosts={8} posts={posts.slice(8)} />
+    ? <LatestPosts numberOfPosts={8} posts={posts.slice(0, 8)} />
     : null
 
   return (
