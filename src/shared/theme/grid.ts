@@ -8,9 +8,7 @@ export interface GridProps {
 
 type ElementNames = keyof JSX.IntrinsicElements
 
-export const Grid = (component: ElementNames = "div"): string => styled[
-  component as ElementNames
-]`
+export const Grid = (component: ElementNames = "div") => styled(component)`
   display: grid;
   grid-template-columns: ${(props: GridProps): string =>
     props.columns === "auto" ? "auto" : "1fr ".repeat(props.columns || 2)};
