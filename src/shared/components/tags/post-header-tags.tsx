@@ -1,28 +1,40 @@
 import React from "react"
-import {NavLi, NavLink, NavUl} from '@src/shared/theme/nav';
+import {NavLink} from '@src/shared/theme/nav'
+import styled from "styled-components"
 
 export interface PostHeaderTagsProps {
-  tags: string[] | undefined,
+  tags: string[]
 }
+
+const TagList = styled.ul`
+  margin: 0;
+  padding: 0;
+`
+
+const TagItem = styled.li`
+  list-style: none;
+  display: inline-block;
+  margin-right: 1rem;
+`
 
 export default function PostHeaderTags(props: PostHeaderTagsProps) {
   return (
     <nav>
-      <NavUl columns={8} rows="auto">
-        <NavLi>🏷️: </NavLi>
+      <TagList>
+        <TagItem>🏷️:</TagItem>
         {
           (props.tags || []).map((tag: string) => (
-            <NavLi key={tag}>
+            <TagItem key={tag}>
               <NavLink
                 to={ `/tag/${tag}` }
                 title={ `See more posts tagged with ${tag}` }
               >
                 #{ tag }
               </NavLink>
-            </NavLi>
+            </TagItem>
           ))
         }
-      </NavUl>
+      </TagList>
     </nav>
   )
 }

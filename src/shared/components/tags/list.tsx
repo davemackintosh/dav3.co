@@ -28,22 +28,29 @@ export default function PostsList(props: TagPostListProps) {
         posts
           .filter((post: ContentProps) => Array.isArray(post.frontmatter.keywords))
           .filter((post: ContentProps) => (post.frontmatter.keywords || []).indexOf(props.match.params.tag) >= 0)
-          .map((post: ContentProps) => (
-            <div key={ post.frontmatter.title } className="post-preview">
-              <Link
-                to={ post.frontmatter.path }
-                title={ post.frontmatter.title }
-              >
-                <h2>{ post.frontmatter.title }</h2>
-              </Link>
-              <time dateTime={ post.frontmatter.published }>
-                { post.frontmatter.published }
-              </time>
-              <PostHeaderTags tags={ post.frontmatter.keywords } />
+          .map((post: ContentProps) => {
+            const tags = post.frontmatter.keywords && post.frontmatter.keywords.length
+              ? <PostHeaderTags tags={post.frontmatter.keywords} />
+              : null
 
-              <p>{post.frontmatter.excerpt || post.markdown.substr(0, 300)}</p>
-            </div>
-          ))
+            return (
+              <div key={post.frontmatter.title} className="post-preview">
+                <Link
+                  to={post.frontmatter.path}
+                  title={post.frontmatter.title}
+                >
+                  <h2>{post.frontmatter.title}</h2>
+                </Link>
+                <time dateTime={post.frontmatter.published}>
+                  {post.frontmatter.published}
+                </time>
+                
+                {tags}
+
+                <p>{post.frontmatter.excerpt || post.markdown.substr(0, 300)}</p>
+              </div>
+            )
+          })
       }
     </div>
   )

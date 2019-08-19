@@ -4,10 +4,11 @@ import Helmet from "react-helmet"
 import {ContentProps} from "../../../../types/content"
 import LatestPosts from "@components/post/latest"
 import {posts} from "@src/routes"
+import {siteConfig} from "@config"
 
 export default function Page(props: ContentProps): JSX.Element {
   const latestPosts = props.frontmatter.path === "/"
-    ? <LatestPosts numberOfPosts={8} posts={posts.slice(0, 8)} />
+    ? <LatestPosts numberOfPosts={siteConfig.postsPerPage || 8} posts={posts.slice(0, siteConfig.postsPerPage || 8)} />
     : null
 
   return (
