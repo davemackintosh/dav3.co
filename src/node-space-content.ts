@@ -37,7 +37,7 @@ const getContentFromFolder = (folderPath: string): ContentProps[] =>
     )
     .map(
       (content: IntermediaryContent): ContentProps => {
-        const {attributes, body} = frontmatter(content.content)
+        const { attributes, body } = frontmatter(content.content)
 
         if (!attributes.path) {
           attributes.path = content.contentPath.substr(
@@ -75,11 +75,18 @@ const getContentFromFolder = (folderPath: string): ContentProps[] =>
       },
     )
     .filter((content: ContentProps) => {
-      if (content.frontmatter.published === "false" || content.frontmatter.status === "draft")
+      if (
+        content.frontmatter.published === "false" ||
+        content.frontmatter.status === "draft"
+      )
         return false
 
       return true
     })
 
-export const posts = getContentFromFolder(postsPath)
+export const posts = getContentFromFolder(postsPath).sort(
+  (lhs: ContentProps, rhs: ContentProps) =>
+    new Date(rhs.frontmatter.published).valueOf() -
+    new Date(lhs.frontmatter.published).valueOf(),
+)
 export const pages = getContentFromFolder(pagesPath)

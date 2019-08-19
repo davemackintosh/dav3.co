@@ -6,7 +6,7 @@ keywords:
   - android
   - developer
   - javascript
-excerpt: Dave Mackintosh has developed websites, apps and libraries on mobile since 2012. here's a list of the reasons he can think of why its amazing and sometimes career saving.
+excerpt: Dave Mackintosh has developed websites, apps and libraries on mobile since 2012. here's a list of the reasons I can think of why its amazing and sometimes career saving.
 author: davemackintosh
 published: Tue Dec 11 2018 19:55:00 GMT+0000
 ---
@@ -15,18 +15,18 @@ I've been developing things on mobile devices since 2012, I started on my jailbr
 
 Imagine iOS 5 and Node 0.4.x. 
 
-Dark days, I made do with my lot which turns out to be an awful lot. NodeJS had iOS binaries all the way to 0.6.x. _back then_ the gear was 
+It seems like a million miles away and that they were dark days, I made do with my lot which turns out to be an awful lot. There were NodeJS had iOS binaries all the way to Node 0.6.x. _Back then_ the gear was 
 
-* jailbroken iOS 5/6
-* NodeJS 0.4.x
-* Gusto
-* Codea (Lua for scripting)
+* jailbroken iOS on an iPad
+* NodeJS 0.4.x - 0.6.x
+* Gusto - Code editor
+* Codea - Lua for scripting toys on the go
 * Bluetooth keyboard
-* A train with an empty seat and a table
+* (optional) A train with an empty seat and a table
 
-I did a lot of work on that iPad, I made Ubui as a learning exercise. I was transitioning away from PHP which I did a lot at the time and I wanted to recreate something to learn about how those problems are solved with JavaScript. A really interesting project in which I learned a lot about both Zend Framework and JavaScript problems.
+I did a lot of work on that iPad, I made Ubui as a learning exercise. I was transitioning away from PHP which I did a lot at the time and I wanted to recreate something to learn about how those problems are solved with JavaScript on the backend. A really interesting project in which I learned a lot about both Zend Framework and backend JavaScript problem solving.
 
-While it was a great platform for passion projects, this setup also saved my career more than once. My job at the time was building digital content for Harrods iPad magazine. Naturally, being able to develop the code on the target for the target was very novel I can remember at least 2 or 3 times on a tube to demo the latest and greatest tech to the client my then boss would break what I had built.
+While it was a great platform for passion projects, this setup also saved my career more than once. My job at the time was building digital content for Harrods iPad magazine. Naturally, being able to develop the code on the target *for* the target was very novel I can remember at least 2 or 3 times on a tube to demo the latest and greatest tech to the client my then boss would break what I had built.
 
 Being able to debug and fix on the platform is incredible, it probably helped save my job each time I did it.
 

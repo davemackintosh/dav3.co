@@ -8,6 +8,7 @@ import {PostList, PostPreview} from "@styled/post"
 import {siteConfig} from '@config';
 import Paginate from '@components/paginate';
 import {ContentProps} from 'types/content';
+import {Published} from '@src/shared/components/published';
 
 interface Props extends RouteComponentProps<{
   page: string
@@ -35,25 +36,31 @@ function PostsList(props: Props) {
       </Helmet>
       {
         paginatedPosts[currentPage]
-          .map((post: ContentProps) => (
-            <li>
-              <PostPreview key={post.frontmatter.title}>
-                <Link
-                  to={post.frontmatter.path}
-                  title={post.frontmatter.title}
-                >
-                  <h2>{post.frontmatter.title}</h2>
-                </Link>
-                <WordCount text={post.markdown} />
-                <time dateTime={post.frontmatter.published}>
-                  {new Date(post.frontmatter.published).toLocaleString()}
-                </time>
-                <PostHeaderTags tags={post.frontmatter.keywords} />
+        .map((post: ContentProps) => {
+          const tags = post.frontmatter.keywords && post.frontmatter.keywords.length
+            ? (<PostHeaderTags tags={post.frontmatter.keywords} />)
+            : null
 
-                <p>{post.frontmatter.excerpt}</p>
-              </PostPreview>
-            </li>
-          ))
+            return (
+              <li>
+                <PostPreview key={post.frontmatter.title}>
+                  <Link
+                    to={post.frontmatter.path}
+                    title={post.frontmatter.title}
+                  >
+                    <h2>{post.frontmatter.title}</h2>
+                  </Link>
+                  <WordCount text={post.markdown} />
+
+                  <Published published={post.frontmatter.published} />
+
+                  {tags}
+                  <hr />
+                  <p>{post.frontmatter.excerpt}</p>
+                </PostPreview>
+              </li>
+            )
+          })
       }
       {paginator}
     </PostList>
