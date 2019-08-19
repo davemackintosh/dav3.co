@@ -6,6 +6,8 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${theme.colors.background};
     color: ${theme.colors.font};
     font-family: ${theme.typography.primaryFontFamilies};
+    font-size: 1.3em;
+    line-height: 1.8em;
   }
 
   a {
