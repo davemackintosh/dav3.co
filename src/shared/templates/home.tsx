@@ -8,7 +8,6 @@ import Markdown from "@components/md-parser/md-parser"
 import Testimonials from "@src/shared/components/testimonials"
 
 export function HomePage(props: ContentProps) {
-  alert(props.frontmatter.testimonials)
   return (
     <Fragment>
       <Helmet>

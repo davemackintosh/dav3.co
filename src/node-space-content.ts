@@ -65,7 +65,10 @@ const getContentFromFolder = (folderPath: string): ContentProps[] =>
                 )
               } else if (currentKey === "title") {
                 out.title = escape(attributes.title)
-              }
+              } else if (Array.isArray(attributes[currentKey]))
+                out[currentKey as keyof ContentPropsFrontmatter] = attributes[
+                  currentKey
+                ].map(escapeMD)
               return out
             },
             attributes,
