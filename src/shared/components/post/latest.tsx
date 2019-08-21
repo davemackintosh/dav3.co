@@ -15,8 +15,8 @@ export interface Props {
 export default function LatestPosts(props: Props) {
   return (
     <LatestPostsGrid
-      columns={2}
-      rows={props.numberOfPosts / 2}
+      columns={Math.min(2, props.posts.length)}
+      rows="auto"
     >
       {
         props.posts.map((post: ContentProps) => {

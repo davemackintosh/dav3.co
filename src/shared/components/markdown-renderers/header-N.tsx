@@ -16,7 +16,7 @@ const Header = (props: HeaderNProps) => {
   ): JSX.Element => createElement("h" + props.level, innerProps)
 }
 
-const Permalink = styled(NavLink)`
+export const Permalink = styled(NavLink)`
   margin-right: 0.5em;
 `
 
