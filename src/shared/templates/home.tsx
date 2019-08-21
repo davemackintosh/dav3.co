@@ -2,11 +2,11 @@ import React, {Fragment} from "react"
 import {ContentProps} from "types/content"
 import Helmet from "react-helmet"
 import LatestPosts from "@src/shared/components/post/latest"
-import {siteConfig} from '@config';
-import {posts} from '@src/routes';
+import {siteConfig} from "@config"
+import {posts} from "@src/routes"
 import Markdown from "@components/md-parser/md-parser"
 import Testimonials from "@src/shared/components/testimonials"
-import {Permalink} from '@src/shared/components/markdown-renderers/header-N';
+import {Permalink} from "@src/shared/components/markdown-renderers/header-N"
 
 export function HomePage(props: ContentProps) {
   return (

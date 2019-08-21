@@ -16,6 +16,7 @@ import {ContentProps} from "types/content"
 import {pages, routes, posts} from "../routes"
 import {siteConfig} from "@config"
 import Helmet, {HelmetData} from "react-helmet"
+import {minify} from "html-minifier"
 
 export interface PaginatedRoute extends RouteProps {
   paginated?: boolean
@@ -90,16 +91,23 @@ export function separateParameterisedRoutes(routes: PaginatedRoute[]): Record<st
  */
 export function writeContentToFile(content: WritableContentObject) {
   const htmlMarkup = readFileSync(resolve(process.cwd(), "./dist/index.html")).toString()
-
-  mkdirSync(dirname(content.path), {recursive: true})
-  console.log("Writing %s", content.path)
-  writeFileSync(content.path, htmlMarkup
     .replace(/\<title\>.*\<\/title\>/gi, content.meta.title.toString())
     .replace("</title>", "</title>" + content.meta.meta)
     .replace("</head>", content.styles + "</head>")
     .replace("</head>", content.meta.link + "</head>")
-    .replace(/.*\<script.*\>\<\/script\>.*/gi, content.body),
-  )
+    .replace(/.*\<script.*\>\<\/script\>.*/gi, content.body)
+  const minifiedMarkup = minify(htmlMarkup, {
+    removeTagWhitespace: true,
+    collapseWhitespace: true,
+    removeComments: true,
+    removeRedundantAttributes: true,
+    minifyCSS: true,
+    minifyJS: true,
+  })
+
+  mkdirSync(dirname(content.path), {recursive: true})
+  console.log("Writing %s", content.path)
+  writeFileSync(content.path, minifiedMarkup)
 }
 
 export function getRenderableContent(config: BuildStaticOptions, route: RouteProps): WritableContentObject {
