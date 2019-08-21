@@ -1,3 +1,4 @@
+import media from "styled-media-query"
 import theme from "@styled/theme"
 import { createGlobalStyle } from "styled-components"
 
@@ -16,5 +17,11 @@ export const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     line-height: 2em;
+
+    ${media.lessThan("medium")`
+      & {
+        line-height: 1.4em;
+      }
+      `}
   }
 `

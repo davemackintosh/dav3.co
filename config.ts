@@ -1,5 +1,6 @@
 import TagPostList from "@components/tags/list"
 import { Config } from "types/config"
+import {HomePage} from '@src/shared/templates/home';
 
 export const siteConfig: Config = {
   /**
@@ -49,4 +50,8 @@ export const siteConfig: Config = {
   rss: true,
 
   postsPerPage: 10,
+
+  templates: {
+    home: HomePage
+  }
 }
