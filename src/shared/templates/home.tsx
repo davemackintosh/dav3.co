@@ -24,7 +24,7 @@ export function HomePage(props: ContentProps) {
       <h3 id="latest-posts">
         <Permalink
           to={"#latest-posts"}
-          title="Permalink to latest posts on home page">
+          title="Permalink to Dave Mackintosh's latest posts">
           #
         </Permalink>
         Latest posts

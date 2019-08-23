@@ -1,5 +1,4 @@
 import React, {Fragment} from "react"
-import {siteConfig} from "@config"
 import {NavLink} from 'react-router-dom';
 import styled from "styled-components"
 
@@ -8,8 +7,10 @@ const Tiny = styled.small`
   display: block;
 `
 
+const takingBookings = false
+
 export function BookingButton() {
-  if (siteConfig.custom && siteConfig.custom.takingBookings) {
+  if (takingBookings) {
     return (
       <NavLink
         to="mailto:its+booking@dav3.co"
