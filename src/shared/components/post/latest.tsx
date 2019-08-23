@@ -28,6 +28,7 @@ export default function LatestPosts(props: Props) {
               <h2>
                 <NavLink
                   to={post.frontmatter.path}
+                  title={post.frontmatter.title}
                 >
                   {post.frontmatter.title}
                 </NavLink>

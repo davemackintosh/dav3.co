@@ -78,6 +78,10 @@ const getContentFromFolder = (folderPath: string): ContentProps[] =>
       },
     )
     .filter((content: ContentProps) => {
+      if (process.env.NODE_ENV === "development") {
+        return true
+      }
+
       if (
         content.frontmatter.published === "false" ||
         content.frontmatter.status === "draft"

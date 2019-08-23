@@ -20,10 +20,15 @@ testimonials:
 
 ---
 
-# Dave Mackintosh - React, NodeJS & Javascript developer & mentor
+# React, NodeJS & Javascript developer & mentor
 
-👋 I'm Dave Mackintosh, I write JavaScript all day. I do this in the form of React, NodeJS and automation scripting.
+<div class="hero">
+  👋 I'm Dave Mackintosh, I write JavaScript all day. I do this in the form of React, NodeJS and TypeScript.
+</div>
 
-I like to collaborate in teams that are effective in change for the positive and help humans enjoy every day.
+I live in the UK and I work remotely for clients of all types and sizes, helping them understand their business and improving how they work from the inside out using JavaScript to automate and consolidate many of their processes.
 
-## Testimonials
+I like to collaborate in teams that are effective in change for the positive and help humans enjoy every day and I love building things that we usually have to pay for for free that can have a positive impact on people's lives.
+
+I've spent over a decade learning how to master my craft and learn how to create useful software for companies of all sizes for all reasons. People I work with usually have lovely things to say about me and you can read some of my favourites below.
+

@@ -10,9 +10,9 @@ import {
 
 type ComponentType = typeof Post | typeof Page
 
-if (!siteConfig.postsPerPage) {
-  siteConfig.postsPerPage = 10
-}
+const postsPerPage = siteConfig && siteConfig.postsPerPage
+  ? siteConfig.postsPerPage
+  : 10
 
 const parseNodeSpaceContent = (content: string): ContentProps[] =>
   JSON.parse(content)
@@ -54,13 +54,13 @@ const paginatedPosts: ContentProps[][] = []
 
 for (
   let page = 0,
-      max = Math.ceil(posts.length / siteConfig.postsPerPage);
+      max = Math.ceil(posts.length / postsPerPage);
   page < max;
   page += 1
 ) {
-  const startingIndex = page * siteConfig.postsPerPage
+  const startingIndex = page * postsPerPage
 
-  paginatedPosts[page] = posts.slice(startingIndex, startingIndex + siteConfig.postsPerPage)
+  paginatedPosts[page] = posts.slice(startingIndex, startingIndex + postsPerPage)
 }
 
 const routes = [
