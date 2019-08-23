@@ -180,6 +180,7 @@ export function getRenderableSiteMapContent(config: BuildStaticOptions, content:
 </urlset>
 `
 }
+
 export default function BuildStatic(config: BuildStaticOptions) {
   mkdirSync(config.target, {recursive: true})
 

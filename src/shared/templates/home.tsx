@@ -21,8 +21,6 @@ export function HomePage(props: ContentProps) {
 
       <Markdown markdown={props.markdown} />
       <hr />
-      <Testimonials testimonials={props.frontmatter.testimonials} />
-      <hr />
       <h3 id="latest-posts">
         <Permalink
           to={"#latest-posts"}
@@ -32,6 +30,18 @@ export function HomePage(props: ContentProps) {
         Latest posts
       </h3>
       <LatestPosts numberOfPosts={siteConfig.postsPerPage || 8} posts={posts.slice(0, siteConfig.postsPerPage || 8)} />
+
+      <hr />
+      <h3 id="testimonials">
+        <Permalink
+          to={"#testimonials"}
+          title="Permalink to lovely words about Dave Mackintosh">
+          #
+        </Permalink>
+        Testimonials
+      </h3>
+      <Testimonials testimonials={props.frontmatter.testimonials} />
+      <hr />
     </Fragment>
   )
 }

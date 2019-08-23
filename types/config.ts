@@ -8,4 +8,5 @@ export interface Config {
   rss?: boolean
   postsPerPage?: number
   templates?: Record<string, TemplateComponent>
+  custom?: Record<string, any>
 }

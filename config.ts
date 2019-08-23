@@ -1,8 +1,18 @@
 import TagPostList from "@components/tags/list"
 import { Config } from "types/config"
-import {HomePage} from '@src/shared/templates/home';
+import { HomePage } from "@src/shared/templates/home"
 
 export const siteConfig: Config = {
+  postsPerPage: 10,
+
+  /**
+   * Add custom config here, this can be anything
+   * you want it to be
+   */
+  custom: {
+    takingBookings: false,
+  },
+
   /**
    * When the static builder finds parameterised
    * routes, it will render them according to
@@ -14,9 +24,6 @@ export const siteConfig: Config = {
    * this map or the mapped content so you need
    * to be sure that the content in the frontmatter
    * needs to be the same as what is expected of the parameter.
-   *
-   * Each key here also needs to be present in a route
-   * or nothing will happen.
    *
    * @example
    * ```javascript
@@ -37,6 +44,9 @@ export const siteConfig: Config = {
    */
   routes: [
     {
+      // Here we see our parameterMap being used.
+      // this will loop over all posts and keywords and generate
+      // content for each keyword it finds.
       path: "/tag/:tag",
       exact: true,
       component: TagPostList,
@@ -49,9 +59,12 @@ export const siteConfig: Config = {
    */
   rss: true,
 
-  postsPerPage: 10,
-
+  /**
+   * Define custom templates here, these are used by
+   * posts and pages that specify a template prop in
+   * their frontmatter config.
+   */
   templates: {
-    home: HomePage
-  }
+    home: HomePage,
+  },
 }

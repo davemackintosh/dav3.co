@@ -19,6 +19,7 @@ export const Grid = (component: ElementNames = "div") => styled(component)`
     props.rows === "auto" ? "auto" : "1fr ".repeat(props.rows || 3)};
   grid-column-gap: ${(props: GridProps): string => props.gutter || "1rem"};
   grid-row-gap: ${(props: GridProps): string => props.gutter || "1rem"};
+  align-items: center;
 `
 
 Grid.defaultProps = {

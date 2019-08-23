@@ -2,6 +2,7 @@ import React from "react"
 import {ContentProps} from "../../../../types/content"
 
 import {Nav, NavLi, NavLink, NavUl, SkipToContentNavLink} from "@styled/nav"
+import {BookingButton} from '@src/shared/components/booking-button';
 
 export interface SiteNavProps {
   pages: ContentProps[],
@@ -36,6 +37,9 @@ export default function SiteNav(props: SiteNavProps) {
           >
             Blog
           </NavLink>
+        </NavLi>
+        <NavLi>
+          <BookingButton />
         </NavLi>
         {
           props.pages
