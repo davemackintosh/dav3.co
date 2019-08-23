@@ -8,7 +8,7 @@ keywords:
 excerpt: I wanted to understand our finances better and all the tools online I found were premium model and ironically expensive. Lets parse bank statements with JavaScript!
 author: davemackintosh
 published: 2019-08-23T11:29:40.643Z
-status: published
+status: draft
 ---
 
 > Parsing bank statements will be easy!
