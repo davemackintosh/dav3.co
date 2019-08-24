@@ -20,7 +20,7 @@ testimonials:
 
 ---
 
-# React, NodeJS & Javascript developer & mentor
+# React, NodeJS & JavaScript developer & mentor
 
 <div class="hero">
   👋 I'm Dave Mackintosh, I write JavaScript all day. I do this in the form of React, NodeJS and TypeScript.
