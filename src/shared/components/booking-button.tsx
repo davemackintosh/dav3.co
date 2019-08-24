@@ -1,10 +1,18 @@
 import React, {Fragment} from "react"
-import {NavLink} from 'react-router-dom';
+import {PrimaryLink} from "@styled/links"
 import styled from "styled-components"
+import theme from '@src/shared/theme/theme';
 
 const Tiny = styled.small`
   font-size: 0.7em;
   display: block;
+`
+
+const CTABooking = styled(PrimaryLink)`
+  border-radius: 3px;
+  text-align: center;
+  background-color: ${theme.colors.fontAttention};
+  color: #FFF;
 `
 
 const takingBookings = false
@@ -12,24 +20,24 @@ const takingBookings = false
 export function BookingButton() {
   if (takingBookings) {
     return (
-      <NavLink
+      <CTABooking
         to="mailto:its+booking@dav3.co"
         title="Schedule a chat with Dave Mackintosh"
       >
         Looking for a JavaScript developer?
-      </NavLink>
+      </CTABooking>
     )
   }
   else {
     return (
       <Fragment>
         Not currently booking
-        <NavLink
+        <PrimaryLink
           to="mailto:its+booking@dav3.co"
           title="Talk to Dave Mackintosh"
         >
           <Tiny>If you still want to talk 💖 HMU</Tiny>
-        </NavLink>
+        </PrimaryLink>
       </Fragment>
     )
   }
