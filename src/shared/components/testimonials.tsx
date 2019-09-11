@@ -45,6 +45,7 @@ export default class Testimonials extends Component<TestimonialProps> {
       grid-template-columns: 1fr;
       grid-template-rows: 2;
       grid-auto-rows: min-content;
+      align-items: baseline;
 
       & ${StyledBlockquote}:nth-child(n + 3) {
         display: none;
