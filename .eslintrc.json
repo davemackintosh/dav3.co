@@ -41,22 +41,11 @@
     "camelcase": [
       "error"
     ],
-    "react/jsx-curly-spacing": [
-      "error",
-      {
-        "when": "always",
-        "children": true
-      }
-    ],
     "no-console": "warn",
     "no-debugger": 0,
     "comma-dangle": [
       "error",
       "always-multiline"
-    ],
-    "indent": [
-      2,
-      2
     ],
     "quotes": [
       2,

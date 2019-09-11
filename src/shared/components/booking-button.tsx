@@ -1,5 +1,5 @@
-import React, {Fragment} from "react"
-import {NavLink} from 'react-router-dom';
+import React, { Fragment } from "react"
+import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 
 const Tiny = styled.small`
@@ -9,7 +9,7 @@ const Tiny = styled.small`
 
 const takingBookings = false
 
-export function BookingButton() {
+export function BookingButton(): JSX.Element {
   if (takingBookings) {
     return (
       <NavLink
@@ -19,8 +19,7 @@ export function BookingButton() {
         Looking for a JavaScript developer?
       </NavLink>
     )
-  }
-  else {
+  } else {
     return (
       <Fragment>
         Not currently booking

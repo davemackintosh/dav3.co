@@ -1,6 +1,6 @@
 import React from "react"
 
-function Footer() {
+function Footer(): JSX.Element {
   return (
     <footer>
       <p>&copy; New World Code Ltd</p>
@@ -9,4 +9,3 @@ function Footer() {
 }
 
 export default Footer
-

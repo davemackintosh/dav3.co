@@ -1,5 +1,5 @@
 import React from "react"
-import {NavLink} from '@src/shared/theme/nav'
+import { NavLink } from "@src/shared/theme/nav"
 import styled from "styled-components"
 
 export interface PostHeaderTagsProps {
@@ -17,23 +17,23 @@ const TagItem = styled.li`
   margin-right: 1rem;
 `
 
-export default function PostHeaderTags(props: PostHeaderTagsProps) {
+export default function PostHeaderTags(
+  props: PostHeaderTagsProps,
+): JSX.Element {
   return (
     <nav>
       <TagList>
         <TagItem>🏷️:</TagItem>
-        {
-          (props.tags || []).map((tag: string) => (
-            <TagItem key={tag}>
-              <NavLink
-                to={ `/tag/${tag}` }
-                title={ `See more posts tagged with ${tag}` }
-              >
-                #{ tag }
-              </NavLink>
-            </TagItem>
-          ))
-        }
+        {(props.tags || []).map((tag: string) => (
+          <TagItem key={tag}>
+            <NavLink
+              to={`/tag/${tag}`}
+              title={`See more posts tagged with ${tag}`}
+            >
+              #{tag}
+            </NavLink>
+          </TagItem>
+        ))}
       </TagList>
     </nav>
   )

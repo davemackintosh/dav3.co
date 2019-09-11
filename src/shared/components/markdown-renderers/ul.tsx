@@ -1,12 +1,12 @@
 import React, { PureComponent } from "react"
 
-class ULWithListClass extends PureComponent {
-  public render() {
-    return (
-      <ul className="list">
-        { this.props.children }
-      </ul>
-    )
+interface ULWithListClassProps {
+  children: JSX.Element | JSX.Element[]
+}
+
+class ULWithListClass extends PureComponent<ULWithListClassProps> {
+  public render(): JSX.Element {
+    return <ul className="list">{this.props.children}</ul>
   }
 }
 

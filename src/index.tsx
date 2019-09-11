@@ -10,21 +10,21 @@ import SiteNav from "@components/nav/nav"
 import Router from "@components/router"
 import { pages } from "@src/routes"
 import routes from "@src/routes"
-import {Main} from "@src/shared/theme/main"
-import {GlobalStyle} from "@styled/global"
+import { Main } from "@src/shared/theme/main"
+import { GlobalStyle } from "@styled/global"
 import enGB from "@translations/en-gb"
 
 const rootNode = document.getElementById("dav3-container")
 
 const app = (
   <AppContainer>
-    <IntlProvider locale="en-gb" messages={ enGB }>
+    <IntlProvider locale="en-gb" messages={enGB}>
       <BrowserRouter>
         <Fragment>
           <GlobalStyle />
-          <SiteNav pages={ pages } />
+          <SiteNav pages={pages} />
           <Main id="content">
-            <Router routes={ routes } />
+            <Router routes={routes} />
             <BaseApp />
           </Main>
           <Footer />
@@ -36,6 +36,8 @@ const app = (
 
 ReactDOM.render(app, rootNode)
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 if ((module as any).hot) {
-  ((module as any).hot as any).accept()
+  ;((module as any).hot as any).accept()
 }
+/* eslint-enable @typescript-eslint/no-explicit-any */

@@ -2,15 +2,15 @@ import React from "react"
 import { Route, RouteProps, Switch } from "react-router"
 
 interface Props {
-  routes: RouteProps[],
+  routes: RouteProps[]
 }
 
-function Router(props: Props) {
+function Router(props: Props): JSX.Element {
   return (
     <Switch>
-      {
-        props.routes.map((route: RouteProps, index: number) => <Route key={index} {...route} />)
-      }
+      {props.routes.map((route: RouteProps, index: number) => (
+        <Route key={index} {...route} />
+      ))}
     </Switch>
   )
 }
