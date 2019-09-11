@@ -1,14 +1,14 @@
 import React from "react"
-import {ContentProps} from "../../../../types/content"
+import { ContentProps } from "../../../../types/content"
 
-import {Nav, NavLi, NavLink, NavUl, SkipToContentNavLink} from "@styled/nav"
-import {BookingButton} from '@src/shared/components/booking-button';
+import { Nav, NavLi, NavLink, NavUl, SkipToContentNavLink } from "@styled/nav"
+import { BookingButton } from "@src/shared/components/booking-button"
 
 export interface SiteNavProps {
-  pages: ContentProps[],
+  pages: ContentProps[]
 }
 
-export default function SiteNav(props: SiteNavProps) {
+export default function SiteNav(props: SiteNavProps): JSX.Element {
   return (
     <Nav>
       <SkipToContentNavLink
@@ -41,22 +41,20 @@ export default function SiteNav(props: SiteNavProps) {
         <NavLi>
           <BookingButton />
         </NavLi>
-        {
-          props.pages
-            .filter((page: ContentProps) => page.frontmatter.path !== "/")
-            .map((page: ContentProps) => (
-              <NavLi key={page.frontmatter.path}>
-                <NavLink
-                  to={page.frontmatter.path}
-                  title={page.frontmatter.title}
-                  aria-current="page"
-                  activeClassName="active"
-                >
-                  {page.frontmatter.title}
-                </NavLink>
-              </NavLi>
-            ))
-        }
+        {props.pages
+          .filter((page: ContentProps) => page.frontmatter.path !== "/")
+          .map((page: ContentProps) => (
+            <NavLi key={page.frontmatter.path}>
+              <NavLink
+                to={page.frontmatter.path}
+                title={page.frontmatter.title}
+                aria-current="page"
+                activeClassName="active"
+              >
+                {page.frontmatter.title}
+              </NavLink>
+            </NavLi>
+          ))}
       </NavUl>
     </Nav>
   )

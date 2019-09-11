@@ -10,18 +10,14 @@
 import React from "react"
 
 export interface WordCountProps {
-  text: string,
-  wpm?: number,
+  text: string
+  wpm?: number
 }
 
-function WordCount(props: WordCountProps) {
-  const wordCountMatch = (props.text || "")
-    .trim()
-    .match(/[\W+'-.]/g)
+function WordCount(props: WordCountProps): JSX.Element {
+  const wordCountMatch = (props.text || "").trim().match(/[\W+'-.]/g)
 
-  const wordCount = wordCountMatch
-    ? wordCountMatch.length
-    : 0
+  const wordCount = wordCountMatch ? wordCountMatch.length : 0
 
   const WPM = props.wpm || 225
   let readTime = Math.ceil(wordCount / WPM)
@@ -33,16 +29,12 @@ function WordCount(props: WordCountProps) {
   }
 
   if (readTime < 1) {
-    return (
-      <span className="read-time">
-        less than a minute
-      </span>
-    )
+    return <span className="read-time">less than a minute</span>
   }
 
   return (
     <span className="read-time">
-      Read time: { readTime } { readTimeVerb }
+      Read time: {readTime} {readTimeVerb}
     </span>
   )
 }

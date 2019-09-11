@@ -1,7 +1,7 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 import media from "styled-media-query"
-import styled from 'styled-components';
-import {Grid} from '@src/shared/theme/grid';
+import styled from "styled-components"
+import { Grid } from "@src/shared/theme/grid"
 
 /**
  * Testimonials are stored as plain strings
@@ -23,7 +23,6 @@ export const StyledBlockquote = styled.blockquote`
     left: -0.5em;
     font-size: 2em;
     color: rgba(255, 255, 255, 0.5);
-
   }
 
   ${media.lessThan("medium")`
@@ -37,19 +36,16 @@ export default class Testimonials extends Component<TestimonialProps> {
   }
 
   private renderTestimonial(testimonial: string): JSX.Element {
-    return (
-      <StyledBlockquote>
-        {testimonial}
-      </StyledBlockquote>
-    )
+    return <StyledBlockquote>{testimonial}</StyledBlockquote>
   }
 
-  render() {
+  render(): JSX.Element {
     const TestimonialGrid = styled(Grid("div"))`
       ${media.lessThan("medium")`
       grid-template-columns: 1fr;
       grid-template-rows: 2;
       grid-auto-rows: min-content;
+      align-items: baseline;
 
       & ${StyledBlockquote}:nth-child(n + 3) {
         display: none;

@@ -1,22 +1,22 @@
 import BaseApp from "@components/base-app/base-app"
 import Router from "@components/router"
 import SiteNav from "@src/shared/components/nav/nav"
-import {GlobalStyle} from "@src/shared/theme/global"
-import {Main} from "@src/shared/theme/main"
+import { GlobalStyle } from "@src/shared/theme/global"
+import { Main } from "@src/shared/theme/main"
 import enGb from "@translations/en-gb"
-import {mkdirSync, readFileSync, writeFileSync} from "fs"
-import {dirname, resolve, basename} from "path"
-import React, {Fragment} from "react"
-import {renderToString} from "react-dom/server"
-import {AppContainer} from "react-hot-loader"
-import {IntlProvider} from "react-intl"
-import {RouteProps, StaticRouter} from "react-router"
-import {ServerStyleSheet} from "styled-components"
-import {ContentProps} from "types/content"
-import {pages, routes, posts} from "../routes"
-import {siteConfig} from "@config"
-import Helmet, {HelmetData} from "react-helmet"
-import {minify} from "html-minifier"
+import { mkdirSync, readFileSync, writeFileSync } from "fs"
+import { dirname, resolve, basename } from "path"
+import React, { Fragment } from "react"
+import { renderToString } from "react-dom/server"
+import { AppContainer } from "react-hot-loader"
+import { IntlProvider } from "react-intl"
+import { RouteProps, StaticRouter } from "react-router"
+import { ServerStyleSheet } from "styled-components"
+import { ContentProps } from "types/content"
+import { pages, routes, posts } from "../routes"
+import { siteConfig } from "@config"
+import Helmet, { HelmetData } from "react-helmet"
+import { minify } from "html-minifier"
 
 export interface PaginatedRoute extends RouteProps {
   paginated?: boolean
@@ -42,14 +42,20 @@ export interface WritableContentObject {
  * @param {ContentProps[]} posts to get tags for.
  * @return {string[]} array of unique content.
  */
-export function collectUniqueMappedContent(content: ContentProps[], parameter: string): string[] {
-  const tags: string[] = content.reduce((workingTags: string[], post: ContentProps): string[] => {
-    if (post.frontmatter[parameter]) {
-      return workingTags.concat(post.frontmatter[parameter])
-    }
+export function collectUniqueMappedContent(
+  content: ContentProps[],
+  parameter: string,
+): string[] {
+  const tags: string[] = content.reduce(
+    (workingTags: string[], post: ContentProps): string[] => {
+      if (post.frontmatter[parameter]) {
+        return workingTags.concat(post.frontmatter[parameter])
+      }
 
-    return workingTags
-  }, [])
+      return workingTags
+    },
+    [],
+  )
 
   return Array.from(new Set(tags)) // De-dupe
 }
@@ -61,7 +67,9 @@ export function collectUniqueMappedContent(content: ContentProps[], parameter: s
  * @param {RouteProps[]} routes to separate.
  * @returns {{separated: RouteProps[], normal: RouteProps[]}} categorised content.
  */
-export function separateParameterisedRoutes(routes: PaginatedRoute[]): Record<string, PaginatedRoute[]> {
+export function separateParameterisedRoutes(
+  routes: PaginatedRoute[],
+): Record<string, PaginatedRoute[]> {
   const separatedContent: Record<string, PaginatedRoute[]> = {
     parameterised: [],
     normal: [],
@@ -72,11 +80,9 @@ export function separateParameterisedRoutes(routes: PaginatedRoute[]): Record<st
     route.path = (route.path as string).toLowerCase()
     if (route.paginated) {
       separatedContent.paginated.push(route)
-    }
-    else if (route.path && route.path.includes(":")) {
+    } else if (route.path && route.path.includes(":")) {
       separatedContent.parameterised.push(route)
-    }
-    else {
+    } else {
       separatedContent.normal.push(route)
     }
   })
@@ -89,13 +95,14 @@ export function separateParameterisedRoutes(routes: PaginatedRoute[]): Record<st
  *
  * @param {WritableContentObject} content to write to a file.
  */
-export function writeContentToFile(content: WritableContentObject) {
-  const htmlMarkup = readFileSync(resolve(process.cwd(), "./dist/index.html")).toString()
-    .replace(/\<title\>.*\<\/title\>/gi, content.meta.title.toString())
+export function writeContentToFile(content: WritableContentObject): void {
+  const htmlMarkup = readFileSync(resolve(process.cwd(), "./dist/index.html"))
+    .toString()
+    .replace(/<title>.*<\/title>/gi, content.meta.title.toString())
     .replace("</title>", "</title>" + content.meta.meta)
     .replace("</head>", content.styles + "</head>")
     .replace("</head>", content.meta.link + "</head>")
-    .replace(/.*\<script.*\>\<\/script\>.*/gi, content.body)
+    .replace(/.*<script.*><\/script>.*/gi, content.body)
   const minifiedMarkup = minify(htmlMarkup, {
     removeTagWhitespace: true,
     collapseWhitespace: true,
@@ -105,84 +112,100 @@ export function writeContentToFile(content: WritableContentObject) {
     minifyJS: true,
   })
 
-  mkdirSync(dirname(content.path), {recursive: true})
-  console.log("Writing %s", content.path)
+  mkdirSync(dirname(content.path), { recursive: true })
+  console.log("Writing %s", content.path) // eslint-disable-line no-console
   writeFileSync(content.path, minifiedMarkup)
 }
 
-export function getRenderableContent(config: BuildStaticOptions, route: RouteProps): WritableContentObject {
+export function getRenderableContent(
+  config: BuildStaticOptions,
+  route: RouteProps,
+): WritableContentObject {
   const stylesheet = new ServerStyleSheet()
 
-  const renderedApp = ({
-    path: config.target + ((route.path as string).toLowerCase()) + "/index.html",
-    body: renderToString(stylesheet.collectStyles((
-      <AppContainer>
-        <IntlProvider locale="en-gb" messages={enGb}>
-          <StaticRouter location={route.path} context={{}}>
-            <Fragment>
-              <GlobalStyle />
-              <SiteNav pages={pages} />
-              <Main id="content">
-                <Router routes={routes} />
-                <BaseApp />
-              </Main>
-            </Fragment>
-          </StaticRouter>
-        </IntlProvider>
-      </AppContainer>
-    ))),
+  const renderedApp = {
+    path: config.target + (route.path as string).toLowerCase() + "/index.html",
+    body: renderToString(
+      stylesheet.collectStyles(
+        <AppContainer>
+          <IntlProvider locale="en-gb" messages={enGb}>
+            <StaticRouter location={route.path} context={{}}>
+              <Fragment>
+                <GlobalStyle />
+                <SiteNav pages={pages} />
+                <Main id="content">
+                  <Router routes={routes} />
+                  <BaseApp />
+                </Main>
+              </Fragment>
+            </StaticRouter>
+          </IntlProvider>
+        </AppContainer>,
+      ),
+    ),
     styles: stylesheet.getStyleTags(),
-    meta: Helmet.renderStatic()
-  })
+    meta: Helmet.renderStatic(),
+  }
 
   stylesheet.seal()
   return renderedApp
 }
 
-export function getRenderableRSSContent(config: BuildStaticOptions, content: ContentProps[]): string {
+export function getRenderableRSSContent(
+  config: BuildStaticOptions,
+  content: ContentProps[],
+): string {
   return `<?xml version="1.0"?>
 <rss version= "2.0">
   <channel>
-  ${
-    content
-    .filter((targetContent: ContentProps) => targetContent.frontmatter.status !== "draft" && targetContent.frontmatter.published !== "false")
+  ${content
+    .filter(
+      (targetContent: ContentProps) =>
+        targetContent.frontmatter.status !== "draft" &&
+        targetContent.frontmatter.published !== "false",
+    )
     .map((targetContent: ContentProps) => {
       const title = targetContent.frontmatter.title
       const description = targetContent.frontmatter.excerpt
+      const link = `${config.baseUrl}/blog/${basename(
+        targetContent.contentPath.toLowerCase(),
+        ".md",
+      )}`
       return `<item>
           <title>${title}</title>
           <description>${description}</description>
-          <link>${config.baseUrl}/blog/${basename(targetContent.contentPath.toLowerCase(), ".md")}/</link>
+          <link>${link}/</link>
         </item>`
     })
-      .join("\n")
-  }
+    .join("\n")}
   </channel>
 </rss>
 `
 }
 
-export function getRenderableSiteMapContent(config: BuildStaticOptions, content: RouteProps[]): string {
+export function getRenderableSiteMapContent(
+  config: BuildStaticOptions,
+  content: RouteProps[],
+): string {
   return `<?xml version="1.0"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${
-    content
+  ${content
     .map((targetContent: RouteProps) => {
-      const loc = ((targetContent.path as string).replace(config.target, config.baseUrl))
+      const loc = (targetContent.path as string)
+        .replace(config.target, config.baseUrl)
         .replace("/index.html", "")
       return `<url>
           <changefreq>weekly</changefreq>
           <loc>${loc}</loc>
         </url>`
     })
-      .join("\n")
-  }
+    .join("\n")}
 </urlset>
 `
 }
 
-export default function BuildStatic(config: BuildStaticOptions) {
-  mkdirSync(config.target, {recursive: true})
+export default function BuildStatic(config: BuildStaticOptions): void {
+  mkdirSync(config.target, { recursive: true })
 
   // Collect information on the content so we can
   // do the right work with the right data at the
@@ -190,28 +213,40 @@ export default function BuildStatic(config: BuildStaticOptions) {
   const separatedContent = separateParameterisedRoutes(routes)
 
   // Create the content for the normal content first.
-  const writableContent = separatedContent.normal.map((route: RouteProps) => getRenderableContent(config, route))
+  const writableContent = separatedContent.normal.map((route: RouteProps) =>
+    getRenderableContent(config, route),
+  )
 
   // Write these pages.
   writableContent.forEach(writeContentToFile)
 
-  const parameterisedContent = Object.keys(siteConfig.parameterMap)
-    .reduce((out: WritableContentObject[], currentParameter: string) => {
+  const parameterisedContent = Object.keys(siteConfig.parameterMap).reduce(
+    (out: WritableContentObject[], currentParameter: string) => {
       const targetFrontmatter = siteConfig.parameterMap[currentParameter]
-      const targetRoute = (siteConfig.routes || []).find((route: RouteProps) => (route.path || "").includes(currentParameter))
+      const targetRoute = (siteConfig.routes || []).find((route: RouteProps) =>
+        (route.path || "").includes(currentParameter),
+      )
       const targetContent = collectUniqueMappedContent(posts, targetFrontmatter)
 
-      if (!targetRoute)
-        return out
+      if (!targetRoute) return out
 
-      return out.concat(targetContent.map((value: string): WritableContentObject => {
-        const modifiedRoute = {
-          ...targetRoute,
-          path: (targetRoute.path as string).replace(new RegExp(currentParameter), value),
-        }
-        return getRenderableContent(config, modifiedRoute)
-      }))
-    }, [])
+      return out.concat(
+        targetContent.map(
+          (value: string): WritableContentObject => {
+            const modifiedRoute = {
+              ...targetRoute,
+              path: (targetRoute.path as string).replace(
+                new RegExp(currentParameter),
+                value,
+              ),
+            }
+            return getRenderableContent(config, modifiedRoute)
+          },
+        ),
+      )
+    },
+    [],
+  )
 
   // Write these pages.
   parameterisedContent.forEach(writeContentToFile)
@@ -219,30 +254,40 @@ export default function BuildStatic(config: BuildStaticOptions) {
   // Write paginated lists.
   const perPage = siteConfig.postsPerPage || 10
   const pages = Math.ceil(posts.length / perPage)
-  const writablePages: WritableContentObject[] = separatedContent.paginated.reduce((out: WritableContentObject[], route: PaginatedRoute): WritableContentObject[] => {
-    for (let page = 0; page < pages; page += 1) {
-      const modifiedRoute = {
-        ...route,
-        path: (route.path as string).replace(":page", page.toString())
+  const writablePages: WritableContentObject[] = separatedContent.paginated.reduce(
+    (
+      out: WritableContentObject[],
+      route: PaginatedRoute,
+    ): WritableContentObject[] => {
+      for (let page = 0; page < pages; page += 1) {
+        const modifiedRoute = {
+          ...route,
+          path: (route.path as string).replace(":page", page.toString()),
+        }
+
+        out.push(getRenderableContent(config, modifiedRoute))
       }
 
-      out.push(getRenderableContent(config, modifiedRoute))
-    }
-
-    return out
-  }, [])
+      return out
+    },
+    [],
+  )
 
   writablePages.forEach(writeContentToFile)
 
   if (siteConfig.rss) {
     const rssFeed = getRenderableRSSContent(config, posts)
-    console.log("Writing: %s", config.target + "/rss.xml")
+    console.log("Writing: %s", config.target + "/rss.xml") // eslint-disable-line no-console
     writeFileSync(config.target + "/rss.xml", rssFeed)
   }
 
-  const rssFeed = getRenderableSiteMapContent(config, [...writableContent, ...writablePages, ...parameterisedContent])
-  console.log("Writing: %s", config.target + "/sitemap.xml")
-  writeFileSync(config.target + "/sitemap.xml", rssFeed)
+  const sitemap = getRenderableSiteMapContent(config, [
+    ...writableContent,
+    ...writablePages,
+    ...parameterisedContent,
+  ])
+  console.log("Writing: %s", config.target + "/sitemap.xml") // eslint-disable-line no-console
+  writeFileSync(config.target + "/sitemap.xml", sitemap)
 }
 
 BuildStatic({
