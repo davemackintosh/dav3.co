@@ -10,6 +10,10 @@
         </url>
 <url>
           <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/blog/widi-a-small-project-with-a-giant-footprint-with-babel</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
           <loc>https://dav3.co/</loc>
         </url>
 <url>
@@ -35,5 +39,17 @@
 <url>
           <changefreq>weekly</changefreq>
           <loc>https://dav3.co/tag/javascript</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/es6</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/babel</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/web midi</loc>
         </url>
 </urlset>
