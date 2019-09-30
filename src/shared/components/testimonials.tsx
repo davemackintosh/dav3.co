@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { XmlEntities } from "html-entities"
 import media from "styled-media-query"
 import styled from "styled-components"
 import { Grid } from "@src/shared/theme/grid"
@@ -35,17 +36,21 @@ export default class Testimonials extends Component<TestimonialProps> {
     testimonials: [],
   }
 
+  decode = new XmlEntities().decode
+
   private renderTestimonial(testimonial: string): JSX.Element {
-    return <StyledBlockquote>{testimonial}</StyledBlockquote>
+    return <StyledBlockquote>{this.decode(testimonial)}</StyledBlockquote>
   }
 
   render(): JSX.Element {
     const TestimonialGrid = styled(Grid("div"))`
+      align-items: baseline;
+      grid-gap: 2em;
+
       ${media.lessThan("medium")`
       grid-template-columns: 1fr;
       grid-template-rows: 2;
       grid-auto-rows: min-content;
-      align-items: baseline;
 
       & ${StyledBlockquote}:nth-child(n + 3) {
         display: none;
