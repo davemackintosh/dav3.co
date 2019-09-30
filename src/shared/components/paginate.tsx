@@ -10,7 +10,7 @@ interface Props {
 
 function Paginate(props: Props): JSX.Element {
   const numberOfPages = Math.ceil(props.totalItems / props.perPage)
-  const GridContainer = Grid("div")
+  const GridContainer = Grid("div")``
   return (
     <GridContainer>
       {Array.from(Array(numberOfPages)).map((_nope, index: number) => (

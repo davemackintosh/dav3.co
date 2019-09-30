@@ -38,8 +38,12 @@ export default class Testimonials extends Component<TestimonialProps> {
 
   decode = new XmlEntities().decode
 
-  private renderTestimonial(testimonial: string): JSX.Element {
-    return <StyledBlockquote>{this.decode(testimonial)}</StyledBlockquote>
+  private renderTestimonial(testimonial: string, index: number): JSX.Element {
+    return (
+      <StyledBlockquote key={index}>
+        {this.decode(testimonial)}
+      </StyledBlockquote>
+    )
   }
 
   render(): JSX.Element {

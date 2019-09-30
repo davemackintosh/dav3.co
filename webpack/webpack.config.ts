@@ -16,6 +16,7 @@ const alias = {
   "@lib": resolve(src + "/shared/lib"),
   "@styled": resolve(src + "/shared/theme"),
   "@config": resolve(process.cwd(), "./config.ts"),
+  "react-dom": "@hot-loader/react-dom",
 }
 
 const webpackConfig = {
