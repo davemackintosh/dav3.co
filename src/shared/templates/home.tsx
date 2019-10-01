@@ -1,6 +1,6 @@
 import React, { Fragment } from "react"
 import { ContentProps } from "types/content"
-import Helmet from "react-helmet"
+import { Helmet } from "react-helmet"
 import LatestPosts from "@src/shared/components/post/latest"
 import { siteConfig } from "@config"
 import { posts } from "@src/routes"

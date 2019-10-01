@@ -17,6 +17,7 @@ import { pages, routes, posts } from "../routes"
 import { siteConfig } from "@config"
 import Helmet, { HelmetData } from "react-helmet"
 import { minify } from "html-minifier"
+import Footer from "@src/shared/components/footer/footer"
 
 export interface PaginatedRoute extends RouteProps {
   paginated?: boolean
@@ -108,7 +109,7 @@ export function writeContentToFile(content: WritableContentObject): void {
     collapseWhitespace: true,
     removeComments: true,
     removeRedundantAttributes: true,
-    minifyCSS: true,
+    //minifyCSS: true,
     minifyJS: true,
   })
 
@@ -137,6 +138,7 @@ export function getRenderableContent(
                   <Router routes={routes} />
                   <BaseApp />
                 </Main>
+                <Footer />
               </Fragment>
             </StaticRouter>
           </IntlProvider>

@@ -1,5 +1,5 @@
 import React from "react"
-import Helmet from "react-helmet"
+import { Helmet } from "react-helmet"
 import { Link, withRouter, RouteComponentProps } from "react-router-dom"
 import WordCount from "@components/post/word-count"
 import PostHeaderTags from "@components/tags/post-header-tags"

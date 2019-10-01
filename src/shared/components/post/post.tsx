@@ -1,6 +1,6 @@
 import Markdown from "@components/md-parser/md-parser"
 import React from "react"
-import Helmet from "react-helmet"
+import { Helmet } from "react-helmet"
 
 import { ContentProps } from "../../../../types/content"
 
