@@ -109,7 +109,7 @@ export function writeContentToFile(content: WritableContentObject): void {
     collapseWhitespace: true,
     removeComments: true,
     removeRedundantAttributes: true,
-    minifyCSS: true,
+    //minifyCSS: true,
     minifyJS: true,
   })
 
