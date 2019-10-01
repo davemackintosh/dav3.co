@@ -1,7 +1,7 @@
 import { XmlEntities } from "html-entities"
 import React, { PureComponent } from "react"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { base16AteliersulphurpoolLight as theme } from "react-syntax-highlighter/dist/esm/styles/prism"
+import theme from "./code-theme"
 
 export interface CodeProps {
   language: string
