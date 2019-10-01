@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { GoMarkGithub } from "react-icons/go"
 import { IoLogoTwitter } from "react-icons/io"
 import theme from "@src/shared/theme/theme"
-import { Link } from "react-router-dom"
 import { Grid } from "@src/shared/theme/grid"
 
 const Small = styled.small`
@@ -31,8 +30,8 @@ function Footer(): JSX.Element {
       <hr />
       <LinkGrid>
         <Small>
-          <Link
-            to="https://twitter.com/daveymackintosh"
+          <a
+            href="https://twitter.com/daveymackintosh"
             rel="noopen no-referrer"
             title="Dave Mackintosh's Twitter profile"
           >
@@ -40,11 +39,11 @@ function Footer(): JSX.Element {
               <IoLogoTwitter />
             </Icon>
             Twitter
-          </Link>
+          </a>
         </Small>
         <Small>
-          <Link
-            to="https://github.com/davemackintosh"
+          <a
+            href="https://github.com/davemackintosh"
             rel="noopen no-referrer"
             title="Dave Mackintosh's Github profile"
           >
@@ -52,7 +51,7 @@ function Footer(): JSX.Element {
               <GoMarkGithub />
             </Icon>
             Github
-          </Link>
+          </a>
         </Small>
       </LinkGrid>
     </StyledFooter>

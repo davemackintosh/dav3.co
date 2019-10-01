@@ -19,7 +19,7 @@ export default function SiteNav(props: SiteNavProps): JSX.Element {
       >
         Skip to content
       </SkipToContentNavLink>
-      <NavUl rows={1} columns={4}>
+      <NavUl rows={2} columns={2}>
         <NavLi>
           <NavLink
             to="/"
