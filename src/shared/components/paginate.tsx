@@ -1,6 +1,7 @@
 import React from "react"
 import { NavLink } from "@src/shared/theme/nav"
 import { Grid } from "@src/shared/theme/grid"
+import styled from "styled-components"
 
 interface Props {
   perPage: number
@@ -10,7 +11,7 @@ interface Props {
 
 function Paginate(props: Props): JSX.Element {
   const numberOfPages = Math.ceil(props.totalItems / props.perPage)
-  const GridContainer = Grid("div")
+  const GridContainer = styled(Grid("div"))``
   return (
     <GridContainer>
       {Array.from(Array(numberOfPages)).map((_nope, index: number) => (
