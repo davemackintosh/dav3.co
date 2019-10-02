@@ -47,6 +47,7 @@ const webpackConfig = {
   plugins: [
     new NamedModulesPlugin(),
     new DefinePlugin({
+      "process.env.DEV": true,
       "process.platform": JSON.stringify(process.platform),
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
       "global.$content.pages": `'${JSON.stringify(pages).replace(

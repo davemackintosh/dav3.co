@@ -6,6 +6,7 @@ import { NavLink } from "@styled/nav"
 import WordCount from "@components/post/word-count"
 import PostHeaderTags from "@components/tags/post-header-tags"
 import { Published } from "@components/published"
+import PostStatus from "@src/shared/components/post/post-status"
 
 export interface Props {
   numberOfPosts: number
@@ -20,6 +21,7 @@ export default function LatestPosts(props: Props): JSX.Element {
           post.frontmatter.keywords && post.frontmatter.keywords.length ? (
             <PostHeaderTags tags={post.frontmatter.keywords} />
           ) : null
+        const postStatus = PostStatus(post.frontmatter.status)
         return (
           <PostPreview key={post.contentPath}>
             <h2>
@@ -29,6 +31,7 @@ export default function LatestPosts(props: Props): JSX.Element {
               >
                 {post.frontmatter.title}
               </NavLink>
+              {postStatus}
             </h2>
             <WordCount text={post.markdown} />
             <Published published={post.frontmatter.published} />
