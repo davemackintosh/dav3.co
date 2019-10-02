@@ -5,7 +5,7 @@ keywords:
   - portfolio
   - work history
 description: Dave Mackintosh's work history and portfolio.
-layout: work-history
+template: work-history
 status: draft
 ---
 
