@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import media from "styled-media-query"
 import theme from "@src/shared/theme/theme"
 
 export const WorkHistoryOl = styled.ol`
@@ -20,6 +21,7 @@ export const CompanyName = styled.strong`
   color: ${theme.colors.fontAttention};
 `
 export const JobTag = styled.span`
+  display: inline-block;
   padding: 0.5em 0.6em 0.5em 0.5em;
   color: ${theme.colors.fontCta};
   border: 1px solid ${theme.colors.fontCta};
@@ -27,5 +29,10 @@ export const JobTag = styled.span`
   font-size: 0.7em;
   font-style: italic;
   border-radius: 0.3em;
+
+  ${media.lessThan("medium")`
+    padding: 0 0.3em 0 0.25em;
+    margin-bottom: 0.5em;
+  `}
 `
 export const JobDate = styled.time``

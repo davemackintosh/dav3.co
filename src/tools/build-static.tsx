@@ -18,6 +18,7 @@ import { siteConfig } from "@config"
 import Helmet, { HelmetData } from "react-helmet"
 import { minify } from "html-minifier"
 import Footer from "@src/shared/components/footer/footer"
+import { BookingButton } from "@src/shared/components/booking-button"
 
 export interface PaginatedRoute extends RouteProps {
   paginated?: boolean
@@ -133,6 +134,7 @@ export function getRenderableContent(
             <StaticRouter location={route.path} context={{}}>
               <Fragment>
                 <GlobalStyle />
+                <BookingButton />
                 <SiteNav pages={pages} />
                 <Main id="content">
                   <Router routes={routes} />

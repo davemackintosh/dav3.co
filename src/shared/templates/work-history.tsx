@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import {
   WorkHistoryOl,
   WorkHistoryLi,
@@ -9,6 +9,8 @@ import {
   JobDate,
 } from "@src/shared/theme/work-history"
 import workHistory, { WorkHistoryEntry } from "@src/work-history"
+import { ContentProps } from "types/content"
+import Markdown from "@components/md-parser/md-parser"
 
 const monthNames = [
   "January",
@@ -67,15 +69,18 @@ const WorkHistoryEntryComponent = (props: WorkHistoryEntry): JSX.Element => {
   )
 }
 
-const WorkHistory = (): JSX.Element => {
+const WorkHistory = (props: ContentProps): JSX.Element => {
   return (
-    <WorkHistoryOl>
-      {workHistory.map(
-        (entry: WorkHistoryEntry): JSX.Element => (
-          <WorkHistoryEntryComponent key={entry.company} {...entry} />
-        ),
-      )}
-    </WorkHistoryOl>
+    <Fragment>
+      <Markdown markdown={props.markdown} />
+      <WorkHistoryOl>
+        {workHistory.map(
+          (entry: WorkHistoryEntry): JSX.Element => (
+            <WorkHistoryEntryComponent key={entry.company} {...entry} />
+          ),
+        )}
+      </WorkHistoryOl>
+    </Fragment>
   )
 }
 
