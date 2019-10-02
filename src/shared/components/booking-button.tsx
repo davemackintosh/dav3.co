@@ -10,7 +10,12 @@ export function BookingButton(): JSX.Element {
   return (
     <Fragment>
       Are you looking for a developer?
-      <a href="mailto:its+jobhunting@dav3.co" title="Talk to Dave Mackintosh">
+      <a
+        href="https://calendly.com/davemackintosh/15min"
+        title="Talk to Dave Mackintosh"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Tiny>I&apos;m looking for a job 💖 HMU</Tiny>
       </a>
     </Fragment>
