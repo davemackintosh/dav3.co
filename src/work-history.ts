@@ -28,14 +28,14 @@ const workHistory: WorkHistoryEntry[] = [
     company: "Verve",
     tags: ["Angular 1", "react"],
     description:
-      "A React and NodeJS developer rebuilding an existing product from architecture, development practices, scrum mentoring, team support and mentoring to building an incredibly complex, cofiguration based system where half of the interface is generated entirely from Multicolour models.",
+      "I was a general purpose developer in this organisation, mostnof my time was spent working on improvements to their payment path and fixing bugs in their existing software before being put on the React team to work on the rebuild of their platform.",
   },
   {
     dates: [new Date(2017, 1, 1), new Date(2017, 2, 1)],
     company: "National Army Museum feat. Squint Opera",
-    tags: ["backbone", "svg"],
+    tags: ["backbone", "multicolour", "svg"],
     description:
-      "A React and NodeJS developer rebuilding an existing product from architecture, development practices, scrum mentoring, team support and mentoring to building an incredibly complex, cofiguration based system where half of the interface is generated entirely from Multicolour models.",
+      "Squint Opera and I had worked together previouskynandnwe teamed up again to help the National Army Museum build their new exhibit technology with home baked analytics. I built the exhibit map and analytics API and visualised them on a map of the entire building, per exhibit.",
     feedback:
       "Dave is a great developer. Fun and diligent. His work is top notch. ~ Rob Mason",
   },
@@ -44,7 +44,7 @@ const workHistory: WorkHistoryEntry[] = [
     company: "Google/Tishman Speyer feat. Hirsch&Mann",
     tags: ["cordova", "multicolour", "realtime", "cco", "odroid", "android"],
     description:
-      "A React and NodeJS developer rebuilding an existing product from architecture, development practices, scrum mentoring, team support and mentoring to building an incredibly complex, cofiguration based system where half of the interface is generated entirely from Multicolour models.",
+      "Due to the success of our partnership previously Hirsch&Mann engaged me again to help build the technology to power physical displays used by Google for their pop-up store in New York during the Pixel release. This was a real time synchronised visual dance of varying animations across nearly 300 devices in a sphere. Tishman Speyer used the same technology to synchronise 200 screens playing videos to within a few ms of difference. I built this using Multicolour, Sockets, Cordova/CCA and custom made framework for delivering all tue required code from the primary node in the network.",
     feedback:
       "Dave was a great partner for many months on a challenging project. We're an innovation service provider and build technological solutions that have never been done; pushing our imagination, problem-solving, and endurance. In this context, Dave led coding on an entire ecosystem of servers and clients to help us deliver a new product line to top-shelf clients. Dave is a highly skilled team member, and we recommend him without reservation. ~ Alan Reitsch",
   },
