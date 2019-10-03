@@ -65,6 +65,7 @@ export const JobTag = styled.span`
   font-size: 0.7em;
   font-style: italic;
   border-radius: 0.3em;
+  text-transform: uppercase;
 
   ${media.lessThan("medium")`
     padding: 0 0.3em 0 0.25em;
