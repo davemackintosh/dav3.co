@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .hero {
-    ${media.greaterThan("medium")`'
+    ${media.greaterThan("medium")`
       padding: 4rem;
       margin: 5rem 0;
       line-height: 2em;
@@ -44,7 +44,6 @@ export const GlobalStyle = createGlobalStyle`
       text-align: center;
       background-color: #5A5E65;
       background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQImWNgYGD4z0AswK4SAFXuAf8EPy+xAAAAAElFTkSuQmCC);
-
     `}
   }
 `

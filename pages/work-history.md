@@ -6,7 +6,6 @@ keywords:
   - work history
 description: Dave Mackintosh's work history and portfolio.
 template: work-history
-status: draft
 ---
 
 I use technology to solve problems, I pick the appropriate technology to solve the problem at the highest speed and quality I can. I enjoy solving all kinds of problems from team organisation and member learning to complex automation platforms and creative visuals.

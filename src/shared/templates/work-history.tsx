@@ -12,6 +12,7 @@ import workHistory, { WorkHistoryEntry } from "@src/work-history"
 import { ContentProps } from "types/content"
 import Markdown from "@components/md-parser/md-parser"
 import { Permalink } from "@src/shared/components/markdown-renderers/header-N"
+import { Helmet } from "react-helmet"
 
 const monthNames = [
   "January",
@@ -85,6 +86,16 @@ const WorkHistoryEntryComponent = (props: WorkHistoryEntry): JSX.Element => {
 const WorkHistory = (props: ContentProps): JSX.Element => {
   return (
     <Fragment>
+      <Helmet>
+        <title>{props.frontmatter.title}</title>
+        <meta name="description" content={props.frontmatter.description} />
+        <meta
+          name="keywords"
+          content={(props.frontmatter.keywords || []).join(" ")}
+        />
+
+        <body className={props.frontmatter.bodyClasses} />
+      </Helmet>
       <h1 id="work-history">
         <Permalink
           to={"#work-history"}

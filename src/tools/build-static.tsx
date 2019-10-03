@@ -16,7 +16,7 @@ import { ContentProps } from "types/content"
 import { pages, routes, posts } from "../routes"
 import { siteConfig } from "@config"
 import Helmet, { HelmetData } from "react-helmet"
-import { minify } from "html-minifier"
+//import { minify } from "html-minifier"
 import Footer from "@src/shared/components/footer/footer"
 import { BookingButton } from "@src/shared/components/booking-button"
 
@@ -105,14 +105,10 @@ export function writeContentToFile(content: WritableContentObject): void {
     .replace("</head>", content.styles + "</head>")
     .replace("</head>", content.meta.link + "</head>")
     .replace(/.*<script.*><\/script>.*/gi, content.body)
-  const minifiedMarkup = minify(htmlMarkup, {
-    removeTagWhitespace: true,
+  const minifiedMarkup = htmlMarkup /*minify(htmlMarkup, {
     collapseWhitespace: true,
     removeComments: true,
-    removeRedundantAttributes: true,
-    //minifyCSS: true,
-    minifyJS: true,
-  })
+    })*/
 
   mkdirSync(dirname(content.path), { recursive: true })
   console.log("Writing %s", content.path) // eslint-disable-line no-console
