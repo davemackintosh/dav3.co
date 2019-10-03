@@ -7,8 +7,7 @@ const Tiny = styled.small`
 `
 
 const HiringBar = styled.div`
-  background: black;
-  color: white;
+  text-align: right;
 `
 
 export function BookingButton(): JSX.Element {
@@ -21,7 +20,7 @@ export function BookingButton(): JSX.Element {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Tiny>I&apos;m looking for a job 💖 HMU</Tiny>
+        <Tiny>I&apos;m looking for a permenant job 💖 HMU</Tiny>
       </a>
     </HiringBar>
   )

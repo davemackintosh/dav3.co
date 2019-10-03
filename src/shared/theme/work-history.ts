@@ -12,10 +12,26 @@ export const WorkHistoryLi = styled.li`
   width: 100%;
   margin: 0;
   margin-bottom: 2em;
+  box-sizing: border-box;
+
+  &:nth-child(odd) {
+    padding-right: 50%;
+
+    text-align: left;
+  }
+
+  &:nth-child(even) {
+    padding-left: 50%;
+    text-align: right;
+  }
 `
 export const WorkHistoryDetails = styled.details``
 export const WorkHistoryDetailsSummary = styled.summary`
   color: ${theme.colors.fontCta};
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 export const CompanyName = styled.strong`
   color: ${theme.colors.fontAttention};
