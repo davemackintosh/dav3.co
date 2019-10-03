@@ -8,6 +8,10 @@ const Tiny = styled.small`
 
 const HiringBar = styled.div`
   text-align: right;
+
+  @media print {
+    display: none;
+  }
 `
 
 export function BookingButton(): JSX.Element {

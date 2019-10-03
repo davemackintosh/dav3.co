@@ -11,6 +11,7 @@ import {
 import workHistory, { WorkHistoryEntry } from "@src/work-history"
 import { ContentProps } from "types/content"
 import Markdown from "@components/md-parser/md-parser"
+import { Permalink } from "@src/shared/components/markdown-renderers/header-N"
 
 const monthNames = [
   "January",
@@ -72,6 +73,15 @@ const WorkHistoryEntryComponent = (props: WorkHistoryEntry): JSX.Element => {
 const WorkHistory = (props: ContentProps): JSX.Element => {
   return (
     <Fragment>
+      <h1 id="work-history">
+        <Permalink
+          to={"#work-history"}
+          title="Permalink to Dave Mackintosh's Work History"
+        >
+          #
+        </Permalink>
+        Dave Mackintosh&apos;s Work History
+      </h1>
       <Markdown markdown={props.markdown} />
       <WorkHistoryOl>
         {workHistory.map(

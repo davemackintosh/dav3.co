@@ -2,8 +2,6 @@ import styled from "styled-components"
 import media from "styled-media-query"
 import theme from "@src/shared/theme/theme"
 
-// <svg xmlns='http://www.w3.org/2000/svg' width='1' height='1'><rect fill='#e82ea7' x='0' y='0' width='1' height='1'/></svg>
-
 export const WorkHistoryOl = styled.ol`
   width: 100%;
   list-style: none;
@@ -12,22 +10,28 @@ export const WorkHistoryOl = styled.ol`
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxJyBoZWlnaHQ9JzEnPjxyZWN0IGZpbGw9JyNlODJlYTcnIHg9JzAnIHk9JzAnIHdpZHRoPScxJyBoZWlnaHQ9JzEwMCUnLz48L3N2Zz4=);
   background-repeat: repeat-y;
   background-position-x: 50%;
+
+  @media print {
+    background-image: none;
+  }
 `
 export const WorkHistoryLi = styled.li`
   width: 100%;
   margin: 0;
   margin-bottom: 2em;
-  box-sizing: border-box;
+  box-sizing: border-box;'
 
-  &:nth-child(odd) {
-    padding-right: 50%;
+  @media screen {
+    &:nth-child(odd) {
+      padding-right: 50%;
 
-    text-align: left;
-  }
+      text-align: left;
+    }
 
-  &:nth-child(even) {
-    padding-left: 50%;
-    text-align: right;
+    &:nth-child(even) {
+      padding-left: 50%;
+      text-align: right;
+    }
   }
 `
 export const WorkHistoryDetails = styled.details``
