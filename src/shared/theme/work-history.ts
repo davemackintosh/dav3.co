@@ -11,6 +11,10 @@ export const WorkHistoryOl = styled.ol`
   background-repeat: repeat-y;
   background-position-x: 50%;
 
+  @media (max-width: 768px) {
+    background-image: none;
+  }
+
   @media print {
     background-image: none;
   }
@@ -21,7 +25,7 @@ export const WorkHistoryLi = styled.li`
   margin-bottom: 2em;
   box-sizing: border-box;
 
-  @media screen {
+  @media screen and (min-width: 768px) {
     &:nth-child(odd) {
       padding-right: 50%;
 

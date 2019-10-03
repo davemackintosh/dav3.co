@@ -28,6 +28,18 @@ const monthNames = [
   "Decwmber",
 ]
 
+const primarySkills = [
+  "React",
+  "NodeJS",
+  "TypeScript",
+  "FlowJS",
+  "PostgreSQL",
+  "MySQL",
+  "Accessibility",
+  "LESS",
+  "Sass",
+]
+
 const WorkHistoryEntryComponent = (props: WorkHistoryEntry): JSX.Element => {
   const feedback = props.feedback ? (
     <WorkHistoryDetails>
@@ -82,6 +94,9 @@ const WorkHistory = (props: ContentProps): JSX.Element => {
         </Permalink>
         Dave Mackintosh&apos;s Work History
       </h1>
+      {primarySkills.map(tag => (
+        <JobTag key={tag}>{tag}</JobTag>
+      ))}
       <Markdown markdown={props.markdown} />
       <WorkHistoryOl>
         {workHistory.map(
