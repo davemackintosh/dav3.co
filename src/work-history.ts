@@ -4,6 +4,7 @@ export interface WorkHistoryEntry {
   tags: string[]
   description: string
   feedback?: string
+  personal?: boolean
 }
 
 const workHistory: WorkHistoryEntry[] = [
@@ -23,6 +24,14 @@ const workHistory: WorkHistoryEntry[] = [
       "A React and NodeJS developer rebuilding an existing product from architecture, development practices, scrum mentoring, team support and mentoring to building an incredibly complex, cofiguration based system where half of the interface is generated entirely from Multicolour models.",
     feedback:
       "I've worked with Dave for about 5 months at a London startup and loved every minute. He's one of those rare engineers who's not only fast, but also rigorous with TDD, coverage, types and documentation. He writes beautiful code that's easy to understand and a pleasure to work with; this is what you want in a contractor - someone who leaves a positive legacy and not spaghetti. Recommended! ~ Jof Arnold",
+  },
+  {
+    dates: [new Date(2015, 9, 1)],
+    company: "Multicolour",
+    personal: true,
+    tags: ["multicolour", "nodeJS"],
+    description:
+      "Multicolour is a NodeJS, REST API generator. It offers multiple ways to authenticate your API (JWT, OAuth), it suports basic content negotiation (JSONAPI), it supports many many database technologies out of the box. It powers many user's experiences and theycdont even know. Large companies and small companies use this product. I'm currently rebuilding itnfrom scratch for a 1.0 to remove many parts of the software that let the product as a whole down using TypeScript and many other new and improved features like built in event streams, CQRS built in and a fully automated documentation and error tracking system.",
   },
   {
     dates: [new Date(2018, 5, 1), new Date(2018, 6, 1)],
