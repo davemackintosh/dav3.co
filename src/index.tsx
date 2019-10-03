@@ -13,6 +13,7 @@ import routes from "@src/routes"
 import { Main } from "@src/shared/theme/main"
 import { GlobalStyle } from "@styled/global"
 import enGB from "@translations/en-gb"
+import { BookingButton } from "@src/shared/components/booking-button"
 
 const rootNode = document.getElementById("dav3-container")
 
@@ -22,6 +23,7 @@ const app = (
       <BrowserRouter>
         <Fragment>
           <GlobalStyle />
+          <BookingButton />
           <SiteNav pages={pages} />
           <Main id="content">
             <Router routes={routes} />

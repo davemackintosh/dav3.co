@@ -23,6 +23,10 @@ const Header = (
 
 export const Permalink = styled(NavLink)`
   margin-right: 0.5em;
+
+  @media print {
+    display: none;
+  }
 `
 
 class HeaderN extends Component<HeaderNProps> {

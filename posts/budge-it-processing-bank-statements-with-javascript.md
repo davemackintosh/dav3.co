@@ -19,5 +19,8 @@ This is easy to parse and keep a running total.
 
 They also helpfully have the *current* balance so in order to get the opening balance it was just a case of grabbing the first/oldest record present in the CSV and using this column to initialise the balance. This was necessary because originally, all my tests were returning negative numbers because I was in a positive opening balance. I would imagine that if you had a negative opening balance, you might see the opposite.
 
-But that was all I got done that day, I was at my parents in law's house playing with the kids and just stealing a few minutes here and there to work on this.
+But that was all I got done that day, I was at my parents in law's house playing with the kids and just stealing a few minutes here and there to work on this on my phone.
+
+I wanted more transparency from my bank statement, i wanted a breakdown of individual vendor's transactions and a way to mark them as necessary or not so i could shock myself with not only where but how much and per month was being wasted.
+
 

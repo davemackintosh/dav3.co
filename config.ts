@@ -1,6 +1,7 @@
 import TagPostList from "@components/tags/list"
 import { Config } from "types/config"
 import { HomePage } from "@src/shared/templates/home"
+import WorkHistory from "@src/shared/templates/work-history"
 
 export const siteConfig: Config = {
   postsPerPage: 10,
@@ -9,9 +10,7 @@ export const siteConfig: Config = {
    * Add custom config here, this can be anything
    * you want it to be
    */
-  custom: {
-    takingBookings: false,
-  },
+  custom: {},
 
   /**
    * When the static builder finds parameterised
@@ -66,5 +65,8 @@ export const siteConfig: Config = {
    */
   templates: {
     home: HomePage,
+    "work-history": WorkHistory,
   },
 }
+
+export default siteConfig

@@ -9,6 +9,7 @@ import { siteConfig } from "@config"
 import Paginate from "@components/paginate"
 import { ContentProps } from "types/content"
 import { Published } from "@src/shared/components/published"
+import PostStatus from "@src/shared/components/post/post-status"
 
 type Props = RouteComponentProps<{
   page: string
@@ -39,12 +40,17 @@ function PostsList(props: Props): JSX.Element {
             <PostHeaderTags tags={post.frontmatter.keywords} />
           ) : null
 
+        const postStatus = PostStatus(post.frontmatter.status as string)
+
         return (
           <li key={post.frontmatter.path}>
             <PostPreview key={post.frontmatter.title}>
-              <Link to={post.frontmatter.path} title={post.frontmatter.title}>
-                <h2>{post.frontmatter.title}</h2>
-              </Link>
+              <h2>
+                <Link to={post.frontmatter.path} title={post.frontmatter.title}>
+                  {post.frontmatter.title}
+                </Link>
+                {postStatus}
+              </h2>
               <WordCount text={post.markdown} />
 
               <Published published={post.frontmatter.published} />

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import styled from "styled-components"
 
 const Tiny = styled.small`
@@ -6,18 +6,26 @@ const Tiny = styled.small`
   display: block;
 `
 
+const HiringBar = styled.div`
+  text-align: right;
+
+  @media print {
+    display: none;
+  }
+`
+
 export function BookingButton(): JSX.Element {
   return (
-    <Fragment>
-      Are you looking for a developer?
+    <HiringBar>
+      Are you looking for a developer?{" "}
       <a
         href="https://calendly.com/davemackintosh/15min"
         title="Talk to Dave Mackintosh"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Tiny>I&apos;m looking for a job 💖 HMU</Tiny>
+        <Tiny>I&apos;m looking for a permenant job 💖 HMU</Tiny>
       </a>
-    </Fragment>
+    </HiringBar>
   )
 }

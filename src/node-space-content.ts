@@ -78,7 +78,7 @@ const getContentFromFolder = (folderPath: string): ContentProps[] =>
       },
     )
     .filter((content: ContentProps) => {
-      if (process.env.NODE_ENV === "development") {
+      if (process.env.NODE_ENV !== "production") {
         return true
       }
 

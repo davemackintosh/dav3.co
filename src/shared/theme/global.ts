@@ -9,6 +9,11 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${theme.typography.primaryFontFamilies};
     font-size: 1.3em;
     line-height: 2em;
+
+    @media print {
+      background-color: white;
+      color: ${theme.colors.background};
+    }
   }
 
   a {
@@ -39,7 +44,6 @@ export const GlobalStyle = createGlobalStyle`
       text-align: center;
       background-color: #5A5E65;
       background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQImWNgYGD4z0AswK4SAFXuAf8EPy+xAAAAAElFTkSuQmCC);
-
     `}
   }
 `

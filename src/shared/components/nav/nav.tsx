@@ -2,7 +2,6 @@ import React from "react"
 import { ContentProps } from "../../../../types/content"
 
 import { Nav, NavLi, NavLink, NavUl, SkipToContentNavLink } from "@styled/nav"
-import { BookingButton } from "@src/shared/components/booking-button"
 
 export interface SiteNavProps {
   pages: ContentProps[]
@@ -19,7 +18,7 @@ export default function SiteNav(props: SiteNavProps): JSX.Element {
       >
         Skip to content
       </SkipToContentNavLink>
-      <NavUl rows={2} columns={2}>
+      <NavUl rows={1} columns={4}>
         <NavLi>
           <NavLink
             to="/"
@@ -37,9 +36,6 @@ export default function SiteNav(props: SiteNavProps): JSX.Element {
           >
             Blog
           </NavLink>
-        </NavLi>
-        <NavLi>
-          <BookingButton />
         </NavLi>
         {props.pages
           .filter((page: ContentProps) => page.frontmatter.path !== "/")
