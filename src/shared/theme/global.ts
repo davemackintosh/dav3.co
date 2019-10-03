@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .hero {
-    ${media.greaterThan("medium")`
+    ${media.greaterThan("medium")`'
       padding: 4rem;
       margin: 5rem 0;
       line-height: 2em;

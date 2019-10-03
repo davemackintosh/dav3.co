@@ -19,7 +19,7 @@ export const WorkHistoryLi = styled.li`
   width: 100%;
   margin: 0;
   margin-bottom: 2em;
-  box-sizing: border-box;'
+  box-sizing: border-box;
 
   @media screen {
     &:nth-child(odd) {
@@ -34,7 +34,11 @@ export const WorkHistoryLi = styled.li`
     }
   }
 `
-export const WorkHistoryDetails = styled.details``
+export const WorkHistoryDetails = styled.details`
+  @media print {
+    display: none;
+  }
+`
 export const WorkHistoryDetailsSummary = styled.summary`
   color: ${theme.colors.fontCta};
 

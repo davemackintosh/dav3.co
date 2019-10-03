@@ -17,7 +17,7 @@ const HiringBar = styled.div`
 export function BookingButton(): JSX.Element {
   return (
     <HiringBar>
-      Are you looking for a developer?
+      Are you looking for a developer?{" "}
       <a
         href="https://calendly.com/davemackintosh/15min"
         title="Talk to Dave Mackintosh"
