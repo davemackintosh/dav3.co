@@ -9,6 +9,11 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${theme.typography.primaryFontFamilies};
     font-size: 1.3em;
     line-height: 2em;
+
+    @media print {
+      background-color: white;
+      color: ${theme.colors.background};
+    }
   }
 
   a {

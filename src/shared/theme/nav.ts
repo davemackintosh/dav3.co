@@ -10,6 +10,10 @@ export const Nav = styled.nav`
   ${media.lessThan("medium")`
     width: 90vw;
   `}
+
+  @media print {
+    display: none;
+  }
 `
 
 export const NavUl = styled(Grid("ul"))`
