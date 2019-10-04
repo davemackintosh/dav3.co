@@ -2,6 +2,7 @@ import styled from "styled-components"
 import media from "styled-media-query"
 import theme from "@src/shared/theme/theme"
 
+const entryPaddingAmount = 55
 export const WorkHistoryOl = styled.ol`
   width: 100%;
   list-style: none;
@@ -27,13 +28,13 @@ export const WorkHistoryLi = styled.li`
 
   @media screen and (min-width: 768px) {
     &:nth-child(odd) {
-      padding-right: 50%;
+      padding-right: ${entryPaddingAmount}%;
 
       text-align: left;
     }
 
     &:nth-child(even) {
-      padding-left: 50%;
+      padding-left: ${entryPaddingAmount}%;
       text-align: right;
     }
   }
