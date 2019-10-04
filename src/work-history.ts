@@ -31,7 +31,7 @@ const workHistory: WorkHistoryEntry[] = [
     personal: true,
     tags: ["multicolour", "nodeJS"],
     description:
-      "Multicolour is a NodeJS, REST API generator. It offers multiple ways to authenticate your API (JWT, OAuth), it suports basic content negotiation (JSONAPI), it supports many many database technologies out of the box. It powers many user's experiences and theycdont even know. Large companies and small companies use this product. I'm currently rebuilding itnfrom scratch for a 1.0 to remove many parts of the software that let the product as a whole down using TypeScript and many other new and improved features like built in event streams, CQRS built in and a fully automated documentation and error tracking system.",
+      "Multicolour is a NodeJS, REST API generator. It offers multiple ways to authenticate your API (JWT, OAuth), it suports basic content negotiation (JSONAPI), it supports many many database technologies out of the box. It powers many user's experiences and they don't even know. Large companies and small companies use this product. I'm currently rebuilding it from scratch for a 1.0 to remove many parts of the software that let the product as a whole down using TypeScript and many other new and improved features like built in event streams, CQRS built in and a fully automated documentation and error tracking system.",
   },
   {
     dates: [new Date(2018, 5, 1), new Date(2018, 6, 1)],
