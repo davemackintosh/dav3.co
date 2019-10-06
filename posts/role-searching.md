@@ -29,7 +29,7 @@ I thrive on helping people be better, be happier and healthier. I'd give everyth
 
 Well, I am a "software developer" but I say this because while my programming knowledge is firmly rooted in the JavaScript world I actually come from a design and native background. When I was a child (circa 1996) I was already taking machines around the house apart and putting them back together again without anyone knowing and that got me a "job" in a factory at 14 (2002) programming RFID door entry cards, pressure monitors and fire fighter's helmets with C and C++. This "job" led onto another family favour where I was the intranet developer in a tiny IT department where all I did was mess with DHTML and PHP to build an internal company catalogue of products, staff and ...misc.
 
-I've never stopped just building things and tsking what needn't be taken apart and put back together and I love doing it.
+I've never stopped just building things and taking what needn't be taken apart and put back together and I love doing it.
 
 These days, I get paid to do
 
