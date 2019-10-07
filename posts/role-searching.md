@@ -4,7 +4,7 @@ keywords:
   - growth
   - react
   - job
-excerpt: So, after 5 years of relative success as a freekancer I'm looking for a role in a company I can add value to. But why?
+excerpt: So, after 5 years of relative success as a freelancer I'm looking for a role in a company I can add value to. But why?
 author: davemackintosh
 published: Sun Oct 06 2019 19:19:36 GMT+0100 (GMT+01:00)
 ---
@@ -43,6 +43,14 @@ These days, I get paid to do
 * Squishing a bunch of other people's APIs into sane interfaces
 
 You can find out more about what I do, who I do it for and what lovely things people say about me on my [Work History](/work-history) page. This page has a print stylesheet so if you really must (but please don't) you can print my work history page.
+
+**What will I bring?**
+
+I bring not only my technical skills as a full stack developer, I bring my personal and interpersonal skills such as one to one mentoring and creative problem solving as part of a wider team to achieve current and future business goals.
+
+I also bring architectural knowledge of the stack from server setup, security and scalability to devops and TDD/BDD practices.
+
+I'm good in a team and as a self driven force on my own and do my best to deliver everything I commit to. My experience running my own company has taught me to say no properly when scoping work and to concentrate on the "right" over the quantity.
 
 ### What about "The One"
 
