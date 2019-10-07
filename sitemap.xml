@@ -6,6 +6,10 @@
         </url>
 <url>
           <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/blog/role-searching</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
           <loc>https://dav3.co/blog/being-a-mobile-developer</loc>
         </url>
 <url>
@@ -23,6 +27,18 @@
 <url>
           <changefreq>weekly</changefreq>
           <loc>https://dav3.co/blog/page/0</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/growth</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/react</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/job</loc>
         </url>
 <url>
           <changefreq>weekly</changefreq>
