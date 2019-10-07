@@ -44,6 +44,14 @@ These days, I get paid to do
 
 You can find out more about what I do, who I do it for and what lovely things people say about me on my [Work History](/work-history) page. This page has a print stylesheet so if you really must (but please don't) you can print my work history page.
 
+**What will I bring?**
+
+I bring not only my technical skills as a full stack developer, I bring my personal and interpersonal skills such as one to one mentoring and creative problem solving as part of a wider team to achieve current and future business goals.
+
+I also bring architectural knowledge of the stack from server setup, security and scalability to devops and TDD/BDD practices.
+
+I'm good in a team and as a self driven force on my own and do my best to deliver everything I commit to. My experience running my own company has taught me to say no properly when scoping work and to concentrate on the "right" over the quantity.
+
 ### What about "The One"
 
 What am I looking for? Well, I'm looking for a company that offers a platform for me to be better at what I do, working with a great team that strives to help improve other's lives with great software.
