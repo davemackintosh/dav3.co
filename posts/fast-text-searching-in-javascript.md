@@ -27,6 +27,12 @@ But, what if you had to search a 1mb file upload, 100mb? 1GB? well, thats just g
 
 There are lots of papers on the Boyer-Moore family of algorithms but im going to write about the Boyer-Moore Horspool algorithm. It is a text searching algorithm with a low complexity and medium memory footprint.
 
+I built my own to
+
+* learn more about this _type_ of algorithm
+* Write a full test suite (which others don't have)
+* Fully type it with TypeScript
+
 It works by constructing a table of characters present within the search string and using that to actually *skip* checking a certain number of characters entirely.
 
 Your browser probably uses the Boyer-Moore algorithm every time you search in a web page.
@@ -55,28 +61,30 @@ My text file contents, this is super secret. Don't tell the NSA or the aliens wi
 
 We can see two fields in this payload. `field1` is a `form-data` field. `field2` is a piece of `form-data` too. Except, we see it has a `filename`, this is the file that was uploaded.
 
-Well, thats nice and all but what the heck do we do with it? Well, we have a couple of important pieces of information in the request. We get what that boundary is as a header and we know its `.length`. This + our body is all we need to get started parsing this.
+We can also see that the boundary token is specified in the `Content-Type` header which is handy!
 
-The first thing we need to do is create a storage for each known character of the search text. We'll call this our "bad char table". I'm going to use a `Buffer` to construct this table as we'll be comparing against a buffer in our search body.
+Well, thats nice and all but what the heck do we do with it? Well, we have a couple of important pieces of information in the request. We have the boundary token and we know its `.length`. This + our body is all we need to get started parsing this.
+
+The first thing we need to do is create some storage for each known character of the search text. We'll call this our "bad char table". I'm going to use a `Buffer` to construct this table as we'll be comparing against a buffer in our search body.
 
 ```typescript
-makeBadCharTable(pattern: string): Buffer {
-    const DICT_SIZE = 65535
-    const badCharShift: Buffer = Buffer.allocUnsafe(DICT_SIZE)
-    const truePatternLength = pattern.length - 1
+function makeBadCharTable(pattern: string): Buffer {
+  const DICT_SIZE = 65535
+  const badCharShift: Buffer = Buffer.allocUnsafe(DICT_SIZE)
+  const truePatternLength = pattern.length - 1
 
-    // Populate the table with the default.
-    for (let i = 0; i <= DICT_SIZE; i++) {
-      badCharShift[i] = pattern.length
-    }
-
-    // Add our offsets.
-    for (let char = 0; char < truePatternLength; char++) {
-      badCharShift[pattern[char]] = truePatternLength - char
-    }
-
-    return badCharShift
+  // Populate the table with the default.
+  for (let i = 0; i <= DICT_SIZE; i++) {
+    badCharShift[i] = pattern.length
   }
+
+  // Add our offsets.
+  for (let char = 0; char < truePatternLength; char++) {
+    badCharShift[pattern[char]] = truePatternLength - char
+  }
+
+  return badCharShift
+}
 ```
 
 Theres a few things happening here, first I declare the size of our dictionary. This is a "magic" number but it happens to be the maximum number of characters there can be in JavaScript.
@@ -89,12 +97,14 @@ The eagle eyed might notice I'm using `Buffer.allocUnsafe(DICT_SIZE)` and wince 
 
 Then we return our table of indexes.
 
+> You can speed this process up by memoizing this function. Why not try it and let me know how you did?
+
 ### Time to search
 
 We're going to search our body now and get the indexes of each occurance of our boundary. We'll then use this to split our body up into fields.
 
 ```typescript
-search(text: Buffer, pattern: string, badCharShift: Buffer) {
+function search(text: Buffer, pattern: string, badCharShift: Buffer) {
   const results: number[] = []
   let skip = 0
 
@@ -136,10 +146,12 @@ Wow, there's a lot happening here. Let's break it down.
 
 So, what the *heck* is happening? 
 
-First up is we start to loop over every character in the target text, we then start another loop over the search text from it's last character to thr first. We do this because if there's a mismatch we can at least skip the entire length of the search pattern + 1. This is where the algorithm shines, when you have a large search string you skip more characters and the performance of this algorithm actualky decreases the shorter the search string.
+First up is we start to loop over every character in the target text, we then start another loop over the search text from it's last character to the first. We do this because if there's a mismatch we can at least skip the entire length of the search pattern + 1. This is where the algorithm shines, when you have a large search string you skip more characters and the performance of this algorithm actually decreases the shorter the search string.
 
 When we hit a character that matches, we move onto the next character in the search text until either theres no more search text which is a full match and we push to our results array or we skip the number of characters specified by our bad char table on a mismatch.
 
 ## Conclusion
 
-This algorithm is super fast for getting the locations.
+This algorithm is super fast for getting the locations of one string in a massive amount of data. However, it is utterly utterly rubbish and wasteful on small haystacks and with tiny search strings. The worst case would be not finding a match and a single character search.
+
+This helps me to take a payload in a request and very quickly parse it into fields to pass to a handler and it's great for searching text in files.
