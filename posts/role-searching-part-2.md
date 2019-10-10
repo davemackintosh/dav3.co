@@ -6,8 +6,7 @@ keywords:
   - job
 excerpt: A follow up to my previous post on the human side of why I'm looking for rejuvination in the workforce.
 author: davemackintosh
-published: 2019-10-09T12:08:07.989Z
-status: draft
+published: 2019-10-10T14:03:06.043Z
 ---
 
 My previous post ([I'm looking for a job. Why?](/blog/role-searching/)) has done very well to bring some of my peers directly to my door to ask me questions. Some of these questions are really hard to answer and some of the feedback on the post was quite antithetical to the message I intended to convey so here we are with a part 2 to help dispell some of the lore of part 1.
