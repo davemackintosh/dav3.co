@@ -50,6 +50,8 @@ During my time running New World Code the times i enjoyed most were the times I 
 
 I am also happiest when I'm mentoring teams in new, commercially driven practices such as better time keeping, estimation, push-back and task focus. Mentoring team members 1 to 1 in better problem solving and helping them develop their skills at a personal level.
 
+Of course, I'm a developer and I live and breath code that solves problems and you can read about what I do in [Part 1](/blog/role-searching) and on my [Work History](/work-history) page.
+
 ## My timeframe
 
 It's business as usual.at New World Code, I'm lucky enough to have enough business to keep going well into the future which affords me the chance to choose the right company, I will consider sensible offers of absorbtion for immediete effect otherwise I will maintain the professional attitude and do whats right for everyone in terms of notice and rehiring to fill a gap.
