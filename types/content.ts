@@ -13,6 +13,7 @@ export interface ContentPropsFrontmatter {
   bodyClasses?: string
   excerpt?: string
   template?: string
+  menu?: boolean
 
   // This exists so that we can add whatever other
   // variables we want to the frontmatter object.
