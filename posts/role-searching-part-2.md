@@ -45,3 +45,8 @@ I am of course not just human minded but I think at a commercially viability lev
 
 Some of these opinions and traits of mine can be construed as a bit on the extreme side, I will not apologise for always putting living things before a number on a screen somewhere. This is who I am, inside and out and I am looking for that special company (they do exist) that checks all those boxes or is keen to improve on the above.
 
+## My perfect role
+
+During my time running New World Code the times i enjoyed most were the times I was in the thick of a client's workplace, identifying issues at personal levels and business levels and doing the appropriate risk assessment of continuing n the current path or to invest in a software solution to help resolve the issues facing the staff and C level and scoping this work, savings to the company and giving those people a chance to be happier at their place of work.
+
+I am also happiest when I'm mentoring teams in new, commercially driven practices such as better time keeping, estimation, push-back and task focus. Mentoring team members 1 to 1 in better problem solving and helping them develop their skills at a personal level.
