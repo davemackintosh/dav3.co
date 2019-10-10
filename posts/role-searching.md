@@ -83,4 +83,4 @@ What I would like to see in the email is
 
 and then we can set up a face to face or a video call using my [Calendly](https://calendly.com/davemackintosh/30min) link.
 
-
+go read [Part 2, "humans are hard and individuality](/blog/role-searching-part-2)
