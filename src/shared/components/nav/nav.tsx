@@ -1,5 +1,5 @@
 import React from "react"
-import { ContentProps } from "../../../../types/content"
+import { ContentProps } from "types/content"
 
 import { Nav, NavLi, NavLink, NavUl, SkipToContentNavLink } from "@styled/nav"
 
@@ -39,6 +39,11 @@ export default function SiteNav(props: SiteNavProps): JSX.Element {
         </NavLi>
         {props.pages
           .filter((page: ContentProps) => page.frontmatter.path !== "/")
+          .filter(
+            (page: ContentProps) =>
+              typeof page.frontmatter.menu === "undefined" ||
+              page.frontmatter.menu,
+          )
           .map((page: ContentProps) => (
             <NavLi key={page.frontmatter.path}>
               <NavLink
