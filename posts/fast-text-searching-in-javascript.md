@@ -25,7 +25,7 @@ But, what if you had to search a 1mb file upload, 100mb? 1GB? well, thats just g
 
 # Boyer-Moore JavaScript
 
-There are lots of papers on the Boyer-Moore family of algorithms but im going to write about the Boyer-Moore Horspool algorithm. It is a text searching algorithm with a low complexity and medium memory footprint.
+There are lots of papers on the Boyer-Moore family of algorithms but I'm going to write about the Boyer-Moore Horspool algorithm. It is a text searching algorithm with a low complexity and medium memory footprint.
 
 I built my own to
 
@@ -87,13 +87,13 @@ function makeBadCharTable(pattern: string): Buffer {
 }
 ```
 
-Theres a few things happening here, first I declare the size of our dictionary. This is a "magic" number but it happens to be the maximum number of characters there can be in JavaScript.
+Theres a few things happening here, first I declare the size of our dictionary. This is a "magic" number but it happens to be the maximum different characters there can be in JavaScript.
 
 I then pre-populate our table with the `un`true length of the pattern. I do this because if we hit a mismatch while we're searching later, we want to skip to the true length of the pattern + 1 and JavaScript does this for us anyway because 0-indexed arrays.
 
 Then we loop over the length of the pattern and we assign a value to it which is `true length of string - index we're at`. This is how many characters we're going to skip when there's a mismatch.
 
-The eagle eyed might notice I'm using `Buffer.allocUnsafe(DICT_SIZE)` and wince but this is perfectly safe here as we write over it with our default values straight away instead of letting Node writenit with 0s and then giving it to us.
+The eagle eyed might notice I'm using `Buffer.allocUnsafe(DICT_SIZE)` and wince but this is perfectly safe here as we write over it with our default values straight away instead of letting Node write it with 0s and then giving it to us.
 
 Then we return our table of indexes.
 
@@ -101,7 +101,7 @@ Then we return our table of indexes.
 
 ### Time to search
 
-We're going to search our body now and get the indexes of each occurance of our boundary. We'll then use this to split our body up into fields.
+We're going to search our body now and get the indexes of each occurance of our boundary. This information is what we need to slice up our body `Buffer` into it's separate fields for further parsing.
 
 ```typescript
 function search(text: Buffer, pattern: string, badCharShift: Buffer) {
@@ -146,9 +146,92 @@ Wow, there's a lot happening here. Let's break it down.
 
 So, what the *heck* is happening? 
 
-First up is we start to loop over every character in the target text, we then start another loop over the search text from it's last character to the first. We do this because if there's a mismatch we can at least skip the entire length of the search pattern + 1. This is where the algorithm shines, when you have a large search string you skip more characters and the performance of this algorithm actually decreases the shorter the search string.
+First up is we start to loop over every character in the body, we then start another loop over the search text from it's last character to the first. We do this because if there's a mismatch we can at least skip the entire length of the search pattern + 1. This is where the algorithm shines, when you have a large search string you skip more characters and the performance of this algorithm actually decreases the shorter the search string.
 
 When we hit a character that matches, we move onto the next character in the search text until either theres no more search text which is a full match and we push to our results array or we skip the number of characters specified by our bad char table on a mismatch.
+
+## Further processing into form fields
+
+This of course only tells us where each field starts and stops and we need to actually do more processing to make this information useful to whatever handler requires it.
+
+The `Buffer` we have plus our indices are enough to split our body into some rudimentary fields which also need more processing because these fields contain information on the type of content they contain and their name. These fields follow a similar pattern in structure which we can use to reliably process down to some useful structure.
+
+Lets take the first field of our pretend payload and try to extract it and process it further.
+
+We'll loop over the results from our `search` function which will be an array of numbers (in TypeScript land thid is annotated as `: number[]` and we'll use these to create an array of buffers.
+
+```typescript
+function getBodyFieldStrings(
+  body: Buffer,
+  boundaryIndices: number[],
+): Buffer[] {
+  const bodyParts = []
+  // Loop over the indices - 2 (-1 for true length, -1 to ignore body terminator.
+  for (
+    let currentMatchIndex = 0, max = boundaryIndices.length - 2;
+    currentMatchIndex < max;
+    currentMatchIndex++
+  ) {
+    const bodyPiece = body.slice(
+      boundaryIndices[currentMatchIndex] + this.pattern.length - 1,
+      boundaryIndices[currentMatchIndex + 1],
+    )
+
+    bodyParts.push(bodyPiece)
+  }
+
+  return bodyParts
+}
+
+```
+
+Luckily the `Buffer` object contains a method for slicing another up. So, we simply loop over our indices from the `search` function and pass the value at the index as the first argument to `.slice` and we simply end our slice at thr beginning of the next index which would be the current index + 1 or `undefined` and when `.slice` only gets one argument it goes all the way to the end of the Buffer.
+
+This operation will give us a field like the below
+
+```text
+Content-Disposition: form-data; name="field1"
+
+value1
+```
+
+As we can see, this is what we're looking for and we're on the home straight to having a parsed field to work with! Luckily, to get the value of the field we can again use our `.search` method again with the search string of `"\r\n\r\n"` and apply a limit of `1` results to it.
+
+> Why not try adding a limit for yourself?
+
+```typescript:SPOILER
++ function search(text: Buffer, pattern: string, badCharShift: Buffer, limit = 0) {
+  const results: number[] = []
+  let skip = 0
+
+  haystackLoop: for (
+    let haystackChar = 0, maxTextChar = text.length - 1;
+    haystackChar <= maxTextChar;
+    haystackChar += skip
+  ) {
+    pattern: for (
+      let needleChar = pattern.length - 1;
+      needleChar >= 0;
+      needleChar--
+    ) {
+      const lookupIndex = haystackChar + needleChar
+      skip = badCharShift[text[haystackChar + (this.pattern.length - 1)]]
+
+      if (text[lookupIndex] !== pattern[needleChar]) {
+        break pattern
+      } else if (needleChar === 0) {
+        results.push(haystackChar)
+        skip = pattern.length
+
++       if (limit !== 0 && results.length >= limit) {
++         break haystackLoop
++       }
+
+        break pattern
+      }
+    }
+  }
+```
 
 ## Conclusion
 
