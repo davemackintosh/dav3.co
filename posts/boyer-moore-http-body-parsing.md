@@ -15,6 +15,8 @@ status: draft
 
 If you haven't read [Fast HTTP body searching in JavaScript to parse strings (Part 1)](/blog/fast-text-searching-in-javascript) then I suggest you go read it, it covers how to get the data we're going to be using in this post to locate the varying fields of our target data to parse them out as objects.
 
+This post covers how we're going to convert our single large body into smaller, individual fields from our form. Most of the context of this post is about a single field as we loop over them several times to process them.
+
 ## Further processing into form fields
 
 This of course only tells us where each field starts and stops and we need to actually do more processing to make this information useful to whatever handler requires it.
@@ -60,7 +62,7 @@ Content-Disposition: form-data; name="field1"
 value1
 ```
 
-As we can see, this is what we're looking for and we're on the home straight to having a parsed field to work with! Luckily, to get the value of the field we can again use our `.search` method again with the search string of `"\r\n\r\n"` and apply a limit of `1` results to it.
+As we can see, this is what we're looking for and we're on the home straight to having a parsed field to work with! Luckily, to get the value of the field we can again use our `.search` method again with the search string of `"\r\n\r\n"` and apply a limit of `1` results to it. We use the Boyer Moore again because a `.split("\r\n")` will attempt to split the entire body by that when we only really care about the first instance as the terminator for the header definitions.
 
 > Why not try adding a limit for yourself?
 
