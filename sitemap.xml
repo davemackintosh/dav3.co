@@ -6,6 +6,10 @@
         </url>
 <url>
           <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/blog/fast-text-searching-in-javascript</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
           <loc>https://dav3.co/blog/role-searching-part-2</loc>
         </url>
 <url>
@@ -38,6 +42,22 @@
         </url>
 <url>
           <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/javascript</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/nodejs</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/boyer-moore</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/horspool</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
           <loc>https://dav3.co/tag/growth</loc>
         </url>
 <url>
@@ -63,10 +83,6 @@
 <url>
           <changefreq>weekly</changefreq>
           <loc>https://dav3.co/tag/developer</loc>
-        </url>
-<url>
-          <changefreq>weekly</changefreq>
-          <loc>https://dav3.co/tag/javascript</loc>
         </url>
 <url>
           <changefreq>weekly</changefreq>

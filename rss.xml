@@ -2,6 +2,11 @@
 <rss version= "2.0">
   <channel>
   <item>
+          <title>Fast HTTP body searching in JavaScript to parse strings (Part 1)</title>
+          <description>Searching strings in JavaScript is easy right? what about searching through hundreds of megabytes of text or binary or even several gigabytes of POSTed data? Boyer-Moore Horspool to the rescue!</description>
+          <link>https://dav3.co/blog/fast-text-searching-in-javascript/</link>
+        </item>
+<item>
           <title>I'm looking for a job. Part 2, Humans are hard and individuality</title>
           <description>A follow up to my previous post on the human side of why I&apos;m looking for rejuvination in the workforce.</description>
           <link>https://dav3.co/blog/role-searching-part-2/</link>
