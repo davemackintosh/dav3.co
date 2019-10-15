@@ -7,8 +7,7 @@ keywords:
   - horspool
 excerpt: Searching strings in JavaScript is easy right? what about searching through hundreds of megabytes of text or binary or even several gigabytes of POSTed data? Boyer-Moore Horspool to the rescue!
 author: davemackintosh
-published: false
-status: draft
+published: Tue Oct 15 2019 21:08:52 GMT+0100 (British Summer Time)
 ---
 
 Searching for one piece of text in another is an expensive business. searching small amounts of text is pretty performant, say:
