@@ -64,11 +64,16 @@ I live on the south coast of the U.K and I don't think I need to explain how poo
 
 **What won't I do?**
 
-* Work with most banks
+* Work with banks that damage, rig and lie about our economy or damage our environment with investment. I.E 
+  * [Barclays](https://en.wikipedia.org/wiki/Barclays#Controversies)
+  * [RBS](https://en.wikipedia.org/wiki/Royal_Bank_of_Scotland_Group#Controversies)
+  * [HSBC](https://en.wikipedia.org/wiki/HSBC#Controversies)
+  * And many others, you should research your clients.
 * Work on *any* gambling software
 * Work *with* any of our armed forces, however I can't stop them using anything open source I make/contribute to.
 * Work with any brand that sells alcohol, cigarettes, drugs or sells pharmaceuticals unethically
 * Work for a company that has done nothing to discourage and reparate a situation of abuse within the company against anyone for their looks, gender, ethnicity, etc
+* Work with any company in the porn industry
 * Work for a company that is anti-union. I believe in the right to unionise if the staff feel they have to.
 
 ### Are you "The One?" 
