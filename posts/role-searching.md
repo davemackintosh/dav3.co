@@ -11,7 +11,7 @@ published: Sun Oct 06 2019 19:19:36 GMT+0100 (GMT+01:00)
 
 It was 2014, I had started contracting again and I decided one day that I needed to set up my own company and take home the whole packet. Of course, it wasn't; as most things, that simple. I founded Dav3 (I know, I know) and I started freelancing again straight away.
 
-Fast forward 5 years and after a company rename (New World Code) I'm shutting up shop and looking for a permanent, mostly remote role. 
+Fast forward 5 years and after a company rename (New World Code) I'm thinking of shutting up shop and looking for a permanent, mostly remote role. 
 
 Running a company, on your own, takes a **lot** of hard work, patience and self confidence in my experience. I've managed a lot in my 5 years. I've done everything from digital installations for Google to fully automated administration systems for national businesses but the one thing that always had me stressed, confused and anxious was the British Tax ~joke~ system.
 
