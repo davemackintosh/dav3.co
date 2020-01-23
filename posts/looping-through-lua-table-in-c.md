@@ -1,5 +1,6 @@
 ---
-title: How to loop over a Lua arraytable in C/C++
+
+title: How to loop over a Lua array/table in C/C++
 keywords: 
   - C
   - C++
