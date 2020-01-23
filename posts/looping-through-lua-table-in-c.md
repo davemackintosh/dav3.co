@@ -8,7 +8,7 @@ keywords:
   - Iterate
 excerpt: Took me a while to figure it out and a lot of non-helpful Googling but looping over a table from Lua using the C API turns out to be pretty simple although not intuitive at all.
 author: davemackintosh
-published: 2020-01-23T11:21:46.287Z
+published: Thu Jan 22 2020 1:21:46
 ---
 
 So I'm making a cross platform OpenGL editor where you write Lua and you get an OpenGL ES 2 surface to do your drawing on. I'm manually writing each of these APIs and helpers and in my travels found that I wanted to send a table of vertices to the GPU (for drawing, obviously).
