@@ -6,6 +6,10 @@
         </url>
 <url>
           <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/blog/looping-through-lua-table-in-c</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
           <loc>https://dav3.co/blog/fast-text-searching-in-javascript</loc>
         </url>
 <url>
@@ -39,6 +43,26 @@
 <url>
           <changefreq>weekly</changefreq>
           <loc>https://dav3.co/blog/page/0</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/c</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/c++</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/lua</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/loop</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/iterate</loc>
         </url>
 <url>
           <changefreq>weekly</changefreq>
