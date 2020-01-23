@@ -2,7 +2,7 @@
 <rss version= "2.0">
   <channel>
   <item>
-          <title>How to loop over a Lua arraytable in C/C++</title>
+          <title>How to loop over a Lua array/table in C/C++</title>
           <description>Took me a while to figure it out and a lot of non-helpful Googling but looping over a table from Lua using the C API turns out to be pretty simple although not intuitive at all.</description>
           <link>https://dav3.co/blog/looping-through-lua-table-in-c/</link>
         </item>
