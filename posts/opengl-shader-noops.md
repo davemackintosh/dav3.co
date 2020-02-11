@@ -6,8 +6,7 @@ keywords:
   - debugging
 excerpt: I'm working on a new cross platform engine for developing visuals on any device. I've spent a few days trying to work out why Linux will compile and run my shaders but not my Android device.
 author: davemackintosh
-published: false
-status: draft
+published: Tue 11 Feb 2020 09:27:00 GMT+0000
 ---
 
 At the beginning of the year I decided instead of trying to start/run/manage tonnes of side projects I was going to focus on one single project at a time. That project is a cross platform visual editing tool that allows you to write Lua on your phone/tablet/computer to interact with an OpenGL ES 3 surface.
