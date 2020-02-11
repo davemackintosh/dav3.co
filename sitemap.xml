@@ -6,6 +6,10 @@
         </url>
 <url>
           <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/blog/opengl-shader-noops</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
           <loc>https://dav3.co/blog/looping-through-lua-table-in-c</loc>
         </url>
 <url>
@@ -43,6 +47,18 @@
 <url>
           <changefreq>weekly</changefreq>
           <loc>https://dav3.co/blog/page/0</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/opengl</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/c++</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/debugging</loc>
         </url>
 <url>
           <changefreq>weekly</changefreq>

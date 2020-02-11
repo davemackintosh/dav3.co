@@ -2,6 +2,11 @@
 <rss version= "2.0">
   <channel>
   <item>
+          <title>My OpenGL ES shader fails to link with no error.</title>
+          <description>I&apos;m working on a new cross platform engine for developing visuals on any device. I&apos;ve spent a few days trying to work out why Linux will compile and run my shaders but not my Android device.</description>
+          <link>https://dav3.co/blog/opengl-shader-noops/</link>
+        </item>
+<item>
           <title>How to loop over a Lua array/table in C/C++</title>
           <description>Took me a while to figure it out and a lot of non-helpful Googling but looping over a table from Lua using the C API turns out to be pretty simple although not intuitive at all.</description>
           <link>https://dav3.co/blog/looping-through-lua-table-in-c/</link>

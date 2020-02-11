@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#40444b">
+
+    <title data-react-helmet="true">My OpenGL ES shader fails to link with no error.</title><meta data-react-helmet="true" name="description" content="I&amp;apos;m working on a new cross platform engine for developing visuals on any device. I&amp;apos;ve spent a few days trying to work out why Linux will compile and run my shaders but not my Android device."/><meta data-react-helmet="true" name="keywords" content="opengl c++ debugging"/><meta data-react-helmet="true" property="og:title" content="My OpenGL ES shader fails to link with no error."/><meta data-react-helmet="true" property="og:site_name" content="Dave Mackintosh - React, NodeJS, JavaScript developer"/><meta data-react-helmet="true" property="og:url" content="https://dav3.co"/><meta data-react-helmet="true" property="og:description" content="I&amp;apos;m working on a new cross platform engine for developing visuals on any device. I&amp;apos;ve spent a few days trying to work out why Linux will compile and run my shaders but not my Android device."/><meta data-react-helmet="true" property="og:type" content="article"/>
+
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Quattrocento+Sans" rel="stylesheet" async defer />
+    <link rel="alternate" type="application/rss+xml" 
+  title="RSS Feed for dav3.co" 
+  href="/rss.xml" />
+    <script type="application/ld+json">
+     {
+        "@context": "http://schema.org/",
+        "@type": "Person",
+        "name": "Dave Mackintosh",
+        "jobTitle": "Web developer, Javascript, react, nodejs",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "chichester",
+          "addressRegion": "west sussex, united kingdom"
+        }
+      }
+    </script>
+  <style data-styled="dJRtBU fAUNHq iYPjBU eiRwHl dfLMFo fcqCpQ jvuArW icMjIj cIaEQc haGUWm gTTUvo bXBtIa WrzLg iesBWX pCaVb" data-styled-version="4.4.0">
+/* sc-component-id: sc-bdVaJa */
+.iYPjBU{width:80vw;margin:1rem auto;} @media (max-width:768px){.iYPjBU{width:90vw;}} @media print{.iYPjBU{display:none;}}
+/* sc-component-id: sc-htpNat */
+.dfLMFo{display:grid;grid-auto-columns:max-content;grid-template-columns:25%25%25%25%;grid-template-rows:1fr;grid-column-gap:1rem;grid-row-gap:1rem;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin:0;padding:0;}
+/* sc-component-id: sc-bxivhb */
+.fcqCpQ{list-style:none;}
+/* sc-component-id: sc-ifAKCX */
+.eiRwHl{position:absolute;left:-999rem;width:0;height:0;} .eiRwHl:focus{position:initial;}
+/* sc-component-id: sc-EHOje */
+.jvuArW{font-weight:700;}
+/* sc-component-id: sc-global-1070371511 */
+body{background-color:#40444b;color:#fdfdfd;font-family:'IBM Plex Mono',monospace;font-size:1.3em;line-height:2em;} @media print{body{background-color:white;color:#40444b;}} a{color:#e82ea7;} img{max-width:100%;} code{background:rgba(0,0,0,0.25);border-radius:5px;padding:0 0.5em;display:inline-block;} h1,h2,h3,h4,h5,h6{line-height:2em;-webkit-letter-spacing:-1px;-moz-letter-spacing:-1px;-ms-letter-spacing:-1px;letter-spacing:-1px;} @media (max-width:768px){h1,h2,h3,h4,h5,h6{line-height:1.4em;}} ::selection{background:#e82ea7;} @media (min-width:768px){.hero{padding:4rem;margin:5rem 0;line-height:2em;font-size:2em;text-align:center;background-color:#5A5E65;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQImWNgYGD4z0AswK4SAFXuAf8EPy+xAAAAAElFTkSuQmCC);}}
+/* sc-component-id: sc-bZQynM */
+.icMjIj{width:80vw;margin:1rem auto;} @media (max-width:768px){.icMjIj{width:90vw;}}
+/* sc-component-id: sc-htoDjs */
+.haGUWm{margin:0;padding:0;}
+/* sc-component-id: sc-dnqmqq */
+.gTTUvo{list-style:none;display:inline-block;margin-right:1rem;}
+/* sc-component-id: sc-fjdhpX */
+.cIaEQc{display:block;}
+/* sc-component-id: sc-ckVGcZ */
+.WrzLg{color:#7f7b76;display:block;}
+/* sc-component-id: sc-jKJlTe */
+.bXBtIa{width:80vw;margin:2em auto;}
+/* sc-component-id: sc-hMqMXs */
+.iesBWX{display:grid;grid-auto-columns:max-content;grid-template-columns:50%50%;grid-template-rows:1fr 1fr 1fr;grid-column-gap:1rem;grid-row-gap:1rem;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
+/* sc-component-id: sc-kEYyzF */
+.pCaVb{display:inline-block;margin-right:1em;vertical-align:sub;}
+/* sc-component-id: sc-kkGfuU */
+.fAUNHq{font-size:0.7em;display:block;}
+/* sc-component-id: sc-iAyFgw */
+.dJRtBU{text-align:right;} @media print{.dJRtBU{display:none;}}</style></head>
+  <body id="dav3-container">
+<div class="sc-iAyFgw dJRtBU">Are you looking for a developer?<!-- --> <a href="https://calendly.com/davemackintosh/15min" rel="noopener noreferrer nofollow" target="_blank"><small class="sc-kkGfuU fAUNHq">I&#x27;m looking for a new contract January 2020 💖 HMU</small></a></div><nav class="sc-bdVaJa iYPjBU"><a href="#content" class="sc-ifAKCX eiRwHl skip-to-content" title="Skip navigation and header and go straight to the content" tabindex="0">Skip to content</a><ul rows="1" class="sc-bwzfXH sc-htpNat dfLMFo"><li class="sc-bxivhb fcqCpQ"><a aria-current="page" class="sc-EHOje jvuArW active" title="Dave Mackintosh - Web developer" href="/">Home</a></li><li class="sc-bxivhb fcqCpQ"><a aria-current="page" class="sc-EHOje jvuArW active" title="Dave Mackintosh blog post listing" href="/blog">Blog</a></li><li class="sc-bxivhb fcqCpQ"><a class="sc-EHOje jvuArW" title="Work history" href="/work-history">Work history</a></li></ul></nav><main id="content" class="sc-bZQynM icMjIj"><article><h1>My OpenGL ES shader fails to link with no error.</h1><span class="read-time">Read time: <!-- -->4<!-- --> <!-- -->minutes</span><time dateTime="Tue 11 Feb 2020 09:27:00 GMT+0000" class="sc-fjdhpX cIaEQc">11/2/2020</time><nav><ul class="sc-htoDjs haGUWm"><li class="sc-dnqmqq gTTUvo">🏷️:</li><li class="sc-dnqmqq gTTUvo"><a class="sc-EHOje jvuArW" title="See more posts tagged with opengl" href="/tag/opengl">#<!-- -->opengl</a></li><li class="sc-dnqmqq gTTUvo"><a class="sc-EHOje jvuArW" title="See more posts tagged with c++" href="/tag/c++">#<!-- -->c++</a></li><li class="sc-dnqmqq gTTUvo"><a class="sc-EHOje jvuArW" title="See more posts tagged with debugging" href="/tag/debugging">#<!-- -->debugging</a></li></ul></nav><p>At the beginning of the year I decided instead of trying to start/run/manage tonnes of side projects I was going to focus on one single project at a time. That project is a cross platform visual editing tool that allows you to write Lua on your phone/tablet/computer to interact with an OpenGL ES 3 surface.</p><p>As part of that; and being entirely out of my depth with this, the time came to write a shader (or two) to actually rasterise to the screen. This worked great on my laptop (hooray, that was easy) but my phone just wouldn&#x27;t link my shaders at all and it gave no error, no status codes, nothing.</p><p>5 days later, I stumbled across <a href="http://docs.gl" rel="noopener noreferrer">docs.gl</a> which is <em>incredible</em> and alluded straight away to the fact that <code>glCreateShader(GLEnum)</code> will return <code>0</code> if there&#x27;s no context in which to create a shader object from. <strong>hallelujah</strong> I had something to go on, I took my setup code from a place where I <em>thought</em> my context was fully set up and put it somewhere where I could <em>guarantee</em> my openGL context was set up and voila, it worked straight away.</p><p>Aside from <code>glCreateShader</code> returning 0, all other operations such as <code>glCreateProgram</code> are actually no-ops which means they won&#x27;t/don&#x27;t error and they don&#x27;t return anything useful or trigger anything for <code>glGetError</code> to pick up. Another reminder that debugging usually means going further back than you think reasonable.</p><p>An excerpt from the C++ code that initializes my EGL surface (based on the <a href="https://developer.android.com/ndk/samples/sample_na" rel="noopener noreferrer">Android NDK NativeActivity sample</a>)</p><pre style="font-family:Consolas, Menlo, Monaco, &quot;Andale Mono WT&quot;, &quot;Andale Mono&quot;, &quot;Lucida Console&quot;, &quot;Lucida Sans Typewriter&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Liberation Mono&quot;, &quot;Nimbus Mono L&quot;, &quot;Courier New&quot;, Courier, monospace;font-size:14px;line-height:1.375;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;background:#f5f7ff;color:#5e6687;padding:1em;margin:.5em 0;overflow:auto"><code style="font-family:Consolas, Menlo, Monaco, &quot;Andale Mono WT&quot;, &quot;Andale Mono&quot;, &quot;Lucida Console&quot;, &quot;Lucida Sans Typewriter&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Liberation Mono&quot;, &quot;Nimbus Mono L&quot;, &quot;Courier New&quot;, Courier, monospace;font-size:14px;line-height:1.375;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;background:#f5f7ff;color:#5e6687;float:left;padding-right:10px"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span><span class="react-syntax-highlighter-line-number">3
+</span><span class="react-syntax-highlighter-line-number">4
+</span><span class="react-syntax-highlighter-line-number">5
+</span><span class="react-syntax-highlighter-line-number">6
+</span><span class="react-syntax-highlighter-line-number">7
+</span><span class="react-syntax-highlighter-line-number">8
+</span><span class="react-syntax-highlighter-line-number">9
+</span><span class="react-syntax-highlighter-line-number">10
+</span><span class="react-syntax-highlighter-line-number">11
+</span><span class="react-syntax-highlighter-line-number">12
+</span><span class="react-syntax-highlighter-line-number">13
+</span></code><code style="font-family:Consolas, Menlo, Monaco, &quot;Andale Mono WT&quot;, &quot;Andale Mono&quot;, &quot;Lucida Console&quot;, &quot;Lucida Sans Typewriter&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Liberation Mono&quot;, &quot;Nimbus Mono L&quot;, &quot;Courier New&quot;, Courier, monospace;font-size:14px;line-height:1.375;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;background:#f5f7ff;color:#5e6687"><span class="token" style="color:#ac9739">case</span> APP_CMD_INIT_WINDOW<span class="token" style="color:#c76b29">:</span>
+  <span class="token" style="color:#898ea4">// The window is being shown, get it ready.</span>
+  <span class="token" style="color:#ac9739">if</span> <span class="token" style="color:#5e6687">(</span>engine<span class="token" style="color:#c76b29">-&gt;</span>app<span class="token" style="color:#c76b29">-&gt;</span>window <span class="token" style="color:#c76b29">!=</span> <span class="token constant">NULL</span><span class="token" style="color:#5e6687">)</span> <span class="token" style="color:#5e6687">{</span>
+    <span class="token function">engine_init_display</span><span class="token" style="color:#5e6687">(</span>engine<span class="token" style="color:#5e6687">)</span><span class="token" style="color:#5e6687">;</span>
+
+    entryScript<span class="token" style="color:#c76b29">-&gt;</span><span class="token function">setUserCodePath</span><span class="token" style="color:#5e6687">(</span>exampleProjects<span class="token" style="color:#5e6687">.</span><span class="token function">at</span><span class="token" style="color:#5e6687">(</span><span class="token" style="color:#c76b29">2</span><span class="token" style="color:#5e6687">)</span><span class="token" style="color:#5e6687">.</span><span class="token function">c_str</span><span class="token" style="color:#5e6687">(</span><span class="token" style="color:#5e6687">)</span><span class="token" style="color:#5e6687">)</span><span class="token" style="color:#5e6687">;</span>
+    entryScript<span class="token" style="color:#c76b29">-&gt;</span><span class="token function">setAssetsPath</span><span class="token" style="color:#5e6687">(</span>scriptStorage<span class="token" style="color:#c76b29">-&gt;</span>rootPath<span class="token" style="color:#5e6687">)</span><span class="token" style="color:#5e6687">;</span>
+    entryScript<span class="token" style="color:#c76b29">-&gt;</span><span class="token function">runUserScript</span><span class="token" style="color:#5e6687">(</span><span class="token" style="color:#5e6687">)</span><span class="token" style="color:#5e6687">;</span>
+    entryScript<span class="token" style="color:#c76b29">-&gt;</span><span class="token function">runSetupFunction</span><span class="token" style="color:#5e6687">(</span><span class="token" style="color:#5e6687">)</span><span class="token" style="color:#5e6687">;</span>
+
+    <span class="token function">engine_draw_frame</span><span class="token" style="color:#5e6687">(</span>engine<span class="token" style="color:#5e6687">)</span><span class="token" style="color:#5e6687">;</span>
+  <span class="token" style="color:#5e6687">}</span>
+  <span class="token" style="color:#ac9739">break</span><span class="token" style="color:#5e6687">;</span></code></pre><p><img alt="OpenGL ES 3 multicolour triangle rendered from Lua" src="https://user-images.githubusercontent.com/1430657/74223569-e6e4db80-4cae-11ea-8042-512844f61edb.png"/></p><p>The above image is rendered from the below Lua script. It&#x27;s still very explicit at the moment (more on this as the project develops)</p><pre style="font-family:Consolas, Menlo, Monaco, &quot;Andale Mono WT&quot;, &quot;Andale Mono&quot;, &quot;Lucida Console&quot;, &quot;Lucida Sans Typewriter&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Liberation Mono&quot;, &quot;Nimbus Mono L&quot;, &quot;Courier New&quot;, Courier, monospace;font-size:14px;line-height:1.375;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;background:#f5f7ff;color:#5e6687;padding:1em;margin:.5em 0;overflow:auto"><code style="font-family:Consolas, Menlo, Monaco, &quot;Andale Mono WT&quot;, &quot;Andale Mono&quot;, &quot;Lucida Console&quot;, &quot;Lucida Sans Typewriter&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Liberation Mono&quot;, &quot;Nimbus Mono L&quot;, &quot;Courier New&quot;, Courier, monospace;font-size:14px;line-height:1.375;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;background:#f5f7ff;color:#5e6687;float:left;padding-right:10px"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span><span class="react-syntax-highlighter-line-number">3
+</span><span class="react-syntax-highlighter-line-number">4
+</span><span class="react-syntax-highlighter-line-number">5
+</span><span class="react-syntax-highlighter-line-number">6
+</span><span class="react-syntax-highlighter-line-number">7
+</span><span class="react-syntax-highlighter-line-number">8
+</span><span class="react-syntax-highlighter-line-number">9
+</span><span class="react-syntax-highlighter-line-number">10
+</span><span class="react-syntax-highlighter-line-number">11
+</span><span class="react-syntax-highlighter-line-number">12
+</span><span class="react-syntax-highlighter-line-number">13
+</span><span class="react-syntax-highlighter-line-number">14
+</span><span class="react-syntax-highlighter-line-number">15
+</span><span class="react-syntax-highlighter-line-number">16
+</span><span class="react-syntax-highlighter-line-number">17
+</span><span class="react-syntax-highlighter-line-number">18
+</span><span class="react-syntax-highlighter-line-number">19
+</span><span class="react-syntax-highlighter-line-number">20
+</span><span class="react-syntax-highlighter-line-number">21
+</span><span class="react-syntax-highlighter-line-number">22
+</span><span class="react-syntax-highlighter-line-number">23
+</span><span class="react-syntax-highlighter-line-number">24
+</span><span class="react-syntax-highlighter-line-number">25
+</span><span class="react-syntax-highlighter-line-number">26
+</span><span class="react-syntax-highlighter-line-number">27
+</span><span class="react-syntax-highlighter-line-number">28
+</span><span class="react-syntax-highlighter-line-number">29
+</span><span class="react-syntax-highlighter-line-number">30
+</span><span class="react-syntax-highlighter-line-number">31
+</span><span class="react-syntax-highlighter-line-number">32
+</span><span class="react-syntax-highlighter-line-number">33
+</span><span class="react-syntax-highlighter-line-number">34
+</span><span class="react-syntax-highlighter-line-number">35
+</span><span class="react-syntax-highlighter-line-number">36
+</span><span class="react-syntax-highlighter-line-number">37
+</span><span class="react-syntax-highlighter-line-number">38
+</span></code><code style="font-family:Consolas, Menlo, Monaco, &quot;Andale Mono WT&quot;, &quot;Andale Mono&quot;, &quot;Lucida Console&quot;, &quot;Lucida Sans Typewriter&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Bitstream Vera Sans Mono&quot;, &quot;Liberation Mono&quot;, &quot;Nimbus Mono L&quot;, &quot;Courier New&quot;, Courier, monospace;font-size:14px;line-height:1.375;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;background:#f5f7ff;color:#5e6687"><span class="token" style="color:#ac9739">local</span> shader <span class="token" style="color:#c76b29">=</span> Shader<span class="token" style="color:#5e6687">:</span><span class="token function">new</span><span class="token" style="color:#5e6687">(</span><span class="token" style="color:#5e6687">)</span>
+<span class="token" style="color:#ac9739">local</span> triangleVertices <span class="token" style="color:#c76b29">=</span> <span class="token" style="color:#5e6687">{</span>
+  <span class="token" style="color:#c76b29">-</span><span class="token" style="color:#c76b29">0.5</span><span class="token" style="color:#5e6687">,</span> <span class="token" style="color:#c76b29">-</span><span class="token" style="color:#c76b29">0.5</span><span class="token" style="color:#5e6687">,</span> <span class="token" style="color:#c76b29">0.0</span><span class="token" style="color:#5e6687">,</span>
+  <span class="token" style="color:#c76b29">0.5</span><span class="token" style="color:#5e6687">,</span> <span class="token" style="color:#c76b29">-</span><span class="token" style="color:#c76b29">0.5</span><span class="token" style="color:#5e6687">,</span> <span class="token" style="color:#c76b29">0.0</span><span class="token" style="color:#5e6687">,</span>
+  <span class="token" style="color:#c76b29">0.0</span><span class="token" style="color:#5e6687">,</span> <span class="token" style="color:#c76b29">0.5</span><span class="token" style="color:#5e6687">,</span> <span class="token" style="color:#c76b29">0.0</span><span class="token" style="color:#5e6687">,</span>
+<span class="token" style="color:#5e6687">}</span>
+<span class="token" style="color:#ac9739">local</span> triangleColours <span class="token" style="color:#c76b29">=</span> <span class="token" style="color:#5e6687">{</span>
+  <span class="token" style="color:#c76b29">1.0</span><span class="token" style="color:#5e6687">,</span> <span class="token" style="color:#c76b29">0.0</span><span class="token" style="color:#5e6687">,</span> <span class="token" style="color:#c76b29">0.0</span><span class="token" style="color:#5e6687">,</span>
+  <span class="token" style="color:#c76b29">0.0</span><span class="token" style="color:#5e6687">,</span> <span class="token" style="color:#c76b29">1.0</span><span class="token" style="color:#5e6687">,</span> <span class="token" style="color:#c76b29">0.0</span><span class="token" style="color:#5e6687">,</span>
+  <span class="token" style="color:#c76b29">1.0</span><span class="token" style="color:#5e6687">,</span> <span class="token" style="color:#c76b29">0.0</span><span class="token" style="color:#5e6687">,</span> <span class="token" style="color:#c76b29">1.0</span><span class="token" style="color:#5e6687">,</span>
+<span class="token" style="color:#5e6687">}</span>
+<span class="token" style="color:#ac9739">local</span> uniforms <span class="token" style="color:#c76b29">=</span> <span class="token" style="color:#5e6687">{</span>
+  angle <span class="token" style="color:#c76b29">=</span> <span class="token" style="color:#c76b29">0.1</span><span class="token" style="color:#5e6687">,</span>
+<span class="token" style="color:#5e6687">}</span>
+
+<span class="token" style="color:#ac9739">function</span> <span class="token function">setup</span><span class="token" style="color:#5e6687">(</span><span class="token" style="color:#5e6687">)</span>
+  <span class="token" style="color:#898ea4">-- Load the default shader.</span>
+  shader<span class="token" style="color:#5e6687">:</span><span class="token function">load</span><span class="token" style="color:#5e6687">(</span><span class="token" style="color:#22a2c9">&quot;default&quot;</span><span class="token" style="color:#5e6687">)</span>
+
+  <span class="token" style="color:#898ea4">-- Set the vertices for the vertex shader.</span>
+  shader<span class="token" style="color:#5e6687">:</span><span class="token function">setVertices</span><span class="token" style="color:#5e6687">(</span>triangleVertices<span class="token" style="color:#5e6687">)</span>
+  shader<span class="token" style="color:#5e6687">:</span><span class="token function">setColours</span><span class="token" style="color:#5e6687">(</span>triangleColours<span class="token" style="color:#5e6687">)</span>
+<span class="token" style="color:#ac9739">end</span>
+
+<span class="token" style="color:#ac9739">function</span> <span class="token function">render</span><span class="token" style="color:#5e6687">(</span><span class="token" style="color:#5e6687">)</span>
+  <span class="token" style="color:#898ea4">-- Clear the screen to this colour.</span>
+  GL<span class="token" style="color:#5e6687">.</span><span class="token function">Clear</span><span class="token" style="color:#5e6687">(</span>GLConsts<span class="token" style="color:#5e6687">.</span>GL_COLOR_BUFFER_BIT<span class="token" style="color:#5e6687">)</span>
+  GL<span class="token" style="color:#5e6687">.</span><span class="token function">ClearColor</span><span class="token" style="color:#5e6687">(</span><span class="token" style="color:#c76b29">0.3</span><span class="token" style="color:#5e6687">,</span> <span class="token" style="color:#c76b29">0.0</span><span class="token" style="color:#5e6687">,</span> <span class="token" style="color:#c76b29">0.3</span><span class="token" style="color:#5e6687">,</span> <span class="token" style="color:#c76b29">1</span><span class="token" style="color:#5e6687">)</span>
+
+  uniforms<span class="token" style="color:#5e6687">.</span>angle <span class="token" style="color:#c76b29">=</span> uniforms<span class="token" style="color:#5e6687">.</span>angle <span class="token" style="color:#c76b29">+</span> <span class="token" style="color:#c76b29">0.01</span>
+  shader<span class="token" style="color:#5e6687">:</span><span class="token function">setUniforms</span><span class="token" style="color:#5e6687">(</span>uniforms<span class="token" style="color:#5e6687">)</span>
+
+  <span class="token" style="color:#898ea4">-- Run the shander.</span>
+  shader<span class="token" style="color:#5e6687">:</span><span class="token function">run</span><span class="token" style="color:#5e6687">(</span><span class="token" style="color:#5e6687">)</span>
+
+  <span class="token" style="color:#898ea4">-- Draw our triangles</span>
+  GL<span class="token" style="color:#5e6687">.</span><span class="token function">DrawTriangles</span><span class="token" style="color:#5e6687">(</span><span class="token" style="color:#c76b29">#</span>triangleVertices<span class="token" style="color:#5e6687">)</span>
+<span class="token" style="color:#ac9739">end</span></code></pre><p>The above script will give you a lovely, slowly spinning, multicoloured triangle on your laptop, phone or tablet.</p></article></main><footer class="sc-jKJlTe bXBtIa"><small class="sc-ckVGcZ WrzLg">Everything on this website is MIT lisensed.</small><small class="sc-ckVGcZ WrzLg">It was written by Dave Mackintosh.</small><hr/><div class="sc-eNQAEJ sc-hMqMXs iesBWX"><small class="sc-ckVGcZ WrzLg"><a href="https://twitter.com/daveymackintosh" rel="noopen no-referrer" title="Dave Mackintosh&#x27;s Twitter profile"><div class="sc-kEYyzF pCaVb"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6-18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6.8 15 2.5 22.1-80.5-4-151.9-42.6-199.6-101.3-8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7-16-.4-31-4.8-44-12.1v1.2c0 47 33.4 86.1 77.7 95-8.1 2.2-16.7 3.4-25.5 3.4-6.2 0-12.3-.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3-33.1 26-74.9 41.5-120.3 41.5-7.8 0-15.5-.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-.1-8.4-.3-12.5C462.6 146 479 129 492 109.5z"></path></svg></div>Twitter</a></small><small class="sc-ckVGcZ WrzLg"><a href="https://github.com/davemackintosh" rel="noopen no-referrer" title="Dave Mackintosh&#x27;s Github profile"><div class="sc-kEYyzF pCaVb"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg></div>Github</a></small></div></footer>
+  </body>
+</html>
+
+
