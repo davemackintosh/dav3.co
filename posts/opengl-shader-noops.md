@@ -16,6 +16,8 @@ As part of that; and being entirely out of my depth with this, the time came to 
 
 5 days later, I stumbled across [docs.gl](http://docs.gl) which is *incredible* and alluded straight away to the fact that `glCreateShader(GLEnum)` will return `0` if there's no context in which to create a shader object from. **hallelujah** I had something to go on, I took my setup code from a place where I *thought* my context was fully set up and put it somewhere where I could *guarantee* my openGL context was set up and voila, it worked straight away.
 
+Aside from `glCreateShader` returning 0, all other operations such as `glCreateProgram` are actually no-ops which means they won't/don't error and they don't return anything useful or trigger anything for `glGetError` to pick up. Another reminder that debugging usually means going further back than you think reasonable.
+
 An excerpt from the C++ code that initializes my EGL surface (based on the [Android NDK NativeActivity sample](https://developer.android.com/ndk/samples/sample_na))
 
 ```cpp
