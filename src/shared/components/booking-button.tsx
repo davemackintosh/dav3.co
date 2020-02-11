@@ -23,7 +23,7 @@ export function BookingButton(): JSX.Element {
         rel="noopener noreferrer nofollow"
         target="_blank"
       >
-        <Tiny>I&apos;m looking for a new contract January 2020 💖 HMU</Tiny>
+        <Tiny>I&apos;m looking for a new contract 💖 HMU</Tiny>
       </a>
     </HiringBar>
   )
