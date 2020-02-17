@@ -33,6 +33,13 @@ export default function PostsList(props: TagPostListProps): JSX.Element {
         .filter((post: ContentProps) =>
           Array.isArray(post.frontmatter.keywords),
         )
+        .map((post: ContentProps) => {
+          post.frontmatter.keywords = (post.frontmatter
+            .keywords as string[]).map((keyword: string) =>
+            keyword.toLowerCase(),
+          )
+          return post
+        })
         .filter(
           (post: ContentProps) =>
             (post.frontmatter.keywords || []).indexOf(props.match.params.tag) >=
