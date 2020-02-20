@@ -27,7 +27,7 @@ export default function PostHeaderTags(
         {(props.tags || []).map((tag: string) => (
           <TagItem key={tag}>
             <NavLink
-              to={`/tag/${tag}`}
+              to={`/tag/${tag.toLowerCase()}`}
               title={`See more posts tagged with ${tag}`}
             >
               #{tag}

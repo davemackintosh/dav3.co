@@ -59,7 +59,8 @@ export function collectUniqueMappedContent(
     [],
   )
 
-  return Array.from(new Set(tags)) // De-dupe
+  // De-dupe and normalise
+  return Array.from(new Set(tags.map((tag: string) => tag.toLowerCase())))
 }
 
 /**

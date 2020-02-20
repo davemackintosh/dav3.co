@@ -20,6 +20,17 @@ export const GlobalStyle = createGlobalStyle`
     color: ${theme.colors.fontAttention};
   }
 
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 0 0.5em;
+    display: inline-block;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     line-height: 2em;
     letter-spacing: -1px;

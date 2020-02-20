@@ -20,11 +20,10 @@ export function BookingButton(): JSX.Element {
       Are you looking for a developer?{" "}
       <a
         href="https://calendly.com/davemackintosh/15min"
-        title="Talk to Dave Mackintosh"
+        rel="noopener noreferrer nofollow"
         target="_blank"
-        rel="noopener noreferrer"
       >
-        <Tiny>I&apos;m looking for a permenant job 💖 HMU</Tiny>
+        <Tiny>I&apos;m looking for a new contract 💖 HMU</Tiny>
       </a>
     </HiringBar>
   )

@@ -11,15 +11,25 @@ export interface CodeProps {
 class CodeRenderer extends PureComponent<CodeProps> {
   public render(): JSX.Element {
     const { decode } = new XmlEntities()
-    return (
+    const language = this.props.language.split(":")
+    const codeElement = (
       <SyntaxHighlighter
-        language={this.props.language}
+        language={language[0]}
         showLineNumbers={true}
         style={theme}
       >
         {decode(this.props.value)}
       </SyntaxHighlighter>
     )
+
+    if (language.length === 1) return codeElement
+    else
+      return (
+        <details>
+          <summary>{language[1]}:</summary>
+          {codeElement}
+        </details>
+      )
   }
 }
 

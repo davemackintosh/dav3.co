@@ -1,5 +1,5 @@
 ---
-title: I'm looking for a job. Why?
+title: I'm looking for a job. Part 1, Why?
 keywords: 
   - growth
   - react
@@ -11,7 +11,7 @@ published: Sun Oct 06 2019 19:19:36 GMT+0100 (GMT+01:00)
 
 It was 2014, I had started contracting again and I decided one day that I needed to set up my own company and take home the whole packet. Of course, it wasn't; as most things, that simple. I founded Dav3 (I know, I know) and I started freelancing again straight away.
 
-Fast forward 5 years and after a company rename (New World Code) I'm shutting up shop and looking for a permanent, mostly remote role. 
+Fast forward 5 years and after a company rename (New World Code) I'm thinking of shutting up shop and looking for a permanent, mostly remote role. 
 
 Running a company, on your own, takes a **lot** of hard work, patience and self confidence in my experience. I've managed a lot in my 5 years. I've done everything from digital installations for Google to fully automated administration systems for national businesses but the one thing that always had me stressed, confused and anxious was the British Tax ~joke~ system.
 
@@ -64,11 +64,16 @@ I live on the south coast of the U.K and I don't think I need to explain how poo
 
 **What won't I do?**
 
-* Work with most banks
+* Work with banks that damage, rig and lie about our economy or damage our environment with investment. I.E 
+  * [Barclays](https://en.wikipedia.org/wiki/Barclays#Controversies)
+  * [RBS](https://en.wikipedia.org/wiki/Royal_Bank_of_Scotland_Group#Controversies)
+  * [HSBC](https://en.wikipedia.org/wiki/HSBC#Controversies)
+  * And many others, you should research your clients.
 * Work on *any* gambling software
 * Work *with* any of our armed forces, however I can't stop them using anything open source I make/contribute to.
 * Work with any brand that sells alcohol, cigarettes, drugs or sells pharmaceuticals unethically
 * Work for a company that has done nothing to discourage and reparate a situation of abuse within the company against anyone for their looks, gender, ethnicity, etc
+* Work with any company in the porn industry
 * Work for a company that is anti-union. I believe in the right to unionise if the staff feel they have to.
 
 ### Are you "The One?" 
@@ -83,4 +88,4 @@ What I would like to see in the email is
 
 and then we can set up a face to face or a video call using my [Calendly](https://calendly.com/davemackintosh/30min) link.
 
-
+go read [Part 2, "humans are hard and individuality](/blog/role-searching-part-2)

@@ -11,7 +11,8 @@ const TimeStyled = styled.time`
 
 export const Published = (props: PublishedProps): JSX.Element => {
   const publishedAsDate = new Date(props.published)
-  const publishedDateString = `${publishedAsDate.getDate()}/${publishedAsDate.getMonth()}/${publishedAsDate.getFullYear()}` // eslint-disable-line max-len
+  const publishedDateString = `${publishedAsDate.getDate()}/${publishedAsDate.getMonth() +
+    1}/${publishedAsDate.getFullYear()}` // eslint-disable-line max-len
   return (
     <TimeStyled dateTime={props.published}>{publishedDateString}</TimeStyled>
   )
