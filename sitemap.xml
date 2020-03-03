@@ -6,6 +6,10 @@
         </url>
 <url>
           <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/blog/using-my-dotfiles</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
           <loc>https://dav3.co/blog/opengl-shader-noops</loc>
         </url>
 <url>
@@ -47,6 +51,30 @@
 <url>
           <changefreq>weekly</changefreq>
           <loc>https://dav3.co/blog/page/0</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/environment</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/arch</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/linux</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/termux</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/dotfiles</loc>
+        </url>
+<url>
+          <changefreq>weekly</changefreq>
+          <loc>https://dav3.co/tag/vim</loc>
         </url>
 <url>
           <changefreq>weekly</changefreq>
