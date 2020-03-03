@@ -9,8 +9,7 @@ keywords:
   - VIM
 excerpt: How to use my dotfiles and installing the dependencies it has and why they are used.
 author: davemackintosh
-published: false
-status: draft
+published: 2020-03-03T09:21:24.394Z
 ---
 
 I've used Linux for years, before that I used OSx but I'm firmly back on neutral ground. Earlier this year, I found the sub-culture of Linux which is "ricing" on Reddit via [`/r/unixporn`](https://reddit.com/r/unixporn) and it really interested me how these people were sharing entire operating system themes and I decided I was going to do the same.
