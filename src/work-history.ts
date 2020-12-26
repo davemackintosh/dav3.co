@@ -9,7 +9,7 @@ export interface WorkHistoryEntry {
 
 const workHistory: WorkHistoryEntry[] = [
   {
-    dates: [new Date(2017, 10, 1)],
+    dates: [new Date(2017, 10, 1), new Date(2020, 4, 9)],
     company: "Freybors",
     tags: [
       "react",
