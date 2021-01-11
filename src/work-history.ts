@@ -9,6 +9,17 @@ export interface WorkHistoryEntry {
 
 const workHistory: WorkHistoryEntry[] = [
   {
+    dates: [new Date(2020, 04, 5), new Date(2020, 13, 10)],
+    company: "Sleepio",
+    tags: [
+      "react",
+      "redux",
+      "react-native",
+    ],
+    description:
+      "A React Native developer working on the components of the AST based app we were building, each was cross platform and generic enough that the content creators in the company can build entire programs (logic included) that is delivered as an AST to the app and constructed.",
+  },
+  {
     dates: [new Date(2017, 10, 1), new Date(2020, 4, 9)],
     company: "Freybors",
     tags: [
