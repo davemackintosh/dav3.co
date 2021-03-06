@@ -1,4 +1,3 @@
-import { Grid } from "@src/shared/theme/grid"
 import { NavLink as RRNavLink } from "react-router-dom"
 import styled from "styled-components"
 import media from "styled-media-query"
@@ -16,13 +15,17 @@ export const Nav = styled.nav`
   }
 `
 
-export const NavUl = styled(Grid("ul"))`
+export const NavUl = styled.ul`
   margin: 0;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 export const NavLi = styled.li`
   list-style: none;
+  padding: 1em 2em;
 `
 
 export const SkipToContentNavLink = styled.a`

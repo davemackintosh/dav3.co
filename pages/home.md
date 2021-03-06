@@ -1,7 +1,7 @@
 ---
 path: /
-title: Dave Mackintosh - React, NodeJS, JavaScript developer
-description: Dave Mackintosh is a web developer highly experienced with JavaScript in most forms and human first thinking.  
+title: Dave Mackintosh - React, NodeJS, PostgreSQL, GraphQL, JavaScript developer
+description: Dave Mackintosh is a developer highly experienced with JavaScript in most forms and human first thinking.  
 keywords:
   - dave
   - mackintosh
@@ -9,6 +9,7 @@ keywords:
   - javascript
   - nodejs
   - react
+  - native
   - developer
   - mentor
 template: home
@@ -22,13 +23,6 @@ testimonials:
 
 # React, NodeJS & JavaScript developer & mentor
 
-<div class="hero">
-  👋 I'm Dave Mackintosh, I write JavaScript all day. I do this in the form of React, NodeJS and TypeScript.
-</div>
+I've spent the last 10 years creating, updating/maintaining and leading projects for clients like Google, ABRSM, Sleepio, Skoda, The National Army Museum and many more local brands. People come before technology and I perform all my work with that attitude. 
 
-I live in the UK and I work remotely for clients of all types and sizes, helping them understand their business and improving how they work from the inside out using JavaScript to automate and consolidate many of their processes.
-
-I like to collaborate in teams that are effective in change for the positive and help humans enjoy every day and I love building things that we usually have to pay for for free that can have a positive impact on people's lives.
-
-I've spent over a decade learning how to master my craft and learn how to create useful software for companies of all sizes for all reasons. People I work with usually have lovely things to say about me and you can read some of my favourites below.
-
+I focus on delivering stable code that's readable, maintainable and highly performant. This is facilitated by my thorough discovery process whereby I get to the root of your mission with you and discover what is required and what makes your product the best in it's class.

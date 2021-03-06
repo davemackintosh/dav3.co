@@ -9,13 +9,9 @@ export interface WorkHistoryEntry {
 
 const workHistory: WorkHistoryEntry[] = [
   {
-    dates: [new Date(2020, 4, 5), new Date(2020, 13, 10)],
+    dates: [new Date(2020, 4, 5), new Date(2020, 10, 13)],
     company: "Sleepio",
-    tags: [
-      "react",
-      "redux",
-      "react-native",
-    ],
+    tags: ["react", "redux", "react-native"],
     description:
       "A React Native developer working on the components of the AST based app we were building, each was cross platform and generic enough that the content creators in the company can build entire programs (logic included) that is delivered as an AST to the app and constructed.",
   },
@@ -37,7 +33,7 @@ const workHistory: WorkHistoryEntry[] = [
       "I've worked with Dave for about 5 months at a London startup and loved every minute. He's one of those rare engineers who's not only fast, but also rigorous with TDD, coverage, types and documentation. He writes beautiful code that's easy to understand and a pleasure to work with; this is what you want in a contractor - someone who leaves a positive legacy and not spaghetti. Recommended! ~ Jof Arnold",
   },
   {
-    dates: [new Date(2015, 9, 1)],
+    dates: [new Date(2015, 9, 1), new Date(2021, 0, 1)],
     company: "Multicolour",
     personal: true,
     tags: ["multicolour", "nodeJS"],
