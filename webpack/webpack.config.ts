@@ -1,4 +1,4 @@
-import { DefinePlugin, NamedModulesPlugin } from "webpack"
+import { DefinePlugin } from "webpack"
 
 import { resolve } from "path"
 import production from "./build"
@@ -36,16 +36,15 @@ const webpackConfig = {
       {
         test: /\.(jsx?|tsx?)$/,
         exclude: /node_modules/,
-        use: ["ts-loader"],
+        loader: "ts-loader",
       },
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg|woff|otf)$/,
-        loaders: ["file-loader"],
+        loader: "file-loader",
       },
     ],
   },
   plugins: [
-    new NamedModulesPlugin(),
     new DefinePlugin({
       "process.env.DEV": true,
       "process.platform": JSON.stringify(process.platform),

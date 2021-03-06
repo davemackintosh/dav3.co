@@ -1,6 +1,6 @@
 import React from "react"
 import { LatestPostsGrid } from "@styled/latest-posts"
-import { XmlEntities } from "html-entities"
+import { decode } from "html-entities"
 import { ContentProps } from "types/content"
 import { PostPreview } from "@styled/post"
 import { NavLink } from "@styled/nav"
@@ -15,7 +15,6 @@ export interface Props {
 }
 
 export default function LatestPosts(props: Props): JSX.Element {
-  const decode = new XmlEntities().decode
   return (
     <LatestPostsGrid columns={Math.min(2, props.posts.length)} rows="auto">
       {props.posts.map((post: ContentProps) => {

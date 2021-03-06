@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react"
-import { Link, LinkProps } from "react-router-dom"
+import { Link } from "react-router-dom"
 
-type AToLinkProps = LinkProps & HTMLAnchorElement
+type AToLinkProps = HTMLAnchorElement & { to?: string }
 
 class AToLink extends PureComponent<AToLinkProps> {
   public render(): JSX.Element {

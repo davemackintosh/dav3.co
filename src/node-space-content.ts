@@ -37,7 +37,9 @@ const getContentFromFolder = (folderPath: string): ContentProps[] =>
     )
     .map(
       (content: IntermediaryContent): ContentProps => {
-        const { attributes, body } = frontmatter(content.content)
+        const { attributes, body } = frontmatter<ContentPropsFrontmatter>(
+          content.content,
+        )
 
         if (!attributes.path) {
           attributes.path = content.contentPath.substr(
@@ -48,9 +50,7 @@ const getContentFromFolder = (folderPath: string): ContentProps[] =>
 
         return {
           contentPath: content.contentPath,
-          frontmatter: Object.keys(
-            attributes as keyof ContentPropsFrontmatter,
-          ).reduce(
+          frontmatter: Object.keys(attributes).reduce(
             (
               out: ContentPropsFrontmatter,
               currentKey,
@@ -63,7 +63,7 @@ const getContentFromFolder = (folderPath: string): ContentProps[] =>
                 out[currentKey as keyof ContentPropsFrontmatter] = escapeMD(
                   attributes[currentKey],
                 )
-              } else if (currentKey === "title") {
+              } else if (currentKey === "title" && attributes.title) {
                 out.title = escape(attributes.title)
               } else if (Array.isArray(attributes[currentKey]))
                 out[currentKey as keyof ContentPropsFrontmatter] = attributes[

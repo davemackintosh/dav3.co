@@ -5,7 +5,7 @@ import { GlobalStyle } from "@src/shared/theme/global"
 import { Main } from "@src/shared/theme/main"
 import enGb from "@translations/en-gb"
 import path from "path"
-import {
+import fs, {
   copyFileSync,
   lstatSync,
   mkdirSync,
@@ -297,7 +297,7 @@ export default function BuildStatic(config: BuildStaticOptions): void {
   writeFileSync(config.target + "/sitemap.xml", sitemap)
 
   function copyFolderSync(from: string, to: string) {
-    mkdirSync(to)
+    if (!fs.existsSync(to)) mkdirSync(to)
     readdirSync(from).forEach(element => {
       if (lstatSync(path.join(from, element)).isFile()) {
         copyFileSync(path.join(from, element), path.join(to, element))
