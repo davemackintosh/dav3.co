@@ -308,7 +308,7 @@ export default function BuildStatic(config: BuildStaticOptions): void {
   }
 
   const images = resolve(process.cwd(), "./dist/images")
-  copyFolderSync(images, config.target)
+  copyFolderSync(images, config.target + "/images")
 }
 
 BuildStatic({
