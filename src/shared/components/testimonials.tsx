@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { XmlEntities } from "html-entities"
+import { decode } from "html-entities"
 import media from "styled-media-query"
 import styled from "styled-components"
 import { Grid } from "@src/shared/theme/grid"
@@ -37,10 +37,8 @@ export default class Testimonials extends Component<TestimonialProps> {
     testimonials: [],
   }
 
-  decode = new XmlEntities().decode
-
   private renderTestimonial(testimonial: string): JSX.Element {
-    return <StyledBlockquote>{this.decode(testimonial)}</StyledBlockquote>
+    return <StyledBlockquote>{decode(testimonial)}</StyledBlockquote>
   }
 
   render(): JSX.Element {

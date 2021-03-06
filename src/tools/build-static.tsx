@@ -297,7 +297,7 @@ export default function BuildStatic(config: BuildStaticOptions): void {
   writeFileSync(config.target + "/sitemap.xml", sitemap)
 
   function copyFolderSync(from: string, to: string) {
-    mkdirSync(to)
+    if (!lstatSync(to).isDirectory()) mkdirSync(to)
     readdirSync(from).forEach(element => {
       if (lstatSync(path.join(from, element)).isFile()) {
         copyFileSync(path.join(from, element), path.join(to, element))
