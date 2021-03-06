@@ -16,13 +16,14 @@ export const StyledBlockquote = styled.blockquote`
   padding: 0;
   margin: 0;
   position: relative;
+  font-size: 0.8em;
 
   &:before {
     content: "“";
     position: absolute;
     top: 0;
-    left: -0.5em;
-    font-size: 2em;
+    left: -0.75em;
+    font-size: 3em;
     color: rgba(255, 255, 255, 0.5);
   }
 

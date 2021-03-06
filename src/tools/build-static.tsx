@@ -4,7 +4,15 @@ import SiteNav from "@src/shared/components/nav/nav"
 import { GlobalStyle } from "@src/shared/theme/global"
 import { Main } from "@src/shared/theme/main"
 import enGb from "@translations/en-gb"
-import { mkdirSync, readFileSync, writeFileSync } from "fs"
+import path from "path"
+import {
+  copyFileSync,
+  lstatSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  writeFileSync,
+} from "fs"
 import { dirname, resolve, basename } from "path"
 import React, { Fragment } from "react"
 import { renderToString } from "react-dom/server"
@@ -287,6 +295,20 @@ export default function BuildStatic(config: BuildStaticOptions): void {
   ])
   console.log("Writing: %s", config.target + "/sitemap.xml") // eslint-disable-line no-console
   writeFileSync(config.target + "/sitemap.xml", sitemap)
+
+  function copyFolderSync(from: string, to: string) {
+    mkdirSync(to)
+    readdirSync(from).forEach(element => {
+      if (lstatSync(path.join(from, element)).isFile()) {
+        copyFileSync(path.join(from, element), path.join(to, element))
+      } else {
+        copyFolderSync(path.join(from, element), path.join(to, element))
+      }
+    })
+  }
+
+  const images = resolve(process.cwd(), "./dist/images")
+  copyFolderSync(images, config.target)
 }
 
 BuildStatic({

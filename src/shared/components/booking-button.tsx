@@ -1,9 +1,19 @@
 import React from "react"
 import styled from "styled-components"
+import theme from "../theme/theme"
+import media from "styled-media-query"
 
-const Tiny = styled.small`
-  font-size: 0.7em;
+const Tiny = styled.span`
+  padding: 1em;
+  background-color: ${theme.colors.fontAttention};
+  color: #ffffff;
+  border-radius: 6px;
+  margin-top: 1em;
+
+  ${media.lessThan("medium")`
   display: block;
+  text-align: center;
+  `}
 `
 
 const HiringBar = styled.div`
@@ -17,13 +27,12 @@ const HiringBar = styled.div`
 export function BookingButton(): JSX.Element {
   return (
     <HiringBar>
-      Are you looking for a developer?{" "}
       <a
-        href="https://calendly.com/davemackintosh/15min"
+        href="https://calendly.com/davemackintosh/chat"
         rel="noopener noreferrer nofollow"
         target="_blank"
       >
-        <Tiny>I&apos;m looking for a new contract 💖 HMU</Tiny>
+        <Tiny>Let's talk about your project together 💖</Tiny>
       </a>
     </HiringBar>
   )
