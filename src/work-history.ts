@@ -9,6 +9,44 @@ export interface WorkHistoryEntry {
 
 const workHistory: WorkHistoryEntry[] = [
   {
+    dates: [new Date(2021, 6, 1)],
+    company: "Race at Your Pace feat Browser London",
+    tags: ["react", "react-native", "graphql", "apollo"],
+    description:
+      "Re-platforming Race at Your Pace using React Native and graphql with a mixture of AWS backed services. With a fairly aggressive timeline we (Browser London and me) delivered a web and mobile app in partnership very quickly. ",
+  },
+  {
+    dates: [new Date(2021, 3, 1), new Date(2021, 6, 1)],
+    company: "Dela",
+    tags: [
+      "react",
+      "native",
+      "plaid",
+      "fintech",
+      "postgraphile",
+      "nexjs",
+      "graphql",
+      "apollo",
+    ],
+    description:
+      "A custom marketing referral platform built using nextJS, postgraphile and graphql which encourages small businesses and evangelists to share campaigns and grow businesses organically. The platform is built on NextJS using postgraphile to generate a performant and secure API using Postgres. It is deployed to AWS using the CDK and Github actions.",
+  },
+  {
+    dates: [new Date(2020, 10, 15), new Date(2021, 1, 15)],
+    company: "Dimply AI",
+    tags: [
+      "react",
+      "react-native",
+      "plaid",
+      "fintech",
+      "postgraphile",
+      "graphql",
+      "apollo",
+    ],
+    description:
+      "Building an AI powered fintech solution to help people understand their finances better, built using postgraphile and react-native.",
+  },
+  {
     dates: [new Date(2020, 4, 5), new Date(2020, 10, 13)],
     company: "Sleepio",
     tags: ["react", "redux", "react-native"],
@@ -38,7 +76,7 @@ const workHistory: WorkHistoryEntry[] = [
     personal: true,
     tags: ["multicolour", "nodeJS"],
     description:
-      "Multicolour is a NodeJS, REST API generator. It offers multiple ways to authenticate your API (JWT, OAuth), it suports basic content negotiation (JSONAPI), it supports many many database technologies out of the box. It powers many user's experiences and they don't even know. Large companies and small companies use this product. I'm currently rebuilding it from scratch for a 1.0 to remove many parts of the software that let the product as a whole down using TypeScript and many other new and improved features like built in event streams, CQRS built in and a fully automated documentation and error tracking system.",
+      "Multicolour was a NodeJS, REST API generator. It offered multiple ways to authenticate your API (JWT, OAuth), it suports basic content negotiation (JSONAPI), it supports many many database technologies out of the box. It powers many user's experiences and they don't even know. Large companies and small companies use this product. I'm currently rebuilding it from scratch for a 1.0 to remove many parts of the software that let the product as a whole down using TypeScript and many other new and improved features like built in event streams, CQRS built in and a fully automated documentation and error tracking system.",
   },
   {
     dates: [new Date(2018, 5, 1), new Date(2018, 6, 1)],
