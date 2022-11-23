@@ -25,10 +25,9 @@ export function HomePage(props: ContentProps): JSX.Element {
       <div className="hero-container">
         <div className="hero">
           <p>
-            👋 I'm Dave Mackintosh, I do React, React Native, TypeScript,
-            GraphQL
+            👋 I'm Dave Mackintosh, I do Go, React, C++, Swift and more
           </p>
-          <BookingButton />
+          <a rel="me" href="https://fosstodon.org/@davemackintosh">🐘 Follow me on Mastodon</a>
         </div>
         <div className="hero">
           <img src="/images/avi.png" alt="Cartoon of Dave Mackintosh" />
