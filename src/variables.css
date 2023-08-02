@@ -1,0 +1,6 @@
+:root {
+	--primaryFontFamilies: 'IBM Plex Mono',monospace;
+	--background: #40444b;
+	--foreground: #fdfdfd;
+	--attention: #e82ea7;
+}
