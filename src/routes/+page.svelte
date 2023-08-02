@@ -1,7 +1,9 @@
 <script lang="ts">
 	import "$src/styles.css"
 	import avi from "$lib/assets/avi.png"
+	import Heading from "$src/components/Heading.svelte"
 	import Page from "$src/components/Page.svelte"
+	import Header from "$src/components/Header.svelte"
 </script>
 
 <svelte:head>
@@ -32,7 +34,7 @@
 		</div>
 	</div>
 
-	<h1>Golang, SwiftUI, React, NodeJS, JavaScript</h1>
+	<Heading text="Golang, SwiftUI, React, NodeJS, JavaScript" />
 	<p>
 		With over two decades of experience in the software development industry, I have had the
 		privilege of working with esteemed clients like Google, ABRSM, Sleepio, Skoda, The National Army
