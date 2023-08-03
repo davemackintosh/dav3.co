@@ -66,7 +66,7 @@ Well, thats nice and all but what the heck do we do with it? Well, we have a cou
 
 The first thing we need to do is create some storage for each known character of the search text. We'll call this our "bad char table". I'm going to use a `Buffer` to construct this table as we'll be comparing against a buffer in our search body.
 
-```typescript
+```javascript
 function makeBadCharTable(pattern: string): Buffer {
   const DICT_SIZE = 65535
   const badCharShift: Buffer = Buffer.allocUnsafe(DICT_SIZE)

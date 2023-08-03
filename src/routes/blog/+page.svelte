@@ -22,7 +22,9 @@
 						</time>
 					</small>
 				{/if}
-				<p>{post.meta.excerpt}</p>
+				{#if post.meta.excerpt}
+					<p>{post.meta.excerpt}</p>
+				{/if}
 			</li>
 		{/each}
 	</ol>

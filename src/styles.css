@@ -1,12 +1,12 @@
 @import "./variables.css";
- html, body {
-     background-color: var(--background);
-     color: var(--foreground);
-     font-family: var(--primaryFontFamilies);
-     font-size: 1.1em;
-     line-height: 2em;
-	 padding: 0;
-	 margin: 0;
+html, body {
+	background-color: var(--background);
+	color: var(--foreground);
+	font-family: var(--primaryFontFamilies);
+	font-size: 1.1em;
+	line-height: 2em;
+	padding: 0;
+	margin: 0;
 }
 
 @media print {
@@ -15,33 +15,40 @@
 		color: var(--background);
 	}
 }
- * + * {
-     box-sizing: border-box;
+
+* + * {
+    box-sizing: border-box;
 }
- a {
-     color: var(--attention);
+
+a {
+    color: var(--attention);
 }
- img {
-     max-width: 80%;
-     margin: initial auto;
+
+img {
+    max-width: 80%;
+    margin: initial auto;
 }
- code {
-     background: rgba(0, 0, 0, 0.35);
-     border-radius: 5px;
-     padding: 0 0.5em;
-     display: inline-block;
+
+code {
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 5px;
+    padding: 0 0.5em;
+    display: inline-block;
 }
- h1, h2, h3, h4, h5, h6 {
-     font-size: 1.4em;
-     line-height: 2em;
-     letter-spacing: -1px;
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1.4em;
+    line-height: 2em;
+    letter-spacing: -1px;
 }
- @media (max-width:768px) {
-     h1, h2, h3, h4, h5, h6 {
-         line-height: 1.4em;
-    }
+
+@media (max-width:768px) {
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1.4em;
+   }
 }
- ::selection {
-     background: var(--attention);
+
+::selection {
+    background: var(--attention);
 }
  

@@ -2,6 +2,7 @@
 	import Page from "$src/components/Page.svelte"
 	import Heading from "$src/components/Heading.svelte"
 	import type { Post } from "$src/lib/posts"
+	import Date from "$src/components/Date.svelte"
 
 	export let data: Post
 	console.log(data)
@@ -11,11 +12,7 @@
 	<article>
 		<Heading text={data.metadata.title} />
 		{#if data.published}
-			<small>
-				<time datetime={data.published.toLocaleDateString()}>
-					{data.published.toLocaleDateString()}
-				</time>
-			</small>
+			<Date date={data.published} />
 		{/if}
 
 		<svelte:component this={data.content} />
