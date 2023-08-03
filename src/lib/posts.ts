@@ -1,17 +1,21 @@
+import type { ComponentType } from "svelte"
+
 interface GlobbedPosts {
-	metadata: Post
+	metadata: PostMeta
 }
 
-export interface Post {
+export interface PostMeta {
 	author?: string
 	excerpt?: string
 	keywords?: string[]
-	published?: string
+	published?: Date
 	title: string
+	// A Svelte component as rendered by mdsvex
+	content: ComponentType
 }
 
 export interface PostWithContent {
-	meta: Post
+	meta: PostMeta
 	path: string
 }
 
@@ -24,6 +28,9 @@ export const fetchMarkdownPosts = async (): Promise<PostWithContent[]> => {
 			const data = await resolver()
 			const { metadata } = data
 			const postPath = path.slice(11, -3)
+
+			if (metadata.published)
+				metadata.published = new Date(metadata.published)
 
 			return {
 				meta: metadata,

@@ -42,6 +42,7 @@
 		background-color: #26292d;
 		min-height: 100vh;
 		width: 30%;
+		max-width: 225px;
 	}
 
 	@media (min-width: 768px) {

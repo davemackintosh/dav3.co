@@ -15,11 +15,14 @@
 						{post.meta.title}
 					</a>
 				</h2>
-				<small>
-					<time datetime={post.meta.published}>
-						{post.meta.published}
-					</time>
-				</small>
+				{#if post.meta.published}
+					<small>
+						<time datetime={post.meta.published.toLocaleDateString()}>
+							{post.meta.published.toLocaleDateString()}
+						</time>
+					</small>
+				{/if}
+				<p>{post.meta.excerpt}</p>
 			</li>
 		{/each}
 	</ol>
@@ -29,11 +32,22 @@
 	ol {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		grid-gap: 1rem;
 		padding: 0;
 		margin: 0;
 	}
 
 	li {
 		list-style: none;
+	}
+
+	h2 {
+		margin: 0;
+		font-size: 1.3rem;
+	}
+
+	small {
+		display: inline;
+		font-size: 0.8rem;
 	}
 </style>
