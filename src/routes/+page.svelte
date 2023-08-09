@@ -2,6 +2,13 @@
 	import avi from "$lib/assets/avi.png"
 	import Heading from "$src/components/Heading.svelte"
 	import Page from "$src/components/Page.svelte"
+
+	const testimonials = [
+		"Highly innovative thinker, with a lightning speed ability to problem solve and put forward valid solutions to all implementations of the stack. Opinionated, and doesn't cut corners. As a project lead, he listened and managed his team considerately, as well as passing on valuable knowledge and techniques, making the web, better ~ easyProperty, London",
+		"I've worked with Dave for about 5 months at a London startup and loved every minute. He's one of those rare engineers who's not only fast, but also rigorous with TDD, coverage, types and documentation. He writes beautiful code that's easy to understand and a pleasure to work with; this is what you want in a contractor - someone who leaves a positive legacy and not spaghetti. Recommended! ~ Freybors, London",
+		"I worked with Dave on a Node.js API in 2015, he was very professional and a delight to work with. His code is among the cleanest I've ever seen. We have since become co-hosts of Creative Meet, a small meetup in Chichester that brings designers and developers together, alongside encouraging small talks to share knowledge and experience. ~ ABRSM, London",
+		"Dave was an excellent team lead on a truly challenging sprint. Above and beyond his mandate, and surpassing his peers in capability and efficiency, Dave was able to remain focused and productive on his own tasks while helping to guide other team members. Dave was highly responsive to status requests, and was diligent with code check-ins and documentation. His code reads extremely well. In short, you could not do better than to have Dave on your team, and we are grateful to have had him work hard to make our project a success. ~ Skoda/TDF/Hirsch & Mann, London",
+	]
 </script>
 
 <svelte:head>
@@ -49,6 +56,13 @@
 		performant but also maintainable and readable. I firmly believe that a well-architected and
 		thoroughly understood codebase is the foundation for long-term success in any project.
 	</p>
+
+	<Heading level={2} text="Kind words" />
+	<div class="testimonials">
+		{#each testimonials as testimonial}
+			<blockquote>{testimonial}</blockquote>
+		{/each}
+	</div>
 </Page>
 
 <style>
@@ -60,6 +74,12 @@
 		padding: 3rem;
 		background-color: #5a5e65;
 		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAEklEQVQImWNgYGD4z0AswK4SAFXuAf8EPy+xAAAAAElFTkSuQmCC);
+	}
+
+	.testimonials {
+		display: grid;
+		grid-template-columns: 2fr 2fr;
+		grid-gap: 1rem;
 	}
 
 	@media (max-width: 768px) {

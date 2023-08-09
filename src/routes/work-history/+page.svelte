@@ -127,12 +127,35 @@
 	</p>
 
 	{#each work as entry}
-		<article>
+		<article class="client">
 			<h2>{entry.company}</h2>
 			<div>
 				<DateC date={entry.dates[0]} /> - <DateC date={entry.dates[1]} />
 			</div>
 			<p>{entry.description}</p>
+			<div class="skills">
+				{#each entry.tags as tag}
+					<span class="skill">{tag}</span>
+				{/each}
+			</div>
 		</article>
 	{/each}
 </Page>
+
+<style>
+	.client {
+		margin-bottom: 2rem;
+	}
+
+	.skills {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.skill {
+		border: 1px solid #4f93ce;
+		padding: 0.5rem;
+		margin: 0.5rem;
+		border-radius: 0.5rem;
+	}
+</style>
