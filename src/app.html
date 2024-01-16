@@ -22,9 +22,21 @@
 </head>
 
 <body data-sveltekit-preload-data="hover">
-	<div style="display: flex; flex-direction: row;">
+	<div class="content-wrapper">
 		%sveltekit.body%
 	</div>
+<style>
+	.content-wrapper {
+		display: flex;
+		flex-direction: row;
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		.content-wrapper {
+			flex-direction: column;
+		}
+	}
+</style>
 </body>
 
 </html>

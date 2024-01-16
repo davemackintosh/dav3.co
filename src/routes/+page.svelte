@@ -98,4 +98,10 @@
 			text-align: center;
 		}
 	}
+
+	@media only screen and (max-device-width: 480px) {
+		.testimonials {
+			grid-template-columns: 1fr;
+		}
+	}
 </style>

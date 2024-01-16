@@ -62,14 +62,14 @@
 		}
 	}
 
-	ul {
+	nav ul {
 		margin: 0;
 		padding: 0;
 		display: flex;
 		flex-direction: column;
 	}
 
-	li {
+	nav ul li {
 		list-style: none;
 		padding: 1em 2em;
 	}
@@ -87,5 +87,22 @@
 
 	a {
 		font-weight: 700;
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		aside {
+			min-height: unset;
+			width: unset;
+			max-width: unset;
+		}
+
+		nav, nav ul {
+			flex-direction: row;
+		}
+
+		nav ul li {
+			text-align: center;
+			font-size: 0.8em;
+		}
 	}
 </style>
