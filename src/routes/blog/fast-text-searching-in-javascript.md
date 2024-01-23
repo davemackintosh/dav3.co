@@ -12,7 +12,7 @@ published: Tue Oct 15 2019 21:08:52 GMT+0100 (British Summer Time)
 
 Searching for one piece of text in another is an expensive business. searching small amounts of text is pretty performant, say:
 
-```javascript
+```js
 const myText = "toothbrushes"
 myText.search("tooth") // 0
 myText.search("brush") // 5
