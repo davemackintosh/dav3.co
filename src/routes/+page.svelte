@@ -13,7 +13,7 @@
 		"Dave was an excellent team lead on a truly challenging sprint. Above and beyond his mandate, and surpassing his peers in capability and efficiency, Dave was able to remain focused and productive on his own tasks while helping to guide other team members. Dave was highly responsive to status requests, and was diligent with code check-ins and documentation. His code reads extremely well. In short, you could not do better than to have Dave on your team, and we are grateful to have had him work hard to make our project a success. ~ Skoda/TDF/Hirsch & Mann, London",
 	]
 
-	export let data: { posts: PostWithContent<PostMetaFE>[] }
+	export let data: { posts: PostWithContent<PostMetaFE>[] } = { posts: [] }
 </script>
 
 <Seo
