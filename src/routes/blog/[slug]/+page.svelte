@@ -3,10 +3,17 @@
 	import Heading from "$src/components/Heading.svelte"
 	import type { Post } from "$src/lib/posts"
 	import Date from "$src/components/Date.svelte"
+	import SEO from "$src/components/SEO.svelte"
+	import "$src/laserwave.prism.css"
 
 	export let data: Post
-	console.log(data)
 </script>
+
+<SEO
+	title={data.metadata.title}
+	description={data.metadata.excerpt}
+	keywords={data.metadata.tags}
+/>
 
 <Page>
 	<article>

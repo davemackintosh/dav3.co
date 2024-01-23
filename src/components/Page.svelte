@@ -103,5 +103,9 @@
 			text-align: center;
 			font-size: 0.8em;
 		}
+
+		#content {
+			padding: 0 1rem;
+		}
 	}
 </style>

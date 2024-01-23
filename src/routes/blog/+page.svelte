@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PostWithContent } from "$lib/posts"
 	import Page from "$src/components/Page.svelte"
+
 	export let data: { posts: PostWithContent[] }
 </script>
 
@@ -45,6 +46,7 @@
 
 	h2 {
 		margin: 0;
+		word-wrap: break-all;
 	}
 
 	small {
