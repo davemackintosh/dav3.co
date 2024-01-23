@@ -246,10 +246,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/neuton@npm:^5.0.18":
-  version: 5.0.18
-  resolution: "@fontsource/neuton@npm:5.0.18"
-  checksum: e9c98aeb8d442192a8f1781205ae3b7002a430a3e38c353a569b017fd50c93578df37df438b5be5bf6e375312e39ea83f1367478d90faf5faa52bb2191c70714
+"@fontsource/merriweather@npm:^5.0.8":
+  version: 5.0.8
+  resolution: "@fontsource/merriweather@npm:5.0.8"
+  checksum: 7539ac68d22053660222b5caaef50fc342e24ac0c257d205204e4436d3dd3c294c41e176d564068e958934173c2b13beeffe3bb94d54e789001fb37799fc0535
   languageName: node
   linkType: hard
 
@@ -1107,7 +1107,7 @@ __metadata:
   dependencies:
     "@fontsource/bebas-neue": ^5.0.18
     "@fontsource/ibm-plex-mono": ^5.0.8
-    "@fontsource/neuton": ^5.0.18
+    "@fontsource/merriweather": ^5.0.8
     "@sveltejs/adapter-auto": ^2.1.1
     "@sveltejs/kit": ^1.27.6
     "@typescript-eslint/eslint-plugin": ^6.13.1

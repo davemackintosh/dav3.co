@@ -13,7 +13,7 @@
 	},
 	"devDependencies": {
 		"@fontsource/bebas-neue": "^5.0.18",
-		"@fontsource/neuton": "^5.0.18",
+		"@fontsource/merriweather": "^5.0.8",
 		"@sveltejs/adapter-auto": "^2.1.1",
 		"@sveltejs/kit": "^1.27.6",
 		"@typescript-eslint/eslint-plugin": "^6.13.1",

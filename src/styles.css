@@ -1,5 +1,6 @@
 @import "./variables.css";
 @import "@fontsource/bebas-neue";
+@import "@fontsource/merriweather";
 
 html,
 body {
@@ -48,6 +49,7 @@ h5,
 h6 {
 	font-family: var(--attentionFontStack);
 	line-height: 2em;
+	margin: 0;
 }
 
 @media (max-width: 768px) {
@@ -63,4 +65,8 @@ h6 {
 
 ::selection {
 	background: var(--attention);
+}
+
+#content a {
+	text-decoration: underline;
 }

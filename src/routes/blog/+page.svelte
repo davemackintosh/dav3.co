@@ -12,18 +12,18 @@
 			<li>
 				<h2>
 					<a href={post.path}>
-						{post.meta.title}
+						{post.metadata.title}
 					</a>
 				</h2>
-				{#if post.meta.published}
+				{#if post.metadata.published}
 					<small>
-						<time datetime={post.meta.published.toLocaleDateString()}>
-							{post.meta.published.toLocaleDateString()}
+						<time datetime={post.metadata.published.toLocaleDateString()}>
+							{post.metadata.published.toLocaleDateString()}
 						</time>
 					</small>
 				{/if}
-				{#if post.meta.excerpt}
-					<p>{post.meta.excerpt}</p>
+				{#if post.metadata.excerpt}
+					<p>{post.metadata.excerpt}</p>
 				{/if}
 			</li>
 		{/each}
@@ -33,7 +33,7 @@
 <style>
 	ol {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 		grid-gap: 1rem;
 		padding: 0;
 		margin: 0;
