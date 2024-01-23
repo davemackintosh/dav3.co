@@ -11,8 +11,8 @@
 <Page>
 	<article>
 		<Heading text={data.metadata.title} />
-		{#if data.published}
-			<Date date={data.published} />
+		{#if data.metadata.published}
+			<Date date={data.metadata.published} />
 		{/if}
 
 		<svelte:component this={data.content} />
