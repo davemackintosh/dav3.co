@@ -53,4 +53,10 @@
 		display: inline;
 		font-size: 0.8rem;
 	}
+
+	@media only screen and (max-device-width: 480px) {
+		ol {
+			display: block;
+		}
+	}
 </style>
