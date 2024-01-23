@@ -11,8 +11,8 @@
 
 <SEO
 	title={data.metadata.title}
-	description={data.metadata.excerpt}
-	keywords={data.metadata.tags}
+	description={data.metadata.excerpt ?? ""}
+	keywords={data.metadata.keywords}
 />
 
 <Page>

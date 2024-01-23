@@ -11,6 +11,8 @@
 	<title>{title}</title>
 	<meta name="description" content={description} />
 	<link rel="canonical" href="{PUBLIC_CANONICAL_ORIGIN}{$page.url.pathname}" />
-	<meta name="keywords" content={keywords.join(" ")} />
+	{#if keywords}
+		<meta name="keywords" content={keywords.join(" ")} />
+	{/if}
 	<slot />
 </svelte:head>
