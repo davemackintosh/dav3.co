@@ -1,5 +1,8 @@
 @import "./variables.css";
-html, body {
+@import "@fontsource/bebas-neue";
+
+html,
+body {
 	background-color: var(--background);
 	color: var(--foreground);
 	font-family: var(--primaryFontFamilies);
@@ -10,45 +13,54 @@ html, body {
 }
 
 @media print {
-	html, body {
+	html,
+	body {
 		background-color: var(--foreground);
 		color: var(--background);
 	}
 }
 
 * + * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 a {
-    color: var(--attention);
+	color: var(--attention);
 }
 
 img {
-    max-width: 80%;
-    margin: initial auto;
+	max-width: 80%;
+	margin: initial auto;
 }
 
 code {
-    background: rgba(0, 0, 0, 0.35);
-    border-radius: 5px;
-    padding: 0 0.5em;
-    display: inline-block;
+	background: rgba(0, 0, 0, 0.35);
+	border-radius: 5px;
+	padding: 0 0.5em;
+	display: inline-block;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-size: 1.4em;
-    line-height: 2em;
-    letter-spacing: -1px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--attentionFontStack);
+	line-height: 2em;
 }
 
-@media (max-width:768px) {
-    h1, h2, h3, h4, h5, h6 {
-        line-height: 1.4em;
-   }
+@media (max-width: 768px) {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		line-height: 1.4em;
+	}
 }
 
 ::selection {
-    background: var(--attention);
+	background: var(--attention);
 }
- 
