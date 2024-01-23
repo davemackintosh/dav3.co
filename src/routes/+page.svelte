@@ -2,6 +2,7 @@
 	import avi from "$lib/assets/avi.png"
 	import Heading from "$src/components/Heading.svelte"
 	import Page from "$src/components/Page.svelte"
+	import Seo from "$src/components/SEO.svelte"
 
 	const testimonials = [
 		"Highly innovative thinker, with a lightning speed ability to problem solve and put forward valid solutions to all implementations of the stack. Opinionated, and doesn't cut corners. As a project lead, he listened and managed his team considerately, as well as passing on valuable knowledge and techniques, making the web, better ~ easyProperty, London",
@@ -11,17 +12,25 @@
 	]
 </script>
 
-<svelte:head>
-	<title>Experienced Software Developer & Business Owner | Seeking CTO Role</title>
-	<meta
-		name="description"
-		content="With 20 years of software development expertise and a successful 10-year solo business, I am now actively seeking a new opportunity as a Chief Technology Officer (CTO). Explore my track record of working with renowned clients and delivering stable, high-performant code with a people-first approach"
-	/>
-	<meta
-		name="keywords"
-		content="dave mackintosh web javascript nodejs react native developer mentor golang swiftui c++ CTO"
-	/>
-</svelte:head>
+<Seo
+	title="Experienced Lead Developer"
+	description="With 20 years of software development expertise and a successful 10-year solo business, I am now actively seeking a new opportunity as a Chief Technology Officer (CTO). Explore my track record of working with renowned clients and delivering stable, high-performant code with a people-first approach"
+	keywords={[
+		"dave",
+		"mackintosh",
+		"web",
+		"javascript",
+		"nodejs",
+		"react",
+		"native",
+		"developer",
+		"mentor",
+		"golang",
+		"swiftui",
+		"c++",
+		"CTO",
+	]}
+/>
 
 <Page>
 	<div class="hero-container">

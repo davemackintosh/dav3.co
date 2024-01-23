@@ -1,6 +1,9 @@
 :root {
-	--primaryFontFamilies: 'IBM Plex Mono',monospace;
-	--background: #40444b;
+	--primaryFontFamilies: "Neuton", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	--attentionFontStack: "Bebas Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	--background: #232529;
 	--foreground: #fdfdfd;
 	--attention: #e82ea7;
 }
