@@ -24,6 +24,35 @@
 	<slot />
 </main>
 
+<footer>
+	<ul>
+		<li>
+			<a title="Experienced Lead Developer" href="/">DAV3</a>
+		</li>
+		<li>
+			<a title="Dave Mackintosh's blog posts" href="/blog">Blog</a>
+		</li>
+		<li>
+			<a title="Work history" href="/work-history">Work history / CV</a>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<a rel="me" href="https://fosstodon.org/@davemackintosh">🐘 Follow me on Mastodon</a>
+		</li>
+		<li>
+			<a target="_blank" rel="nofollow noreferrer" href="https://github.com/davemackintosh"
+				>Github</a
+			>
+		</li>
+		<li>
+			<a target="_blank" title="Dave Mackintosh LinkedIn" href="https://www.linkedin.com/in/dav3"
+				>💼 LinkedIn</a
+			>
+		</li>
+	</ul>
+</footer>
+
 <style>
 	main {
 		display: flex;
@@ -40,7 +69,8 @@
 		}
 	}
 
-	nav {
+	nav,
+	footer {
 		display: flex;
 		flex-direction: row;
 		background-color: rgba(0, 0, 0, 0.7);
@@ -51,13 +81,18 @@
 		backdrop-filter: blur(4px);
 	}
 
+	footer {
+		margin-top: 2em;
+	}
+
 	@media print {
-		nav {
+		nav,
+		footer {
 			display: none;
 		}
 	}
 
-	nav ul {
+	ul {
 		width: 100%;
 		margin: 0;
 		padding: 0;
@@ -66,12 +101,12 @@
 		flex-direction: row;
 	}
 
-	nav ul li {
+	ul li {
 		list-style: none;
 		padding: 1em 2em;
 	}
 
-	nav ul li.title {
+	ul li.title {
 		flex-grow: 1;
 		font-weight: 700;
 		font-size: 1.2em;
@@ -94,12 +129,16 @@
 		text-decoration: none;
 	}
 
+	footer ul {
+		flex-direction: column;
+	}
+
 	a:hover {
 		text-decoration: underline;
 	}
 
 	@media only screen and (max-device-width: 480px) {
-		nav ul li {
+		ul li {
 			text-align: center;
 			font-size: 0.8em;
 		}

@@ -18,7 +18,7 @@
 
 <Seo
 	title="Experienced Lead Developer"
-	description="With 20 years of software development expertise and a successful 10-year solo business, I am now actively seeking a new opportunity as a Chief Technology Officer (CTO). Explore my track record of working with renowned clients and delivering stable, high-performant code with a people-first approach"
+	description="With 20 years of software development expertise and a successful 10-year solo business. Explore my track record of working with renowned clients and delivering stable, high-performant code with a people-first approach"
 	keywords={[
 		"dave",
 		"mackintosh",
