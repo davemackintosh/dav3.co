@@ -46,7 +46,7 @@
 	</p>
 
 	<Heading level={2} text="Latest posts" />
-	<div class="latest-posts">
+	<section class="latest-posts">
 		{#each data.posts as post}
 			<article class="post-excerpt">
 				<a href={post.path} title={post.metadata.title}><h3>{post.metadata.title}</h3></a>
@@ -54,10 +54,10 @@
 				<p>{post.metadata.excerpt}</p>
 			</article>
 		{/each}
-	</div>
+	</section>
 
 	<Heading level={2} text="About me" />
-	<div class="hero">
+	<section class="hero">
 		<div>
 			<p>
 				As a seasoned professional who has not only run a successful business solo for a decade but
@@ -71,20 +71,24 @@
 			</p>
 		</div>
 		<img src={avi} alt="Cartoon of Dave Mackintosh" width="256" height="256" />
-	</div>
+	</section>
 
 	<Heading level={2} text="Kind words" />
-	<div class="testimonials">
+	<section class="testimonials">
 		{#each testimonials as testimonial}
 			<blockquote>{testimonial}</blockquote>
 		{/each}
-	</div>
+	</section>
 </Page>
 
 <style>
 	.hero {
 		display: flex;
 		flex-direction: row;
+	}
+
+	section {
+		margin-bottom: 2em;
 	}
 
 	.testimonials,

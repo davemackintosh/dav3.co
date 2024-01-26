@@ -53,7 +53,6 @@ h5,
 h6 {
 	font-family: var(--attentionFontStack);
 	line-height: 2em;
-	margin: 0;
 }
 
 @media (max-width: 768px) {
@@ -95,4 +94,3 @@ blockquote:after {
 	content: close-quote;
 	color: #aaa;
 }
-
