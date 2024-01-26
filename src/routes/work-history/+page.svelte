@@ -155,9 +155,6 @@
 								<blockquote>{feedback}</blockquote>
 							{/each}
 						</div>
-						{#each entry.feedback as feedback}
-							<blockquote>{feedback}</blockquote>
-						{/each}
 					{:else}
 						<blockquote>{entry.feedback[0]}</blockquote>
 					{/if}
