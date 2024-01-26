@@ -3,6 +3,8 @@
 	import Page from "$src/components/Page.svelte"
 
 	export let data: { posts: PostWithContent[] }
+
+	$: console.log("FATA", data)
 </script>
 
 <Page>

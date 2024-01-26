@@ -8,21 +8,26 @@
 		company: string
 		tags: string[]
 		description: string
-		feedback?: string
+		feedback?: string[]
 		personal?: boolean
 	}
 
 	const work: WorkHistoryEntry[] = [
 		{
-			dates: [new Date(2022, 0, 1)],
+			dates: [new Date(2022, 0, 30)],
 			company: "Definition Health",
-			tags: ["react", "graphql", "apollo", "cdk", "golang", "aws"],
+			tags: ["react", "graphql", "apollo", "cdk", "golang", "aws", "python", "lua", "leadership"],
 			description: `Frontend, backend, devops and platform engineering. I spend my time:
 
 * Enabling the wider team with tooling and cross boundary knowledge of our stack and technology choices.
 * Leading of a remote technical team and mentoring and teaching other members of the team.
 * Writing GoLang, Python, Lua & React/TypeScript.
 * Creating infrastructure as code using Cloudformation and using CDK with GoLang and Python.`,
+			feedback: [
+				"I have had the pleasure of working closely with Dave on THINK surgical project. He excelled in fostering a collaborative and positive work environment. One notable quality of Dave is his exceptional problem-solving skills. He approaches challenges with a strategic mindset, identifying innovative solutions and implementing them effectively. This ability has significantly contributed to the success of our projects. I believe that Dave would make an excellent developer lead. His technical prowess, leadership abilities, and commitment to excellence make him an asset to any team. ~ Aleksandr Volkodatov",
+				"I have worked with Dave on a number of projects over the years whilst we were both contracting and in our current roles at Definition Health. The best word I can think of for him is \"fixer\"... whether it's architecting a brand new solution to a hard problem or dealing with legacy codebases, he's always the go-to person across any team. ~ Shane Hudson",
+				"Dave is a talented and passionate team player and leader. I’m glad to work with him. We spent hours coding from scratch together, and he created a supportive atmosphere where I knew that, if something went wrong, we would overcome it together. I admire his experience, his adeptness at transitioning between programming languages, technologies and tasks, understanding business needs, product considerations, and ability to ask right questions. Dave can easily initiate projects from scratch, provide ongoing support and drive continuous improvements. In our team, he definitely helped us achieve our goals, made difficult decisions, and led us in the right direction. Any projects/companies would find him highly impactful and valuable ~ Alina Sauchuk",
+			],
 		},
 		{
 			dates: [new Date(2021, 6, 1), new Date(2022, 0, 1)],
@@ -58,8 +63,9 @@
 			tags: ["react", "redux", "sockets", "multicolour", "flowjs", "tachyons", "postgres"],
 			description:
 				"A React and NodeJS developer rebuilding an existing product from architecture, development practices, scrum mentoring, team support and mentoring to building an incredibly complex, cofiguration based system where half of the interface is generated entirely from Multicolour models.",
-			feedback:
+			feedback: [
 				"I've worked with Dave for about 5 months at a London startup and loved every minute. He's one of those rare engineers who's not only fast, but also rigorous with TDD, coverage, types and documentation. He writes beautiful code that's easy to understand and a pleasure to work with; this is what you want in a contractor - someone who leaves a positive legacy and not spaghetti. Recommended! ~ Jof Arnold",
+			],
 		},
 		{
 			dates: [new Date(2015, 9, 1), new Date(2021, 0, 1)],
@@ -89,7 +95,7 @@
 			tags: ["backbone", "multicolour", "svg"],
 			description:
 				"Squint Opera and I had worked together previously and we teamed up again to help the National Army Museum build their new exhibit technology with home baked analytics. I built the exhibit map and analytics API and visualised them on a map of the entire building, per exhibit.",
-			feedback: "Dave is a great developer. Fun and diligent. His work is top notch. ~ Rob Mason",
+			feedback: ["Dave is a great developer. Fun and diligent. His work is top notch. ~ Rob Mason"],
 		},
 		{
 			dates: [new Date(2016, 10, 1), new Date(2017, 2, 1)],
@@ -97,8 +103,9 @@
 			tags: ["cordova", "multicolour", "realtime", "cco", "odroid", "android"],
 			description:
 				"Due to the success of our partnership previously Hirsch&Mann engaged me again to help build the technology to power physical displays used by Google for their pop-up store in New York during the Pixel release. This was a real time synchronised visual dance of varying animations across nearly 300 devices in a sphere. Tishman Speyer used the same technology to synchronise 200 screens playing videos to within a few ms of difference. I built this using Multicolour, Sockets, Cordova/CCA and custom made framework for delivering all the required code from the primary node in the network.",
-			feedback:
+			feedback: [
 				"Dave was a great partner for many months on a challenging project. We're an innovation service provider and build technological solutions that have never been done; pushing our imagination, problem-solving, and endurance. In this context, Dave led coding on an entire ecosystem of servers and clients to help us deliver a new product line to top-shelf clients. Dave is a highly skilled team member, and we recommend him without reservation. ~ Alan Reitsch",
+			],
 		},
 		{
 			dates: [new Date(2016, 6, 1), new Date(2016, 7, 1)],
@@ -106,8 +113,9 @@
 			tags: ["react", "MySQL", "Neo4j", "Express", "Knex"],
 			description:
 				"I was contacted by Alan at Hirsch&Mann to work on a mobile application that allowed cyclists in the U.K to find a ride that best matched a section of the Tour de France in ways such as pitch, length, difficulty, et . Originally we built this with Neo4j but the performance was just unacceptable so in a single day I rewrote all our comparison algorithms into single purpose MySQL queries. The API was built using ExpressJS, Knex and the application was written using ReactJS. My role wasn't just to develop but evolved into pulling the team together during some hard sprints and mentoring other developers.",
-			feedback:
+			feedback: [
 				"Dave was an excellent team lead on a truly challenging sprint. Above and beyond his mandate, and surpassing his peers in capability and efficiency, Dave was able to remain focused and productive on his own tasks while helping to guide other team members. Dave was highly responsive to status requests, and was diligent with code check-ins and documentation. His code reads extremely well. In short, you could not do better than to have Dave on your team, and we are grateful to have had him work hard to make our project a success. ~ Alan Reitsch",
+			],
 		},
 	]
 </script>
@@ -128,7 +136,7 @@
 
 	{#each work as entry}
 		<article class="client">
-			<h2>{entry.company}</h2>
+			<Heading level={2} text={entry.company} />
 			<div>
 				<DateC date={entry.dates[0]} /> - <DateC date={entry.dates[1]} />
 			</div>
@@ -138,6 +146,23 @@
 					<span class="skill">{tag}</span>
 				{/each}
 			</div>
+			{#if entry.feedback}
+				<details>
+					<summary>feedback</summary>
+					{#if entry.feedback && entry.feedback.length > 1}
+						<div class="multiple-feedback">
+							{#each entry.feedback as feedback}
+								<blockquote>{feedback}</blockquote>
+							{/each}
+						</div>
+						{#each entry.feedback as feedback}
+							<blockquote>{feedback}</blockquote>
+						{/each}
+					{:else}
+						<blockquote>{entry.feedback[0]}</blockquote>
+					{/if}
+				</details>
+			{/if}
 		</article>
 	{/each}
 </Page>
@@ -157,5 +182,25 @@
 		padding: 0.5rem;
 		margin: 0.5rem;
 		border-radius: 0.5rem;
+	}
+
+	details {
+		font-style: italic;
+	}
+
+	details summary:hover {
+		cursor: pointer;
+	}
+
+	.multiple-feedback {
+		display: grid;
+		grid-template-columns: 2fr 2fr;
+		grid-gap: 1em;
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		.multiple-feedback {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>

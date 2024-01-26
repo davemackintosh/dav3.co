@@ -78,3 +78,21 @@ h6 {
 #content a {
 	text-decoration: underline;
 }
+
+blockquote {
+	border: 1px solid rgba(150, 150, 150, 0.2);
+	padding: 1em;
+	margin: 0;
+	border-radius: 8px;
+}
+
+blockquote:before {
+	content: open-quote;
+	color: #aaa;
+}
+
+blockquote:after {
+	content: close-quote;
+	color: #aaa;
+}
+

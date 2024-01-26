@@ -33,9 +33,11 @@
 	"packageManager": "yarn@3.6.1",
 	"dependencies": {
 		"@fontsource/ibm-plex-mono": "^5.0.8",
+		"@vcarl/remark-headings": "^0.1.0",
+		"i": "^0.3.7",
 		"mdsvex": "^0.11.0",
+		"npm": "^10.4.0",
 		"remark-containers": "^1.2.0",
-		"remark-github": "^12.0.0",
 		"svelte-highlight": "^7.4.2"
 	}
 }

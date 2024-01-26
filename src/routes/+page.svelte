@@ -104,23 +104,6 @@
 		overflow: hidden;
 	}
 
-	blockquote {
-		border: 1px solid rgba(150, 150, 150, 0.2);
-		padding: 1em;
-		margin: 0;
-		border-radius: 8px;
-	}
-
-	blockquote:before {
-		content: open-quote;
-		color: #aaa;
-	}
-
-	blockquote:after {
-		content: close-quote;
-		color: #aaa;
-	}
-
 	@media only screen and (max-device-width: 480px) {
 		.testimonials,
 		.latest-posts {
