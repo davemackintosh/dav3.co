@@ -32,7 +32,6 @@
 		"golang",
 		"swiftui",
 		"c++",
-		"CTO",
 	]}
 />
 
@@ -40,9 +39,10 @@
 	<h1>Creating and leading passionate teams</h1>
 	<p>
 		With over two decades of experience in the software development industry, I have had the
-		privilege of working with esteemed clients like Google, ABRSM, Sleepio, Skoda, The National Army
-		Museum, and many many local brands. My journey has been defined by a deep commitment to putting
-		people first and ensuring that technology serves as a powerful tool to enhance their lives.
+		privilege of working with esteemed clients like Google, Harrods, Breitling, Debenhams, ABRSM,
+		Sleepio, Skoda, The National Army Museum, and many many local brands. My journey has been
+		defined by a deep commitment to putting people first and ensuring that technology serves as a
+		powerful tool to enhance their lives.
 	</p>
 
 	<Heading level={2} text="Latest posts" />
@@ -61,16 +61,17 @@
 		<div>
 			<p>
 				As a seasoned professional who has not only run a successful business solo for a decade but
-				also contributed to and led numerous projects, I bring a unique blend of technical expertise
-				and leadership skills to the table.
+				also contributed to and led numerous projects over the last 10 years, I bring a unique blend
+				of technical expertise and leadership skills to the table.
 			</p>
 			<p>
-				Throughout my career, I have emphasized delivering stable code that is not only highly
-				performant but also maintainable and readable. I firmly believe that a well-architected and
-				thoroughly understood codebase is the foundation for long-term success in any project.
+				Throughout my career, I have emphasised delivering stable code that is not only highly
+				performant but also maintainable and readable, resulting in profitable platforms. I firmly
+				believe that a well-architected and thoroughly understood codebase is the foundation for
+				long-term success in any project and results in a happy and collaborative team
 			</p>
 		</div>
-		<img src={avi} alt="Cartoon of Dave Mackintosh" width="256" height="256" />
+		<img src={avi} alt="illustration of Dave Mackintosh" width="256" height="256" />
 	</section>
 
 	<Heading level={2} text="Kind words" />
