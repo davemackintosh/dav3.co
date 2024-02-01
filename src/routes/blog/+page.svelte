@@ -1,10 +1,9 @@
 <script lang="ts">
-	import type { PostWithContent } from "$lib/posts"
+	import type { PostMeta } from "$lib/posts"
+	import type { MarkdownContent } from "$lib/markdown"
 	import Page from "$src/components/Page.svelte"
 
-	export let data: { posts: PostWithContent[] }
-
-	$: console.log("FATA", data)
+	export let data: { posts: MarkdownContent<PostMeta>[] }
 </script>
 
 <Page>

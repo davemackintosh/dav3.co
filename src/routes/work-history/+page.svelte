@@ -2,27 +2,15 @@
 	import DateC from "$src/components/Date.svelte"
 	import Heading from "$src/components/Heading.svelte"
 	import Page from "$src/components/Page.svelte"
+	import type { MarkdownContent } from "$src/lib/markdown"
+	import type { WorkHistoryMeta } from "$src/lib/work-history"
 
-	interface WorkHistoryEntry {
-		dates: Date[]
-		company: string
-		tags: string[]
-		description: string
-		feedback?: string[]
-		personal?: boolean
-	}
+	export let data: { workHistory: MarkdownContent<WorkHistoryMeta>[] } = { workHistory: [] }
 
-	const work: WorkHistoryEntry[] = [
+	console.log(data.workHistory)
+
+	/*const work: WorkHistoryEntry[] = [
 		{
-			dates: [new Date(2022, 0, 30)],
-			company: "Definition Health",
-			tags: ["react", "graphql", "apollo", "cdk", "golang", "aws", "python", "lua", "leadership"],
-			description: `Frontend, backend, devops and platform engineering. I spend my time:
-
-* Enabling the wider team with tooling and cross boundary knowledge of our stack and technology choices.
-* Leading of a remote technical team and mentoring and teaching other members of the team.
-* Writing GoLang, Python, Lua & React/TypeScript.
-* Creating infrastructure as code using Cloudformation and using CDK with GoLang and Python.`,
 			feedback: [
 				"I have had the pleasure of working closely with Dave on THINK surgical project. He excelled in fostering a collaborative and positive work environment. One notable quality of Dave is his exceptional problem-solving skills. He approaches challenges with a strategic mindset, identifying innovative solutions and implementing them effectively. This ability has significantly contributed to the success of our projects. I believe that Dave would make an excellent developer lead. His technical prowess, leadership abilities, and commitment to excellence make him an asset to any team. ~ Aleksandr Volkodatov",
 				"I have worked with Dave on a number of projects over the years whilst we were both contracting and in our current roles at Definition Health. The best word I can think of for him is \"fixer\"... whether it's architecting a brand new solution to a hard problem or dealing with legacy codebases, he's always the go-to person across any team. ~ Shane Hudson",
@@ -117,7 +105,7 @@
 				"Dave was an excellent team lead on a truly challenging sprint. Above and beyond his mandate, and surpassing his peers in capability and efficiency, Dave was able to remain focused and productive on his own tasks while helping to guide other team members. Dave was highly responsive to status requests, and was diligent with code check-ins and documentation. His code reads extremely well. In short, you could not do better than to have Dave on your team, and we are grateful to have had him work hard to make our project a success. ~ Alan Reitsch",
 			],
 		},
-	]
+	]*/
 </script>
 
 <Page>
@@ -134,32 +122,18 @@
 		apps and APIs into single source of truth business platforms.
 	</p>
 
-	{#each work as entry}
+	{#each data.workHistory as entry}
 		<article class="client">
-			<Heading level={2} text={entry.company} />
+			<Heading level={2} text={entry.metadata.company} />
 			<div>
-				<DateC date={entry.dates[0]} /> - <DateC date={entry.dates[1]} />
+				<DateC date={entry.metadata.dates[0]} /> - <DateC date={entry.metadata.dates[1]} />
 			</div>
-			<p>{entry.description}</p>
+			<svelte:component this={entry.content} />
 			<div class="skills">
-				{#each entry.tags as tag}
+				{#each entry.metadata.skills as tag}
 					<span class="skill">{tag}</span>
 				{/each}
 			</div>
-			{#if entry.feedback}
-				<details>
-					<summary>feedback</summary>
-					{#if entry.feedback && entry.feedback.length > 1}
-						<div class="multiple-feedback">
-							{#each entry.feedback as feedback}
-								<blockquote>{feedback}</blockquote>
-							{/each}
-						</div>
-					{:else}
-						<blockquote>{entry.feedback[0]}</blockquote>
-					{/if}
-				</details>
-			{/if}
 		</article>
 	{/each}
 </Page>
