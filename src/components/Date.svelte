@@ -2,7 +2,7 @@
 	export let date: Date | string
 	export let fallback = "Current"
 
-	let actualDate = date instanceof Date ? date : new Date(Date.parse(date))
+	let actualDate = date instanceof Date ? date : new Date(date)
 </script>
 
 {#if date}
