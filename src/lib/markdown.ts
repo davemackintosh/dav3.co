@@ -13,7 +13,6 @@ interface Resolver<T> extends MarkdownContent<T> {
 export enum FetchContentType {
 	POSTS,
 	WORKHISTORY,
-	FEEDBACK,
 }
 
 function filesByType<T>(type: FetchContentType): Record<string, () => Promise<Resolver<T>>> {
@@ -22,8 +21,6 @@ function filesByType<T>(type: FetchContentType): Record<string, () => Promise<Re
 			return import.meta.glob<Resolver<T>>("/src/routes/blog/*.md")
 		case FetchContentType.WORKHISTORY:
 			return import.meta.glob<Resolver<T>>("/src/routes/work-history/entries/*.md")
-		case FetchContentType.FEEDBACK:
-			return import.meta.glob<Resolver<T>>("/src/routes/work-history/feedback/**/*.md")
 	}
 }
 

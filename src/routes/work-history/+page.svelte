@@ -5,11 +5,30 @@
 	import type { MarkdownContent } from "$src/lib/markdown"
 	import type { WorkHistoryMeta } from "$src/lib/work-history"
 
-	export let data: {
-		workHistory: MarkdownContent<WorkHistoryMeta>[]
-	} = { workHistory: [] }
+	export let data: { workHistory: MarkdownContent<WorkHistoryMeta>[] } = { workHistory: [] }
 
 	/*const work: WorkHistoryEntry[] = [
+		{
+			dates: [new Date(2021, 6, 1), new Date(2022, 0, 1)],
+			company: "Race at Your Pace feat Browser London",
+			tags: ["react", "react-native", "graphql", "apollo"],
+			description:
+				"Re-platforming Race at Your Pace using React Native and graphql with a mixture of AWS backed services. With a fairly aggressive timeline we (Browser London and me) delivered a web and mobile app in partnership very quickly. ",
+		},
+		{
+			dates: [new Date(2021, 3, 1), new Date(2021, 6, 1)],
+			company: "Dela",
+			tags: ["react", "native", "plaid", "fintech", "postgraphile", "nexjs", "graphql", "apollo"],
+			description:
+				"A custom marketing referral platform built using nextJS, postgraphile and graphql which encourages small businesses and evangelists to share campaigns and grow businesses organically. The platform is built on NextJS using postgraphile to generate a performant and secure API using Postgres. It is deployed to AWS using the CDK and Github actions.",
+		},
+		{
+			dates: [new Date(2020, 10, 15), new Date(2021, 1, 15)],
+			company: "Dimply AI",
+			tags: ["react", "react-native", "plaid", "fintech", "postgraphile", "graphql", "apollo"],
+			description:
+				"Building an AI powered fintech solution to help people understand their finances better, built using postgraphile and react-native.",
+		},
 		{
 			dates: [new Date(2020, 4, 5), new Date(2020, 10, 13)],
 			company: "Sleepio",
@@ -106,20 +125,6 @@
 					<span class="skill">{tag}</span>
 				{/each}
 			</div>
-			{#if entry.metadata.feedback}
-				<details>
-					<summary>feedback</summary>
-					{#if entry.metadata.feedback && entry.metadata.feedback.length > 1}
-						<div class="multiple-feedback">
-							{#each entry.metadata.feedback as feedback}
-								<blockquote>{feedback.content}</blockquote>
-							{/each}
-						</div>
-					{:else}
-						<blockquote>{entry.metadata.feedback[0]}</blockquote>
-					{/if}
-				</details>
-			{/if}
 		</article>
 	{/each}
 </Page>
