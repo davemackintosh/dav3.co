@@ -2,6 +2,7 @@
 	import DateC from "$src/components/Date.svelte"
 	import Heading from "$src/components/Heading.svelte"
 	import Page from "$src/components/Page.svelte"
+	import SvelteMarkdown from "svelte-markdown"
 
 	interface WorkHistoryEntry {
 		dates: Date[]
@@ -140,7 +141,7 @@
 			<div>
 				<DateC date={entry.dates[0]} /> - <DateC date={entry.dates[1]} />
 			</div>
-			<p>{entry.description}</p>
+			<SvelteMarkdown source={entry.description} />
 			<div class="skills">
 				{#each entry.tags as tag}
 					<span class="skill">{tag}</span>
