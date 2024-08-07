@@ -18,17 +18,49 @@
 			dates: [new Date(2022, 0, 30)],
 			company: "Definition Health",
 			tags: ["react", "graphql", "apollo", "cdk", "golang", "aws", "python", "lua", "leadership"],
-			description: `Frontend, backend, devops and platform engineering. I spend my time:
+			description: `Frontend, backend, devops, platform engineering and architect. I spend my time:
 
 * Enabling the wider team with tooling and cross boundary knowledge of our stack and technology choices.
 * Leading of a remote technical team and mentoring and teaching other members of the team.
 * Writing GoLang, Python, Lua & React/TypeScript.
-* Creating infrastructure as code using Cloudformation and using CDK with GoLang and Python.`,
+* Creating infrastructure as code using Cloudformation and using CDK with GoLang and Python.
+* Scripting our translation layer with Lua, transforming
+ * FHIR to HL7
+ * HL7 to FHIR
+ * CITO files to AWS S3 
+& sFTP
+ * LLP HL7 to FHIR
+ * HL7 to HTTP
+* architecting innovative solutions
+* solutionising business problems with the aim to professionalise the business`,
 			feedback: [
 				"I have had the pleasure of working closely with Dave on THINK surgical project. He excelled in fostering a collaborative and positive work environment. One notable quality of Dave is his exceptional problem-solving skills. He approaches challenges with a strategic mindset, identifying innovative solutions and implementing them effectively. This ability has significantly contributed to the success of our projects. I believe that Dave would make an excellent developer lead. His technical prowess, leadership abilities, and commitment to excellence make him an asset to any team. ~ Aleksandr Volkodatov",
 				"I have worked with Dave on a number of projects over the years whilst we were both contracting and in our current roles at Definition Health. The best word I can think of for him is \"fixer\"... whether it's architecting a brand new solution to a hard problem or dealing with legacy codebases, he's always the go-to person across any team. ~ Shane Hudson",
 				"Dave is a talented and passionate team player and leader. I’m glad to work with him. We spent hours coding from scratch together, and he created a supportive atmosphere where I knew that, if something went wrong, we would overcome it together. I admire his experience, his adeptness at transitioning between programming languages, technologies and tasks, understanding business needs, product considerations, and ability to ask right questions. Dave can easily initiate projects from scratch, provide ongoing support and drive continuous improvements. In our team, he definitely helped us achieve our goals, made difficult decisions, and led us in the right direction. Any projects/companies would find him highly impactful and valuable ~ Alina Sauchuk",
 			],
+		},
+		{
+			dates: [new Date(2023, 5, 1), new Date(2024, 6, 1)],
+			company: "Sale Nook",
+			tags: ["aws", "svelte", "graphql", "rust", "CQRS"],
+			description: `Sale Nook, the ultimate solution for creative shop owners looking to simplify their inventory management and boost their online sales. We understand the challenges that independent artists and makers face when it comes to juggling multiple e-commerce platforms and keeping track of inventory. That's why we've created a powerful and intuitive set of tools specifically designed to streamline your creative business’s sales and offer support on your small business journey.
+
+I've designed and built the entire application solo, it's a Svelte Kit app deployed to Vercel with a using these technologies and concepts:
+
+* Rust powered lambdas
+* Custom CQRS and event stream backed serverless architecture
+* Aurora postgres and DynamoDB as the persistence layers
+* SQS/SNS
+* CDK
+* Python for scripting various devops tools
+* Appsync and IAM for the graphql and authorisation model
+
+the business technologies used and integrated with:
+
+* stripe
+* freeagent
+
+as well as all the usual things a founder has to do such as market research, proof of concepting, user research, business plan and board pack writing, product market fit research, hiring and roadmap management`,
 		},
 		{
 			dates: [new Date(2021, 6, 1), new Date(2022, 0, 1)],
