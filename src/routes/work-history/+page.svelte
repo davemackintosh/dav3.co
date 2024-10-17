@@ -150,6 +150,43 @@ as well as all the usual things a founder has to do such as market research, pro
 				"Dave was an excellent team lead on a truly challenging sprint. Above and beyond his mandate, and surpassing his peers in capability and efficiency, Dave was able to remain focused and productive on his own tasks while helping to guide other team members. Dave was highly responsive to status requests, and was diligent with code check-ins and documentation. His code reads extremely well. In short, you could not do better than to have Dave on your team, and we are grateful to have had him work hard to make our project a success. ~ Alan Reitsch",
 			],
 		},
+		{
+			dates: [new Date(2014, 6, 1), new Date(2016, 6, 1)],
+			company: "Contracting with several companies at once",
+			tags: ["MySQL", "Neo4j", "Knex", "Backbone", "javascript", "NodeJS", "MongoDB", "Redis", "Heroku", "AWS", "Electron", "PHP", "Symfony", "Django"],
+			description:
+				"I worked with a few different gaming companies at once and built numerous interfaces used for games, backends for games and frontends used for business operations and analytics. Each day was a different London based agency where I helped technical teams organise their work and helped scope and deliver software that solved their individual problems. I was employed by companies like Sky, Time Warner and several other well known at the time games agencies.",
+		},
+		{
+			dates: [new Date(2011, 11, 1), new Date(2014, 1, 1)],
+			company: "Creative developer at Do Tank Studios",
+			tags: ["backbone", "MySQL", "PostgreSQL", "Express", "Knex", "javascript", "NodeJS", "MongoDB", "Redis", "Heroku", "AWS"],
+			description:
+				`I built creative visuals using web technologies targeting millions of users/readers for clients like Harrods, Debenhams, Blackwells, ABRSM, Net-A-Porter and other similarly large businesses.
+
+Technologies/languages used:
+
+* JavaScript
+ * Backbone
+ * jQuery
+ * vanilla
+* PHP 5/6
+* Java Android development
+* Objective-C iOS development and story-boarding
+* PostgreSQL
+* MySQL
+* Apple APNS and push notification APIs`,
+		},
+		{
+			dates: [new Date(2004, 1, 1), new Date(2011, 11, 1)],
+			company: "Full stack engineer at various companies",
+			tags: ["jQuery", "Start-up Ventures", "XHTML", "Algorithms", "Application Architecture", "Microsoft SQL Server", "Backbone.js", "WordPress", "PHP", "Silverlight", "Adobe Flash", "Java", "Search Engine Optimization (SEO)", "Systems Design", "MongoDB", "zend framework", "jQuery UI", "PostgreSQL", "Adobe ColdFusion", "MySQL", "Django"],
+			description:
+				`Working with various companies doing full stack development from Flash and Silverlight applications, ColdFusion REST APIs, SEO optimised single page marketing sites, Wordpress powered multi-site applications, PHP applications from REST APIs to cryptographic security for banks backend systems and highly available services for popular magazine and media companies like Time Warner.
+
+I also used a lot of Backbone, jQuery and whatever other flavour of the month JavaScript frameworks were available at the time as well as Vanilla JavaScript. This experience gave me a great understanding of how businesses were learning to use technology and what I could use it for in the future as well as the necessary knowledge to create a few of my own products and open source projects.
+Working with various companies doing full stack development from Flash and Silverlight applications, ColdFusion REST APIs, SEO optimised single page marketing sites, Wordpress powered multi-site applications, PHP applications from REST APIs to cryptographic security for banks backend systems and highly available services for popular magazine and media companies like Time Warner. I also used a lot of Backbone, jQuery and whatever other flavour of the month JavaScript frameworks were available at the time as well as Vanilla JavaScript. This experience gave me a great understanding of how businesses were learning to use technology and what I could use it for in the future as well as the necessary knowledge to create a few of my own products and open source projects.`
+		},
 	]
 </script>
 
