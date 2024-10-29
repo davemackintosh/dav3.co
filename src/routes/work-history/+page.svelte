@@ -17,7 +17,7 @@
 		{
 			dates: [new Date(2022, 0, 30)],
 			company: "Lead Developer @ Definition Health",
-			tags: ["react", "graphql", "apollo", "cdk", "golang", "aws", "python", "lua", "leadership", "architecture],
+			tags: ["react", "graphql", "apollo", "cdk", "golang", "aws", "python", "lua", "leadership", "architecture"],
 			description: `Hands on mentor and teacher - Frontend, backend, devops, platform engineering and architect. 
 
 I spend my time:
