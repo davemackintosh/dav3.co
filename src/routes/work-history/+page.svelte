@@ -16,23 +16,49 @@
 	const work: WorkHistoryEntry[] = [
 		{
 			dates: [new Date(2022, 0, 30)],
-			company: "Definition Health",
-			tags: ["react", "graphql", "apollo", "cdk", "golang", "aws", "python", "lua", "leadership"],
-			description: `Frontend, backend, devops, platform engineering and architect. I spend my time:
+			company: "Lead Developer @ Definition Health",
+			tags: ["react", "graphql", "apollo", "cdk", "golang", "aws", "python", "lua", "leadership", "architecture],
+			description: `Hands on mentor and teacher - Frontend, backend, devops, platform engineering and architect. 
+
+I spend my time:
 
 * Enabling the wider team with tooling and cross boundary knowledge of our stack and technology choices.
-* Leading of a remote technical team and mentoring and teaching other members of the team.
-* Writing GoLang, Python, Lua & React/TypeScript.
+* Architecting solutions to overcome complex problems within a given timeframe.
+* scrum ceremonies and software like Jira, Monday
+* Leading of a remote technical team and mentoring and teaching other members of the team and upskilling them
+* Writing GoLang, Python, Lua & React/TypeScript, Bash
 * Creating infrastructure as code using Cloudformation and using CDK with GoLang and Python.
 * Scripting our translation layer with Lua, transforming
- * FHIR to HL7
- * HL7 to FHIR
- * CITO files to AWS S3 
+    * FHIR to HL7
+    * HL7 to FHIR
+    * CITO files to AWS S3 
 & sFTP
- * LLP HL7 to FHIR
- * HL7 to HTTP
-* architecting innovative solutions
+    * LLP HL7 to FHIR
+    * HL7 to HTTP
 * solutionising business problems with the aim to professionalise the business`,
+			feedback: [
+				"I have had the pleasure of working closely with Dave on THINK surgical project. He excelled in fostering a collaborative and positive work environment. One notable quality of Dave is his exceptional problem-solving skills. He approaches challenges with a strategic mindset, identifying innovative solutions and implementing them effectively. This ability has significantly contributed to the success of our projects. I believe that Dave would make an excellent developer lead. His technical prowess, leadership abilities, and commitment to excellence make him an asset to any team. ~ Aleksandr Volkodatov",
+				"I have worked with Dave on a number of projects over the years whilst we were both contracting and in our current roles at Definition Health. The best word I can think of for him is \"fixer\"... whether it's architecting a brand new solution to a hard problem or dealing with legacy codebases, he's always the go-to person across any team. ~ Shane Hudson",
+				"Dave is a talented and passionate team player and leader. I’m glad to work with him. We spent hours coding from scratch together, and he created a supportive atmosphere where I knew that, if something went wrong, we would overcome it together. I admire his experience, his adeptness at transitioning between programming languages, technologies and tasks, understanding business needs, product considerations, and ability to ask right questions. Dave can easily initiate projects from scratch, provide ongoing support and drive continuous improvements. In our team, he definitely helped us achieve our goals, made difficult decisions, and led us in the right direction. Any projects/companies would find him highly impactful and valuable ~ Alina Sauchuk",
+			],
+		},
+{
+			dates: [new Date(2023, 0, 1), new Date(2023, 8, 1],
+			company: "Technical Architect Team Lead @ Definition Health",
+			tags: ["react", "graphql", "apollo", "cdk", "golang", "aws", "python", "lua", "leadership", "architecture],
+			description: `Not typically a service company, we acquired the chance to enter the United States in partnership with a US based healthcare robotics company and I was asked to be the architect and lead on the project.
+
+My role for this project was typically:
+
+* Leading a team of 6 remote developers, helping the team to make difficult decisions and progress through the project quickly and efficiently.
+* Client facing working together towards outcomes and targets
+* DevOps and SecOps considering and meeting regulatory requirements for medical devices
+* System architecture, R&D and implementation
+* Full stack support with Go, Python, TypeScript/React
+* Inter-team and cross business full stack integration and collaboration
+* technical and non-technical communications to ensure all stakeholders understand the what, when and why of the technical team.
+
+While delivering this project under budget and early, the team I led matured to a degree where we retained some as permanent members of staff.`,
 			feedback: [
 				"I have had the pleasure of working closely with Dave on THINK surgical project. He excelled in fostering a collaborative and positive work environment. One notable quality of Dave is his exceptional problem-solving skills. He approaches challenges with a strategic mindset, identifying innovative solutions and implementing them effectively. This ability has significantly contributed to the success of our projects. I believe that Dave would make an excellent developer lead. His technical prowess, leadership abilities, and commitment to excellence make him an asset to any team. ~ Aleksandr Volkodatov",
 				"I have worked with Dave on a number of projects over the years whilst we were both contracting and in our current roles at Definition Health. The best word I can think of for him is \"fixer\"... whether it's architecting a brand new solution to a hard problem or dealing with legacy codebases, he's always the go-to person across any team. ~ Shane Hudson",
