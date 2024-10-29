@@ -215,17 +215,20 @@ Working with various companies doing full stack development from Flash and Silve
 </script>
 
 <Page>
-	<Heading text="Dave Mackintosh's Work History" />
+	<Heading text="Engineering Manager | Driving functional collaboration & high-performance software teams" />
 	<p>
 		I use technology to solve problems, I pick the appropriate technology to solve the problem at
 		the highest speed and quality I can. I enjoy solving all kinds of problems from team
 		organisation and member learning to complex automation platforms and creative visuals.
 	</p>
 	<p>
-		Half of my career has been in developing creative, visual and interactive works of art for
-		clients like Harrods, Google and the other half of my career to date has been developing
-		software to automate away national client's business problems and to consolidate third party
-		apps and APIs into single source of truth business platforms.
+As a seasoned software engineering manager with 20+ years of experience, I specialise in creating and leading high-impact engineering teams, driving technical innovation, and ensuring seamless communication between stakeholders. 
+</p>
+	<p>
+I excel at demystifying complex technical challenges for non-technical teams, fostering a collaborative environment where ideas can flow freely and quickly translate into results.
+</p>
+	<p>
+From leading cross-functional teams in global projects to designing scalable architectures, I ensure that both technical excellence and stakeholder needs align and by building inclusive teams and streamlining communication, I’ve consistently delivered high-quality software, reducing delivery timelines and improving team performance.
 	</p>
 
 	{#each work as entry}
