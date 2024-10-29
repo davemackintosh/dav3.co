@@ -45,7 +45,7 @@ I spend my time:
 {
 			dates: [new Date(2023, 0, 1), new Date(2023, 8, 1)],
 			company: "Technical Architect Team Lead @ Definition Health",
-			tags: ["react", "graphql", "apollo", "cdk", "golang", "aws", "python", "lua", "leadership", "architecture],
+			tags: ["react", "graphql", "apollo", "cdk", "golang", "aws", "python", "lua", "leadership", "architecture"],
 			description: `Not typically a service company, we acquired the chance to enter the United States in partnership with a US based healthcare robotics company and I was asked to be the architect and lead on the project.
 
 My role for this project was typically:
@@ -68,7 +68,7 @@ While delivering this project under budget and early, the team I led matured to 
 		{
 			dates: [new Date(2023, 5, 1), new Date(2024, 6, 1)],
 			company: "Sale Nook",
-			tags: ["aws", "svelte", "graphql", "rust", "CQRS"],
+			tags: ["aws", "svelte", "graphql", "rust", "CQRS", "event-streaming"],
 			description: `Sale Nook, the ultimate solution for creative shop owners looking to simplify their inventory management and boost their online sales. We understand the challenges that independent artists and makers face when it comes to juggling multiple e-commerce platforms and keeping track of inventory. That's why we've created a powerful and intuitive set of tools specifically designed to streamline your creative business’s sales and offer support on your small business journey.
 
 I've designed and built the entire application solo, it's a Svelte Kit app deployed to Vercel with a using these technologies and concepts:
