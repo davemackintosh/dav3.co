@@ -43,7 +43,7 @@ I spend my time:
 			],
 		},
 {
-			dates: [new Date(2023, 0, 1), new Date(2023, 8, 1],
+			dates: [new Date(2023, 0, 1), new Date(2023, 8, 1)],
 			company: "Technical Architect Team Lead @ Definition Health",
 			tags: ["react", "graphql", "apollo", "cdk", "golang", "aws", "python", "lua", "leadership", "architecture],
 			description: `Not typically a service company, we acquired the chance to enter the United States in partnership with a US based healthcare robotics company and I was asked to be the architect and lead on the project.
