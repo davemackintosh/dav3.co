@@ -1,11 +1,29 @@
 <script lang="ts">
 	import type { PostWithContent } from "$lib/posts"
 	import Page from "$src/components/Page.svelte"
+	import Seo from "$src/components/SEO.svelte"
 
 	export let data: { posts: PostWithContent[] }
 
 	$: console.log("FATA", data)
 </script>
+
+<Seo
+	title="Dave Mackintosh Blog"
+	description="With 20 years of software development expertise and a successful 10-year solo business. Explore my track record of working with renowned clients and delivering stable, high-performant code with a people-first approach"
+	keywords={[
+		"dave",
+		"mackintosh",
+		"web",
+		"javascript",
+		"nodejs",
+		"react",
+		"rust",
+		"developer",
+		"mentor",
+		"golang",
+	]}
+/>
 
 <Page>
 	<h1>Blog</h1>

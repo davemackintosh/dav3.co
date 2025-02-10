@@ -7,8 +7,8 @@ body {
 	background-color: var(--background);
 	color: var(--foreground);
 	font-family: var(--primaryFontFamilies);
-	font-size: 1.1em;
-	line-height: 2em;
+	font-size: 1em;
+	line-height: 1.6em;
 	padding: 0;
 	margin: 0;
 }
@@ -56,7 +56,11 @@ h4,
 h5,
 h6 {
 	font-family: var(--attentionFontStack);
-	line-height: 2em;
+	margin-bottom: 0.2em;
+}
+
+p {
+	line-height: 1.9em;
 }
 
 @media (max-width: 768px) {

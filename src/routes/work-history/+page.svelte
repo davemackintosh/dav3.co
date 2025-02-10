@@ -2,6 +2,7 @@
 	import DateC from "$src/components/Date.svelte"
 	import Heading from "$src/components/Heading.svelte"
 	import Page from "$src/components/Page.svelte"
+	import Seo from "$src/components/SEO.svelte"
 	import SvelteMarkdown from "svelte-markdown"
 
 	interface WorkHistoryEntry {
@@ -213,6 +214,25 @@ Working with various companies doing full stack development from Flash and Silve
 		},
 	]
 </script>
+
+<Seo
+	title="Dave Mackintosh Work History CV"
+	description="With 20 years of software development expertise and a successful 10-year solo business. Explore my track record of working with renowned clients and delivering stable, high-performant code with a people-first approach"
+	keywords={[
+		"dave",
+		"mackintosh",
+		"web",
+		"javascript",
+		"nodejs",
+		"react",
+		"rust",
+		"developer",
+		"mentor",
+		"golang",
+		"CV",
+		"work history"
+	]}
+/>
 
 <Page>
 	<Heading text="Engineering Manager | Driving functional collaboration & high-performance software teams" />
