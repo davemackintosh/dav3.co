@@ -57,6 +57,7 @@ h5,
 h6 {
 	font-family: var(--attentionFontStack);
 	margin-bottom: 0.2em;
+	line-height: 1.6em;
 }
 
 p {
