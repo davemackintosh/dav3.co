@@ -16,6 +16,24 @@
 
 	const work: WorkHistoryEntry[] = [
 		{
+			dates: [new Date(2025, 0, 30)],
+			company: "Founder / Developer @ Owl Fin",
+			tags: ["kotlin", "jetpack-compose", "plaid", "rust", "typescript"],
+			description: `A new mobile banking application built around Plaid and the Open Banking Platform for personal finance intelligence.
+
+* Kotlin
+	* Jetpack Compose
+	* Amplify
+	* Thread safe data design considerations
+	* Constrictive environment in terms of data protection and transmission
+* Rust
+	* Hand built CQRS and event stream backed serverless architecture
+	* Hex architecture ensuring testability and modularity of backend components.
+	* Aurora postgres and DynamoDB as the persistence layers
+	* SQS/SNS for secure internal service communications (I also tried rabbitMQ/ProtoBuf)
+	* CDK written with TypeScript`,
+		},
+		{
 			dates: [new Date(2022, 0, 30)],
 			company: "Lead Developer @ Definition Health",
 			tags: ["react", "graphql", "apollo", "cdk", "golang", "aws", "python", "lua", "leadership", "architecture"],
@@ -25,11 +43,12 @@ I spend my time:
 
 * Enabling the wider team with tooling and cross boundary knowledge of our stack and technology choices.
 * Architecting solutions to overcome complex problems within a given timeframe.
-* scrum ceremonies and software like Jira, Monday
-* Leading of a remote technical team and mentoring and teaching other members of the team and upskilling them
+* scrum ceremonies and software like Jira, Monday, Miro
+* Leading, mentoring and teaching of multiple technical teams & other members of the team to upskilling them
 * Writing GoLang, Python, Lua & React/TypeScript, Bash
 * Creating infrastructure as code using Cloudformation and using CDK with GoLang and Python.
-* Scripting our translation layer with Lua, transforming
+* Project discovery with hospital IT departments and ongoing support
+* Scripting our translation layer with Lua, transforming in real time large datasets from/to hospitals:
     * FHIR to HL7
     * HL7 to FHIR
     * CITO files to AWS S3 
@@ -90,9 +109,9 @@ as well as all the usual things a founder has to do such as market research, pro
 		{
 			dates: [new Date(2021, 6, 1), new Date(2022, 0, 1)],
 			company: "Race at Your Pace feat Browser London",
-			tags: ["react", "react-native", "graphql", "apollo"],
+			tags: ["react", "react-native", "kotlin", "fitness", "graphql", "apollo", "postgres"],
 			description:
-				"Re-platforming Race at Your Pace using React Native and graphql with a mixture of AWS backed services. With a fairly aggressive timeline we (Browser London and me) delivered a web and mobile app in partnership very quickly. ",
+				"Re-platforming Race at Your Pace using React Native, Kotlin and Swift. Powered by a graphql api with a mixture of AWS backed services. With a fairly aggressive timeline we (Browser London and me) delivered a web and mobile fitness app in partnership very quickly.",
 		},
 		{
 			dates: [new Date(2021, 3, 1), new Date(2021, 6, 1)],
@@ -104,14 +123,14 @@ as well as all the usual things a founder has to do such as market research, pro
 		{
 			dates: [new Date(2020, 10, 15), new Date(2021, 1, 15)],
 			company: "Dimply AI",
-			tags: ["react", "react-native", "plaid", "fintech", "postgraphile", "graphql", "apollo"],
+			tags: ["react", "react-native", "plaid", "fintech", "postgraphile", "postgres", "graphql", "apollo"],
 			description:
 				"Building an AI powered fintech solution to help people understand their finances better, built using postgraphile and react-native.",
 		},
 		{
 			dates: [new Date(2020, 4, 5), new Date(2020, 10, 13)],
 			company: "Sleepio",
-			tags: ["react", "redux", "react-native"],
+			tags: ["react", "redux", "react-native", "python", "postgres"],
 			description:
 				"A React Native developer working on the components of the AST based app we were building, each was cross platform and generic enough that the content creators in the company can build entire programs (logic included) that is delivered as an AST to the app and constructed.",
 		},
@@ -129,7 +148,7 @@ as well as all the usual things a founder has to do such as market research, pro
 			dates: [new Date(2015, 9, 1), new Date(2021, 0, 1)],
 			company: "Multicolour",
 			personal: true,
-			tags: ["multicolour", "nodeJS"],
+			tags: ["multicolour", "nodeJS", "postgres", "mysql"],
 			description:
 				"Multicolour was a NodeJS, REST API generator. It offered multiple ways to authenticate your API (JWT, OAuth), it suports basic content negotiation (JSONAPI), it supports many many database technologies out of the box. It powers many user's experiences and they don't even know. Large companies and small companies use this product. I'm currently rebuilding it from scratch for a 1.0 to remove many parts of the software that let the product as a whole down using TypeScript and many other new and improved features like built in event streams, CQRS built in and a fully automated documentation and error tracking system.",
 		},
