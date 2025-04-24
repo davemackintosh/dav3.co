@@ -26,6 +26,7 @@
 	* Amplify
 	* Thread safe data design considerations
 	* Constrictive environment in terms of data protection and transmission
+	* AWS Guard Duty, Trusted Advisor and Security Hub for continuous monitoring across the serverless stack.
 * Rust
 	* Hand built CQRS and event stream backed serverless architecture
 	* Hex architecture ensuring testability and modularity of backend components.
@@ -55,7 +56,23 @@ I spend my time:
 & sFTP
     * LLP HL7 to FHIR
     * HL7 to HTTP
-* solutionising business problems with the aim to professionalise the business`,
+* solutionising business problems with the aim to professionalise the business
+* AWS serverless architecture following AWS Well Architected Framework
+    * Lambdas
+	* SNS/SQS
+	* EC2
+	* VPC
+	* DynamoDB
+	* Aurora Postgres
+	* CloudTrail & CloudWatch
+	* Trusted Advisor
+	* Cross Account security
+	* KMS + AppConfig
+	* S3
+	* AppSync + API Gateway
+	* Cognito, UserPools & Identity Pools and management.
+	* CDK written with Python & Go
+`,
 			feedback: [
 				"Dave's superpower is applying the right approach to solving the problem at hand in the best way. From lightning fast thinking when troubleshooting production issues to considered, thoughtful, approaches with technical designs, Dave is usually right and not by accident or luck. On top of that he brings a friendly, positive energy to a group of people and is always willing to help others out. ~ Jeff Shephard",
 				"I have worked with Dave on a number of projects over the years whilst we were both contracting and in our current roles at Definition Health. The best word I can think of for him is \"fixer\"... whether it's architecting a brand new solution to a hard problem or dealing with legacy codebases, he's always the go-to person across any team. ~ Shane Hudson",
@@ -76,6 +93,20 @@ My role for this project was typically:
 * Full stack support with Go, Python, TypeScript/React
 * Inter-team and cross business full stack integration and collaboration
 * technical and non-technical communications to ensure all stakeholders understand the what, when and why of the technical team.
+* Pure serverless architecture
+	* Lambdas
+	* AppSync
+	* Cognito, UserPools & Identity Pools and management.
+	* KMS
+	* SNS/SQS
+	* EC2
+	* VPC
+	* S3
+	* DynamoDB
+	* Aurora Postgres
+	* CloudTrail & CloudWatch
+	* CDK written with Python
+
 
 While delivering this project under budget and early, the team I led matured to a degree where we retained some as permanent members of staff.`,
 			feedback: [
@@ -91,13 +122,16 @@ While delivering this project under budget and early, the team I led matured to 
 
 I've designed and built the entire application solo, it's a Svelte Kit app deployed to Vercel with a using these technologies and concepts:
 
-* Rust powered lambdas
-* Custom CQRS and event stream backed serverless architecture
-* Aurora postgres and DynamoDB as the persistence layers
-* SQS/SNS
-* CDK
-* Python for scripting various devops tools
-* Appsync and IAM for the graphql and authorisation model
+Pure serverless:
+	* Rust powered lambdas
+		* Custom CQRS and event stream backed serverless architecture
+	* Aurora Postgres and DynamoDB as the persistence layers
+	* SQS/SNS
+	* CDK written with TypeScript
+	* Python for scripting various devops tools
+	* Appsync and IAM for the graphql and authorisation and authentication
+	* AppConfig & SSM for data dependency management
+
 
 the business technologies used and integrated with:
 
@@ -111,14 +145,24 @@ as well as all the usual things a founder has to do such as market research, pro
 			company: "Race at Your Pace feat Browser London",
 			tags: ["react", "react-native", "kotlin", "fitness", "graphql", "apollo", "postgres"],
 			description:
-				"Re-platforming Race at Your Pace using React Native, Kotlin and Swift. Powered by a graphql api with a mixture of AWS backed services. With a fairly aggressive timeline we (Browser London and me) delivered a web and mobile fitness app in partnership very quickly.",
+				`Re-platforming Race at Your Pace using React Native, Kotlin and Swift. Powered by a graphql api with a mixture of AWS backed services. With a fairly aggressive timeline we (Browser London and me) delivered a web and mobile fitness app in partnership very quickly.
+
+* AWS Serverless and managed EC2 instances
+	* RDS MySQL
+	* Django REST API
+	* STRAPI GraphQL APIs and content management`,
 		},
 		{
 			dates: [new Date(2021, 3, 1), new Date(2021, 6, 1)],
 			company: "Dela",
 			tags: ["react", "native", "plaid", "fintech", "postgraphile", "nexjs", "graphql", "apollo"],
 			description:
-				"A custom marketing referral platform built using nextJS, postgraphile and graphql which encourages small businesses and evangelists to share campaigns and grow businesses organically. The platform is built on NextJS using postgraphile to generate a performant and secure API using Postgres. It is deployed to AWS using the CDK and Github actions.",
+				`A custom marketing referral platform built using nextJS, postgraphile and graphql which encourages small businesses and evangelists to share campaigns and grow businesses organically. The platform is built on NextJS using postgraphile to generate a performant and secure API using Postgres. It is deployed to AWS using the CDK and Github actions.
+
+* AWS Serverless and managed EC2 instances
+	* Aurora Postgresql
+	* Postgraphile GraphQL API.
+`,
 		},
 		{
 			dates: [new Date(2020, 10, 15), new Date(2021, 1, 15)],
