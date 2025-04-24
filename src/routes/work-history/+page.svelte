@@ -122,15 +122,15 @@ While delivering this project under budget and early, the team I led matured to 
 
 I've designed and built the entire application solo, it's a Svelte Kit app deployed to Vercel with a using these technologies and concepts:
 
-Pure serverless:
+* Pure AWS serverless:
 	* Rust powered lambdas
 		* Custom CQRS and event stream backed serverless architecture
 	* Aurora Postgres and DynamoDB as the persistence layers
 	* SQS/SNS
 	* CDK written with TypeScript
-	* Python for scripting various devops tools
 	* Appsync and IAM for the graphql and authorisation and authentication
 	* AppConfig & SSM for data dependency management
+* Python for scripting various devops tools
 
 
 the business technologies used and integrated with:
