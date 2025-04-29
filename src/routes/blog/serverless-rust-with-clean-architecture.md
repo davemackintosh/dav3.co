@@ -17,7 +17,7 @@ published: Tue April 29 2025 08:55:00 GMT+0000
 ---
 
 
-Alright, fellow Rustaceans! Let's chat about how we're building our serverless Lambdas – the cool way. I've landed on a combo that keeps things super clean and makes our lives way easier down the line: Hexagonal Architecture mixed with our own spin on middleware, all powered by the awesome-ness of Rust.
+Alright, fellow Rustaceans! Let's chat about how we're building our serverless Lambdas. I've landed on a combo that keeps things super clean and makes our lives way easier down the line: Hexagonal Architecture mixed with our own spin on middleware, all powered by the awesome-ness of Rust.
 
 ### Embracing the Clarity of Hexagonal Architecture
 
