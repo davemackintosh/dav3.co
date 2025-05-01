@@ -36,8 +36,19 @@
 		},
 		{
 			dates: [new Date(2022, 0, 30)],
-			company: "Lead Developer @ Definition Health",
-			tags: ["react", "graphql", "apollo", "cdk", "golang", "aws", "python", "lua", "leadership", "architecture"],
+			company: "Lead Developer/Engineering Manager @ Definition Health",
+			tags: [
+				"react",
+				"graphql",
+				"apollo",
+				"cdk",
+				"golang",
+				"aws",
+				"python",
+				"lua",
+				"leadership",
+				"architecture",
+			],
 			description: `Hands on mentor and teacher - Frontend, backend, devops, platform engineering and architect. 
 
 I spend my time:
@@ -78,10 +89,21 @@ I spend my time:
 				"I have worked with Dave on a number of projects over the years whilst we were both contracting and in our current roles at Definition Health. The best word I can think of for him is \"fixer\"... whether it's architecting a brand new solution to a hard problem or dealing with legacy codebases, he's always the go-to person across any team. ~ Shane Hudson",
 			],
 		},
-{
+		{
 			dates: [new Date(2023, 0, 1), new Date(2023, 8, 1)],
 			company: "Technical Architect Team Lead @ Definition Health",
-			tags: ["react", "graphql", "apollo", "cdk", "golang", "aws", "python", "lua", "leadership", "architecture"],
+			tags: [
+				"react",
+				"graphql",
+				"apollo",
+				"cdk",
+				"golang",
+				"aws",
+				"python",
+				"lua",
+				"leadership",
+				"architecture",
+			],
 			description: `Not typically a service company, we acquired the chance to enter the United States in partnership with a US based healthcare robotics company and I was asked to be the architect and lead on the project.
 
 My role for this project was typically:
@@ -144,8 +166,7 @@ as well as all the usual things a founder has to do such as market research, pro
 			dates: [new Date(2021, 6, 1), new Date(2022, 0, 1)],
 			company: "Race at Your Pace feat Browser London",
 			tags: ["react", "react-native", "kotlin", "fitness", "graphql", "apollo", "postgres"],
-			description:
-				`Re-platforming Race at Your Pace using React Native, Kotlin and Swift. Powered by a graphql api with a mixture of AWS backed services. With a fairly aggressive timeline we (Browser London and me) delivered a web and mobile fitness app in partnership very quickly.
+			description: `Re-platforming Race at Your Pace using React Native, Kotlin and Swift. Powered by a graphql api with a mixture of AWS backed services. With a fairly aggressive timeline we (Browser London and me) delivered a web and mobile fitness app in partnership very quickly.
 
 * AWS Serverless and managed EC2 instances
 	* RDS MySQL
@@ -156,8 +177,7 @@ as well as all the usual things a founder has to do such as market research, pro
 			dates: [new Date(2021, 3, 1), new Date(2021, 6, 1)],
 			company: "Dela",
 			tags: ["react", "native", "plaid", "fintech", "postgraphile", "nexjs", "graphql", "apollo"],
-			description:
-				`A custom marketing referral platform built using nextJS, postgraphile and graphql which encourages small businesses and evangelists to share campaigns and grow businesses organically. The platform is built on NextJS using postgraphile to generate a performant and secure API using Postgres. It is deployed to AWS using the CDK and Github actions.
+			description: `A custom marketing referral platform built using nextJS, postgraphile and graphql which encourages small businesses and evangelists to share campaigns and grow businesses organically. The platform is built on NextJS using postgraphile to generate a performant and secure API using Postgres. It is deployed to AWS using the CDK and Github actions.
 
 * AWS Serverless and managed EC2 instances
 	* Aurora Postgresql
@@ -167,7 +187,16 @@ as well as all the usual things a founder has to do such as market research, pro
 		{
 			dates: [new Date(2020, 10, 15), new Date(2021, 1, 15)],
 			company: "Dimply AI",
-			tags: ["react", "react-native", "plaid", "fintech", "postgraphile", "postgres", "graphql", "apollo"],
+			tags: [
+				"react",
+				"react-native",
+				"plaid",
+				"fintech",
+				"postgraphile",
+				"postgres",
+				"graphql",
+				"apollo",
+			],
 			description:
 				"Building an AI powered fintech solution to help people understand their finances better, built using postgraphile and react-native.",
 		},
@@ -241,16 +270,42 @@ as well as all the usual things a founder has to do such as market research, pro
 		{
 			dates: [new Date(2014, 6, 1), new Date(2016, 6, 1)],
 			company: "Contracting with several companies at once",
-			tags: ["MySQL", "Neo4j", "Knex", "Backbone", "javascript", "NodeJS", "MongoDB", "Redis", "Heroku", "AWS", "Electron", "PHP", "Symfony", "Django"],
+			tags: [
+				"MySQL",
+				"Neo4j",
+				"Knex",
+				"Backbone",
+				"javascript",
+				"NodeJS",
+				"MongoDB",
+				"Redis",
+				"Heroku",
+				"AWS",
+				"Electron",
+				"PHP",
+				"Symfony",
+				"Django",
+			],
 			description:
 				"I worked with a few different gaming companies at once and built numerous interfaces used for games, backends for games and frontends used for business operations and analytics. Each day was a different London based agency where I helped technical teams organise their work and helped scope and deliver software that solved their individual problems. I was employed by companies like Sky, Time Warner and several other well known at the time games agencies.",
 		},
 		{
 			dates: [new Date(2011, 11, 1), new Date(2014, 1, 1)],
 			company: "Creative developer at Do Tank Studios",
-			tags: ["backbone", "MySQL", "PostgreSQL", "Express", "Knex", "javascript", "NodeJS", "MongoDB", "Redis", "Heroku", "AWS"],
-			description:
-				`I built creative visuals using web technologies targeting millions of users/readers for clients like Harrods, Debenhams, Blackwells, ABRSM, Net-A-Porter and other similarly large businesses.
+			tags: [
+				"backbone",
+				"MySQL",
+				"PostgreSQL",
+				"Express",
+				"Knex",
+				"javascript",
+				"NodeJS",
+				"MongoDB",
+				"Redis",
+				"Heroku",
+				"AWS",
+			],
+			description: `I built creative visuals using web technologies targeting millions of users/readers for clients like Harrods, Debenhams, Blackwells, ABRSM, Net-A-Porter and other similarly large businesses.
 
 Technologies/languages used:
 
@@ -268,12 +323,33 @@ Technologies/languages used:
 		{
 			dates: [new Date(2004, 1, 1), new Date(2011, 11, 1)],
 			company: "Full stack engineer at various companies",
-			tags: ["jQuery", "Start-up Ventures", "XHTML", "Algorithms", "Application Architecture", "Microsoft SQL Server", "Backbone.js", "WordPress", "PHP", "Silverlight", "Adobe Flash", "Java", "Search Engine Optimization (SEO)", "Systems Design", "MongoDB", "zend framework", "jQuery UI", "PostgreSQL", "Adobe ColdFusion", "MySQL", "Django"],
-			description:
-				`Working with various companies doing full stack development from Flash and Silverlight applications, ColdFusion REST APIs, SEO optimised single page marketing sites, Wordpress powered multi-site applications, PHP applications from REST APIs to cryptographic security for banks backend systems and highly available services for popular magazine and media companies like Time Warner.
+			tags: [
+				"jQuery",
+				"Start-up Ventures",
+				"XHTML",
+				"Algorithms",
+				"Application Architecture",
+				"Microsoft SQL Server",
+				"Backbone.js",
+				"WordPress",
+				"PHP",
+				"Silverlight",
+				"Adobe Flash",
+				"Java",
+				"Search Engine Optimization (SEO)",
+				"Systems Design",
+				"MongoDB",
+				"zend framework",
+				"jQuery UI",
+				"PostgreSQL",
+				"Adobe ColdFusion",
+				"MySQL",
+				"Django",
+			],
+			description: `Working with various companies doing full stack development from Flash and Silverlight applications, ColdFusion REST APIs, SEO optimised single page marketing sites, Wordpress powered multi-site applications, PHP applications from REST APIs to cryptographic security for banks backend systems and highly available services for popular magazine and media companies like Time Warner.
 
 I also used a lot of Backbone, jQuery and whatever other flavour of the month JavaScript frameworks were available at the time as well as Vanilla JavaScript. This experience gave me a great understanding of how businesses were learning to use technology and what I could use it for in the future as well as the necessary knowledge to create a few of my own products and open source projects.
-Working with various companies doing full stack development from Flash and Silverlight applications, ColdFusion REST APIs, SEO optimised single page marketing sites, Wordpress powered multi-site applications, PHP applications from REST APIs to cryptographic security for banks backend systems and highly available services for popular magazine and media companies like Time Warner. I also used a lot of Backbone, jQuery and whatever other flavour of the month JavaScript frameworks were available at the time as well as Vanilla JavaScript. This experience gave me a great understanding of how businesses were learning to use technology and what I could use it for in the future as well as the necessary knowledge to create a few of my own products and open source projects.`
+Working with various companies doing full stack development from Flash and Silverlight applications, ColdFusion REST APIs, SEO optimised single page marketing sites, Wordpress powered multi-site applications, PHP applications from REST APIs to cryptographic security for banks backend systems and highly available services for popular magazine and media companies like Time Warner. I also used a lot of Backbone, jQuery and whatever other flavour of the month JavaScript frameworks were available at the time as well as Vanilla JavaScript. This experience gave me a great understanding of how businesses were learning to use technology and what I could use it for in the future as well as the necessary knowledge to create a few of my own products and open source projects.`,
 		},
 	]
 </script>
@@ -293,25 +369,33 @@ Working with various companies doing full stack development from Flash and Silve
 		"mentor",
 		"golang",
 		"CV",
-		"work history"
+		"work history",
 	]}
 />
 
 <Page>
-	<Heading text="Engineering Manager | Driving functional collaboration & high-performance software teams" />
+	<Heading
+		text="Engineering Manager | Driving functional collaboration & high-performance software teams"
+	/>
 	<p>
 		I use technology to solve problems, I pick the appropriate technology to solve the problem at
 		the highest speed and quality I can. I enjoy solving all kinds of problems from team
 		organisation and member learning to complex automation platforms and creative visuals.
 	</p>
 	<p>
-As a seasoned software engineering manager with 20+ years of experience, I specialise in creating and leading high-impact engineering teams, driving technical innovation, and ensuring seamless communication between stakeholders. 
-</p>
+		As a seasoned software engineering manager with 20+ years of experience, I specialise in
+		creating and leading high-impact engineering teams, driving technical innovation, and ensuring
+		seamless communication between stakeholders.
+	</p>
 	<p>
-I excel at demystifying complex technical challenges for non-technical teams, fostering a collaborative environment where ideas can flow freely and quickly translate into results.
-</p>
+		I excel at demystifying complex technical challenges for non-technical teams, fostering a
+		collaborative environment where ideas can flow freely and quickly translate into results.
+	</p>
 	<p>
-From leading cross-functional teams in global projects to designing scalable architectures, I ensure that both technical excellence and stakeholder needs align and by building inclusive teams and streamlining communication, I’ve consistently delivered high-quality software, reducing delivery timelines and improving team performance.
+		From leading cross-functional teams in global projects to designing scalable architectures, I
+		ensure that both technical excellence and stakeholder needs align and by building inclusive
+		teams and streamlining communication, I’ve consistently delivered high-quality software,
+		reducing delivery timelines and improving team performance.
 	</p>
 
 	{#each work as entry}
