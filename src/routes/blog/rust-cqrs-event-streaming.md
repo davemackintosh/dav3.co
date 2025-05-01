@@ -22,6 +22,8 @@ published: 2025-05-01 14:23:00
 
 > All the code in this blog post is for a previous version of this framework, it might be missing some bits but I still feel it's good to share knowledge.
 
+<Heading level={2} text="Intro - What is CQRS and Event Streaming?" />
+
 Part 2 in my apparent series of posts "Building Robust Applications with Rust"
 
 In my ongoing quest for building scalable, maintainable, and resilient software, certain architectural patterns stand out to me. Command Query Responsibility Segregation (CQRS) and Event Streaming are two such paradigms that, when combined, offer a brilliant approach to tackling the complexities of modern application development and data systems design.
@@ -32,7 +34,7 @@ The fundamental idea behind CQRS is the separation of an application's command (
 
 I got started on my Rust framework to provide the essential building blocks for implementing the "command" and event persistence aspects of a CQRS/Event Streaming system. It acts as the intermediary between my core business logic, embodied in Aggregates, and the underlying storage mechanism for the generated events. Importantly, the framework deliberately abstains from managing the "query" side or orchestrating side effects resulting from events. This design choice promotes a clean architectural boundary, empowering me to implement view updates and other asynchronous operations using separate, purpose-built components.
 
-### Dissecting the Framework's Architecture
+<Heading level={3} text="Dissecting the Framework's Architecture" />
 
 Let's delve into the key components:
 
@@ -271,7 +273,7 @@ pub trait Query<
 ```
 
 
-### Benefits and Considerations
+<Heading level={3} text="Benefits and Considerations" />
 
 * **Clear Separation of Concerns:** The framework enforces a distinct separation between command handling, event persistence, and view management, leading to a more organized and maintainable codebase.
 * **Asynchronous Operations:** The extensive use of `async` and `await` promotes non-blocking I/O, crucial for building performant and responsive applications.
@@ -286,7 +288,7 @@ However, it's important to consider the following:
 * **Eventual Consistency:** The separation of read and write models often leads to eventual consistency, where there might be a delay between a command being processed and the changes being reflected in the read views. Developers need to design their systems to handle this.
 * **Infrastructure:** Implementing a full CQRS/Event Streaming system requires careful consideration of the event store, message brokers (if used for distributing events), and view update mechanisms. My project makes extensive use of the AWS services SQS, DynamoDB streaming and SNS topics.
 
-### Getting Started
+<Heading level={3} text="Getting Started notes" />
 
 To leverage this framework, you would typically:
 

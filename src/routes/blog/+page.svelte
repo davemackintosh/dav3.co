@@ -4,8 +4,6 @@
 	import Seo from "$src/components/SEO.svelte"
 
 	export let data: { posts: PostWithContent[] }
-
-	$: console.log("FATA", data)
 </script>
 
 <Seo

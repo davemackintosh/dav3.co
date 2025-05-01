@@ -10,6 +10,10 @@ author: davemackintosh
 published: Tue Oct 15 2019 21:08:52 GMT+0100 (British Summer Time)
 ---
 
+<script>
+	import Heading from "$src/components/Heading.svelte"
+</script>
+
 Searching for one piece of text in another is an expensive business. searching small amounts of text is pretty performant, say:
 
 ```js
@@ -22,7 +26,7 @@ innocent enough, right? works for most of us and would actually be slower to use
 
 But, what if you had to search a 1mb file upload, 100mb? 1GB? well, thats just going to be undeniably slow. 
 
-# Boyer-Moore JavaScript
+<Heading level={1} text="Boyer-Moore JavaScript" />
 
 There are lots of papers on the Boyer-Moore family of algorithms but I'm going to write about the Boyer-Moore Horspool algorithm. It is a text searching algorithm with a low complexity and medium memory footprint.
 
@@ -36,9 +40,9 @@ It works by constructing a table of characters present within the search string 
 
 Your browser probably uses the Boyer-Moore algorithm every time you search in a web page.
 
-**What am I using it for?**
+<Heading level={3} text="What am I using it for?" />
 
-I'm using it in the rebuild of [Multicolour](https://getmulticolour.com) to help parse incoming form data and file uploads in multipart format.
+I'm using it in the rebuild of Multicolour to help parse incoming form data and file uploads in multipart format.
 
 Typically a `multipart/form-data` body is split by a token to indicate the start and end of each field. Here is an example multipart payload separated by `--boundary`
 
@@ -98,7 +102,7 @@ Then we return our table of indexes.
 
 > You can speed this process up by memoizing this function. Why not try it and let me know how you did?
 
-### Time to search
+<Heading level={3} text="Time to search" />
 
 We're going to search our body now and get the indexes of each occurance of our boundary. This information is what we need to slice up our body `Buffer` into it's separate fields for further parsing.
 
@@ -149,7 +153,7 @@ First up is we start to loop over every character in the body, we then start ano
 
 When we hit a character that matches, we move onto the next character in the search text until either theres no more search text which is a full match and we push to our results array or we skip the number of characters specified by our bad char table on a mismatch.
 
-## Conclusion
+<Heading level={3} text="Conclusion" />
 
 This algorithm is super fast for getting the locations of one string in a massive amount of data. However, it is utterly utterly rubbish and wasteful on small haystacks and with tiny search strings. The worst case would be not finding a match and a single character search.
 

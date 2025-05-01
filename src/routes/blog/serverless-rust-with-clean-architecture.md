@@ -17,9 +17,14 @@ author: davemackintosh
 published: 2025-04-30 08:55:00
 ---
 
+<script>
+	import Heading from "$src/components/Heading.svelte"
+</script>
+
+
 Alright, fellow Rustaceans! Let's chat about how we're building our serverless Lambdas. I've landed on a combo that keeps things super clean and makes our lives way easier down the line: Hexagonal Architecture mixed with our own spin on middleware, all powered by the awesome-ness of Rust.
 
-### Embracing the Clarity of Hexagonal Architecture
+<Heading level={3} text="Embracing the Clarity of Hexagonal Architecture" />
 
 At the core of our design lies Hexagonal Architecture (also known as Ports and Adapters). This architectural style champions the separation of our core business logic from the volatile external world. By establishing clear boundaries, we gain significant advantages:
 
@@ -28,7 +33,7 @@ At the core of our design lies Hexagonal Architecture (also known as Ports and A
 * **Enhanced Testability:** With the Core isolated, we can rigorously test our business logic in complete isolation using mock implementations of our Ports. This leads to more reliable and confident deployments.
 * **Actionable Security:** As I'm building a service in the financial industry, it is top of my mind to mitigate any form of future security issues in my code and given most of the middleware I've written so far handles work in multiple threads this is even more important. Having Adapters and middleware that handle specific forms of security and verification, I achieve an architecture that allows me to quickly see, manage and mitigate security features.
 
-### Building Flexible and Type-Safe Middleware
+<Heading level={3} text="Building Flexible and Type-Safe Middleware" />
 
 To handle cross-cutting concerns within our Driving Adapters (the entry points for external interactions, such as Lambda handlers or API controllers), we've implemented a custom middleware pattern, leveraging Rust's type system for increased safety and clarity.
 
@@ -56,11 +61,11 @@ pub trait Middleware<
     // Specify at which stages the middleware should run. You could in theory specify all
     // the stages to mutate the result multiple times. To return multiple stages, specify
     // the bitwise OR of the stages you want to run.
-    // @example ```
+    // @example
     // fn run_at() -> MiddlewareStages {
     //     MiddlewareStages::BEFORE | MiddlewareStages::NORMAL
     // }
-    // ```
+    // 
     fn run_at(&self) -> MiddlewareStages {
         MiddlewareStages::NORMAL
     }
@@ -83,9 +88,10 @@ pub trait Middleware<
 }
 ```
 
+
 I tried a few different variations of this, including an associated type for Ports to make this actual dependency injection a purely build time feature but this over-complicated the orchestrator's implementation as not all middleware have the same or even a default set of ports so I landed on an "accept pattern" for the dependencies. A middleware is responsible for the storage of these adapter references during it's lifetime.
 
-### Leveraging Rust's Type System for build-time Dependency Injection
+<Heading level={3} text="Leveraging Rust's Type System for build-time Dependency Injection" />
 
 A key aspect of our middleware implementation is its tight integration with a type-safe dependency injection (DI) mechanism. We use Rust's powerful type system to declare and inject the necessary Adapters into our middleware components.
 
@@ -139,7 +145,7 @@ impl_tuple_of_adapters!(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9);
 
 There was several iterations on this implementation, I tried a few "clever" ways to achieve this using only the type system but the closest I could get was a recursive tuple structure so I hit the drawing board and realised I could meta-program the implementation of the `TupleOfAdapters`. I've limited the number of registerable adapters (in a single call) to 10 but you can call the `.adapters::<>()` function multiple times to add more which helps me manage the binary size. Without the macro, the syntax for this kind of right-recursive type would have to be `.adapters::<(Adapter1, (Adapter2, (Adapter3, ())>()` which I just couldn't grok.
 
-### Building Adaptable Interactions with Custom Middleware
+<Heading level={3} text="Building Adaptable Interactions with Custom Middleware" />
 
 Now, when our app talks to the outside world (through those Driving Adapters that handle incoming requests), things can get a bit messy. Authentication? Logging? Making sure the data coming in is actually valid? I needed a way to handle all that without cluttering our core logic or our adapters.
 
@@ -153,7 +159,7 @@ So, when a request hits our Lambda:
 
 The neat part? These middleware bits are pretty generic. They don't care *too* much about the specific request or the core logic. They just do their thing on the way in and the way out.
 
-### Plugging Things In the Rust Way: Type-Level Magic
+<Heading level={3} text="Plugging Things In the Rust Way: Type-Level Magic" />
 
 Here's where Rust's type system lets us be super clever. Our middleware often needs to talk to those Driven Adapters – like a logger or a config reader. We use this `TupleOfAdapters` thing to declare exactly which adapters a particular Driving Adapter (and its associated middleware) needs.
 
@@ -161,7 +167,7 @@ Then, using some Rust wizardry (including a handy macro we cooked up!), we can m
 
 With this approach we achieve a build-time dependency injection, when we call `.adapters::<()>()` in our chain, this runs a bunch of code that creates the default implementation of each of those Adapters and then queries each middleware with an `accept_adapter::<Adapter: ports_adapters::Adapter>(adapter: Adapter)` function so the middleware is configured with it's necessary dependencies at build time.
 
-### The Synergy: Hexagonal Architecture and Flexible Middleware
+<Heading level={3} text="The Synergy: Hexagonal Architecture and Flexible Middleware" />
 
 The combination of Hexagonal Architecture and our custom middleware pattern provides a powerful and elegant solution for building serverless Lambdas in Rust:
 
