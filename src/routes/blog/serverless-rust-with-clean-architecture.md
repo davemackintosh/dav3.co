@@ -1,6 +1,6 @@
 ---
 
-title: Building Robust Serverless Applications with Rust - Powering Serverless Lambdas with Clean Architecture and Flexible Middleware in Rust.
+title: Building Robust Applications with Rust - Powering Serverless Lambdas with Clean Architecture and Flexible Middleware in Rust.
 keywords: 
   - Hexagonal Architecture
   - Ports and Adapters
@@ -12,7 +12,7 @@ keywords:
   - Dependency Injection
   - Clean Architecture
   - Adaptability
-excerpt: 
+excerpt: This post explores our approach to building robust serverless Lambdas in Rust using Hexagonal Architecture and a custom, type-safe middleware pattern. By separating core logic from external concerns and leveraging Rust's powerful type system for dependency injection via TupleOfAdapters, we achieve cleaner code, enhanced testability, and greater adaptability to evolving requirements in our serverless platform.
 author: davemackintosh
 published: 2025-04-30 08:55:00
 ---
