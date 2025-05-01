@@ -1,5 +1,5 @@
 ---
-title: Powering Serverless Lambdas with Clean Architecture and Flexible Middleware in Rust.
+title: Building Robust Applications with Rust: Powering Serverless Lambdas with Clean Architecture and Flexible Middleware in Rust.
 keywords: 
   - Hexagonal Architecture
   - Ports and Adapters
@@ -16,6 +16,9 @@ author: davemackintosh
 published: Tue April 29 2025 08:55:00 GMT+0000
 ---
 
+<script>
+	import Heading from "$src/components/Heading.svelte"
+</script>
 
 Alright, fellow Rustaceans! Let's chat about how we're building our serverless Lambdas. I've landed on a combo that keeps things super clean and makes our lives way easier down the line: Hexagonal Architecture mixed with our own spin on middleware, all powered by the awesome-ness of Rust.
 
