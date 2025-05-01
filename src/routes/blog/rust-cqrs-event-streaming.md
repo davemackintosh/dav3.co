@@ -1,27 +1,26 @@
 ---
-title: Building Robust Applications with Rust: A Deep Dive into CQRS and Event Streaming
-keywords: 
-    - Rust
-    - CQRS
-    - Command Query Responsibility Segregation
-    - Event Streaming
-    - Asynchronous
-    - Framework
-    - Architecture
-    - Domain-Driven Design
-    - Persistence
-    - Concurrency
-excerpt: Unlock the power of reactive and scalable applications with Rust! This post explores a practical CQRS and Event Streaming framework built in Rust, demonstrating how to separate read and write operations for enhanced performance and maintainability. Discover the core components, from Aggregates to Event and View Repositories, and learn how this framework provides a solid foundation for building robust, event-driven systems in Rust..
+title: Building Robust Serverless Applications with Rust - A Deep Dive into CQRS and Event Streaming
+keywords:
+  - Rust
+  - CQRS
+  - Command Query Responsibility Segregation
+  - Event Streaming
+  - Asynchronous
+  - Framework
+  - Architecture
+  - Domain-Driven Design
+  - Persistence
+  - Concurrency
+excerpt: This post explores a practical CQRS and Event Streaming framework built in Rust, demonstrating how to separate read and write operations for enhanced performance and maintainability.
 author: davemackintosh
-published: 2024-05-20T17:57:24.394Z
+published: 2025-05-01 14:23:00
 ---
 
 <script>
 	import Heading from "$src/components/Heading.svelte"
 </script>
 
-
-> All the code in this blog post is for a previous version of this framework, it might  be missing some bits but I still feel it's good to share knowledge.
+> All the code in this blog post is for a previous version of this framework, it might be missing some bits but I still feel it's good to share knowledge.
 
 Part 2 in my apparent series of posts "Building Robust Applications with Rust"
 
