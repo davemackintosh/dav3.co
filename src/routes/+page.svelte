@@ -7,36 +7,31 @@
 	import type { PostMetaFE, PostWithContent } from "$src/lib/posts"
 
 	const testimonials = [
-		"Highly innovative thinker, with a lightning speed ability to problem solve and put forward valid solutions to all implementations of the stack. Opinionated, and doesn't cut corners. As a project lead, he listened and managed his team considerately, as well as passing on valuable knowledge and techniques, making the web, better ~ easyProperty, London",
-		"I've worked with Dave for about 5 months at a London startup and loved every minute. He's one of those rare engineers who's not only fast, but also rigorous with TDD, coverage, types and documentation. He writes beautiful code that's easy to understand and a pleasure to work with; this is what you want in a contractor - someone who leaves a positive legacy and not spaghetti. Recommended! ~ Freybors, London",
-		"I worked with Dave on a Node.js API in 2015, he was very professional and a delight to work with. His code is among the cleanest I've ever seen. We have since become co-hosts of Creative Meet, a small meetup in Chichester that brings designers and developers together, alongside encouraging small talks to share knowledge and experience. ~ ABRSM, London",
-		"Dave was an excellent team lead on a truly challenging sprint. Above and beyond his mandate, and surpassing his peers in capability and efficiency, Dave was able to remain focused and productive on his own tasks while helping to guide other team members. Dave was highly responsive to status requests, and was diligent with code check-ins and documentation. His code reads extremely well. In short, you could not do better than to have Dave on your team, and we are grateful to have had him work hard to make our project a success. ~ Skoda/TDF/Hirsch & Mann, London",
+		"Dave's superpower is applying the right approach to solving the problem at hand in the best way. From lightning fast thinking when troubleshooting production issues to considered, thoughtful, approaches with technical designs, Dave is usually right and not by accident or luck. On top of that he brings a friendly, positive energy to a group of people and is always willing to help others out. ~ Jeff Shepherd",
+		"I have had the pleasure of working closely with Dave on THINK surgical project. He excelled in fostering a collaborative and positive work environment. One notable quality of Dave is his exceptional problem-solving skills. He approaches challenges with a strategic mindset, identifying innovative solutions and implementing them effectively. This ability has significantly contributed to the success of our projects. I believe that Dave would make an excellent developer lead. His technical prowess, leadership abilities, and commitment to excellence make him an asset to any team. ~ Aleksandr Volkodatov",
+		"Dave is a talented and passionate team player and leader. I’m glad to work with him. We spent hours coding from scratch together, and he created a supportive atmosphere where I knew that, if something went wrong, we would overcome it together. I admire his experience, his adeptness at transitioning between programming languages, technologies and tasks, understanding business needs, product considerations, and ability to ask right questions. Dave can easily initiate projects from scratch, provide ongoing support and drive continuous improvements. In our team, he definitely helped us achieve our goals, made difficult decisions, and led us in the right direction. Any projects/companies would find him highly impactful and valuable ~ Alina Sauchuk",
+		"I have worked with Dave on a number of projects over the years whilst we were both contracting and in our current roles at Definition Health. The best word I can think of for him is \"fixer\"... whether it's architecting a brand new solution to a hard problem or dealing with legacy codebases, he's always the go-to person across any team. ~ Shane Hudson"
 	]
 
 	export let data: { posts: PostWithContent<PostMetaFE>[] } = { posts: [] }
 </script>
 
 <Seo
-	title="Experienced Lead Developer"
+	title="Experienced Lead Developer | Engineering Manager"
 	description="With 20 years of software development expertise and a successful 10-year solo business. Explore my track record of working with renowned clients and delivering stable, high-performant code with a people-first approach"
 	keywords={[
-		"dave",
-		"mackintosh",
-		"web",
-		"javascript",
-		"nodejs",
-		"react",
+		"serverless",
+		"architect",
+		"platform",
 		"native",
-		"developer",
+		"engineer",
 		"mentor",
-		"golang",
-		"swiftui",
-		"c++",
+		"manager"
 	]}
 />
 
 <Page>
-	<h1>Creating and leading passionate teams</h1>
+	<h1>Passionate engineering manager and developer</h1>
 	<p>
 		With over two decades of experience in the software development industry, I have had the
 		privilege of working with esteemed clients like Google, Harrods, Breitling, Debenhams, ABRSM,
@@ -60,15 +55,16 @@
 	<section class="hero">
 		<div>
 			<p>
-				As a seasoned professional who has not only run a successful business solo for a decade but
-				also contributed to and led numerous projects over the last 10 years, I bring a unique blend
-				of technical expertise and leadership skills to the table.
+				As a seasoned software engineering manager with 20+ years of experience, I specialise in creating and leading high-impact engineering teams, driving technical innovation, and ensuring seamless communication between stakeholders. I also have a wealth of experience in designing system architectures and managing platforms.
 			</p>
 			<p>
-				Throughout my career, I have emphasised delivering stable code that is not only highly
-				performant but also maintainable and readable, resulting in profitable platforms. I firmly
-				believe that a well-architected and thoroughly understood codebase is the foundation for
-				long-term success in any project and results in a happy and collaborative team
+				I excel at demystifying complex technical challenges for non-technical teams, fostering a collaborative environment where ideas can flow freely and quickly translate into results.
+			</p>
+			<p>
+				From leading cross-functional teams in global projects to designing scalable architectures, I ensure that both technical excellence and stakeholder needs align and by building inclusive teams and streamlining communication, I’ve consistently delivered high-quality software, reducing delivery timelines and improved team performance.
+			</p>
+			<p>
+				I spend most of my time leading and mentoring teams of developers writing Rust, Go and React/TypeScript in serverless environments.
 			</p>
 		</div>
 		<img src={avi} alt="illustration of Dave Mackintosh" width="256" height="256" />
